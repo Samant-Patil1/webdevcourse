@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Complete Web Development Course - Master HTML, CSS, JavaScript, and Modern Web Technologies">
+  <title>Web Development Mastery Course</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/layouts.css">
+  <link rel="stylesheet" href="css/editor.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Progress Bar -->
+  <div class="progress-indicator">
+    <div class="progress-indicator-bar"></div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="navbar-content">
+      <a href="index.html" class="logo">
+        <span>🚀</span>
+        <span>WebDev Course</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="html-masterclass.html">HTML</a></li>
+        <li><a href="css-mastery.html">CSS</a></li>
+        <li><a href="javascript-mastery.html">JavaScript</a></li>
+        <li><a href="transitions-effects.html">Animations</a></li>
+        <li><a href="projects.html">Projects</a></li>
+      </ul>
+      <button class="theme-toggle" aria-label="Toggle dark mode"></button>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero" style="min-height: 100vh; display: flex; align-items: center; padding: 80px 0;">
+    <div class="container">
+      <div style="text-align: center; max-width: 800px; margin: 0 auto;">
+        <div style="margin-bottom: 24px;">
+          <span class="badge badge-html">HTML5</span>
+          <span class="badge badge-css">CSS3</span>
+          <span class="badge badge-js">ES6+</span>
+          <span class="badge badge-greensock">GSAP</span>
+          <span class="badge badge-three">Three.js</span>
+        </div>
+        
+        <h1 style="font-size: 3.5rem; margin-bottom: 24px; line-height: 1.1;">
+          Master Web Development
+        </h1>
+        
+        <p style="font-size: 1.25rem; color: var(--color-text-secondary); margin-bottom: 32px;">
+          From HTML basics to advanced Three.js animations. <br>
+          A complete, interactive course with live code editors and real-world projects.
+        </p>
+        
+        <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+          <a href="html-masterclass.html" class="btn btn-primary" style="padding: 16px 32px; font-size: 1rem;">
+            Start Learning →
+          </a>
+          <a href="projects.html" class="btn" style="padding: 16px 32px; font-size: 1rem;">
+            View Projects
+          </a>
+        </div>
+
+        <!-- Stats -->
+        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 64px; padding-top: 48px; border-top: 1px solid var(--color-border);">
+          <div>
+            <div style="font-size: 2.5rem; font-weight: 700; color: var(--color-accent-blue);">200+</div>
+            <div style="color: var(--color-text-muted); font-size: 0.875rem;">Interactive Lessons</div>
+          </div>
+          <div>
+            <div style="font-size: 2.5rem; font-weight: 700; color: var(--color-accent-green);">100+</div>
+            <div style="color: var(--color-text-muted); font-size: 0.875rem;">Code Examples</div>
+          </div>
+          <div>
+            <div style="font-size: 2.5rem; font-weight: 700; color: var(--color-accent-purple);">10</div>
+            <div style="color: var(--color-text-muted); font-size: 0.875rem;">Build Projects</div>
+          </div>
+          <div>
+            <div style="font-size: 2.5rem; font-weight: 700; color: var(--color-accent-yellow);">5</div>
+            <div style="color: var(--color-text-muted); font-size: 0.875rem;">Course Modules</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Course Modules -->
+  <section style="padding: 80px 0; background: var(--color-bg-secondary);">
+    <div class="container">
+      <h2 style="text-align: center; margin-bottom: 48px;">Course Modules</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px;">
+        <!-- HTML Module -->
+        <a href="html-masterclass.html" class="card" style="text-decoration: none;">
+          <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 16px;">
+            <div style="width: 48px; height: 48px; background: linear-gradient(135deg, #e34c26, #f06529); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem;">
+              🌐
+            </div>
+            <div>
+              <h3 style="margin: 0;">HTML Masterclass</h3>
+              <span style="font-size: 0.875rem; color: var(--color-text-muted);">60+ topics covered</span>
+            </div>
+          </div>
+          <p style="color: var(--color-text-secondary); margin-bottom: 16px;">
+            Complete HTML5 reference. From basic tags to advanced APIs, forms, media, and semantic markup.
+          </p>
+          <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+            <span class="topic-tag">Elements</span>
+            <span class="topic-tag">Forms</span>
+            <span class="topic-tag">Media</span>
+            <span class="topic-tag">APIs</span>
+          </div>
+        </a>
+
+        <!-- CSS Module -->
+        <a href="css-mastery.html" class="card" style="text-decoration: none;">
+          <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 16px;">
+            <div style="width: 48px; height: 48px; background: linear-gradient(135deg, #264de4, #2965f1); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem;">
+              🎨
+            </div>
+            <div>
+              <h3 style="margin: 0;">CSS Mastery</h3>
+              <span style="font-size: 0.875rem; color: var(--color-text-muted);">150+ properties</span>
+            </div>
+          </div>
+          <p style="color: var(--color-text-secondary); margin-bottom: 16px;">
+            Flexbox, Grid, animations, responsive design, and modern CSS features. Complete styling guide.
+          </p>
+          <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+            <span class="topic-tag">Flexbox</span>
+            <span class="topic-tag">Grid</span>
+            <span class="topic-tag">Animations</span>
+            <span class="topic-tag">Responsive</span>
+          </div>
+        </a>
+
+        <!-- JavaScript Module -->
+        <a href="javascript-mastery.html" class="card" style="text-decoration: none;">
+          <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 16px;">
+            <div style="width: 48px; height: 48px; background: linear-gradient(135deg, #f7df1e, #f0db4f); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: #323330;">
+              ⚡
+            </div>
+            <div>
+              <h3 style="margin: 0;">JavaScript</h3>
+              <span style="font-size: 0.875rem; color: var(--color-text-muted);">80+ concepts</span>
+            </div>
+          </div>
+          <p style="color: var(--color-text-secondary); margin-bottom: 16px;">
+            From basics to ES6+, DOM manipulation, async programming, and modern JavaScript patterns.
+          </p>
+          <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+            <span class="topic-tag">ES6+</span>
+            <span class="topic-tag">DOM</span>
+            <span class="topic-tag">Async</span>
+            <span class="topic-tag">APIs</span>
+          </div>
+        </a>
+
+        <!-- Animations Module -->
+        <a href="transitions-effects.html" class="card" style="text-decoration: none;">
+          <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 16px;">
+            <div style="width: 48px; height: 48px; background: linear-gradient(135deg, #88ce02, #0ae448); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem;">
+              ✨
+            </div>
+            <div>
+              <h3 style="margin: 0;">Animations & Effects</h3>
+              <span style="font-size: 0.875rem; color: var(--color-text-muted);">GSAP + Three.js</span>
+            </div>
+          </div>
+          <p style="color: var(--color-text-secondary); margin-bottom: 16px;">
+            Page transitions, scroll animations, 3D effects with GSAP and Three.js integration.
+          </p>
+          <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+            <span class="topic-tag">GSAP</span>
+            <span class="topic-tag">Three.js</span>
+            <span class="topic-tag">Scroll</span>
+            <span class="topic-tag">3D</span>
+          </div>
+        </a>
+
+        <!-- Projects Module -->
+        <a href="projects.html" class="card" style="text-decoration: none;">
+          <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 16px;">
+            <div style="width: 48px; height: 48px; background: linear-gradient(135deg, #8957e5, #a371f7); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem;">
+              🛠️
+            </div>
+            <div>
+              <h3 style="margin: 0;">Build Projects</h3>
+              <span style="font-size: 0.875rem; color: var(--color-text-muted);">10 projects</span>
+            </div>
+          </div>
+          <p style="color: var(--color-text-secondary); margin-bottom: 16px;">
+            Apply what you learned with real-world projects: portfolio, dashboard, e-commerce, and more.
+          </p>
+          <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+            <span class="topic-tag">Portfolio</span>
+            <span class="topic-tag">Dashboard</span>
+            <span class="topic-tag">E-commerce</span>
+            <span class="topic-tag">APIs</span>
+          </div>
+        </a>
+
+        <!-- Coming Soon -->
+        <div class="card" style="opacity: 0.6;">
+          <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 16px;">
+            <div style="width: 48px; height: 48px; background: var(--color-bg-tertiary); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem;">
+              🔮
+            </div>
+            <div>
+              <h3 style="margin: 0;">More Coming Soon</h3>
+              <span style="font-size: 0.875rem; color: var(--color-text-muted);">Backend & More</span>
+            </div>
+          </div>
+          <p style="color: var(--color-text-secondary); margin-bottom: 16px;">
+            React, Node.js, databases, and advanced backend development. Stay tuned!
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section style="padding: 80px 0;">
+    <div class="container">
+      <h2 style="text-align: center; margin-bottom: 48px;">Why This Course?</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 32px;">
+        <div style="text-align: center;">
+          <div style="width: 64px; height: 64px; background: var(--color-bg-tertiary); border-radius: 16px; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; font-size: 2rem;">
+            ⚡
+          </div>
+          <h4>Live Code Editor</h4>
+          <p style="color: var(--color-text-muted);">Edit code in real-time and see results instantly. No setup required.</p>
+        </div>
+
+        <div style="text-align: center;">
+          <div style="width: 64px; height: 64px; background: var(--color-bg-tertiary); border-radius: 16px; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; font-size: 2rem;">
+            📱
+          </div>
+          <h4>Learn Anywhere</h4>
+          <p style="color: var(--color-text-muted);">Responsive design works on desktop, tablet, and mobile devices.</p>
+        </div>
+
+        <div style="text-align: center;">
+          <div style="width: 64px; height: 64px; background: var(--color-bg-tertiary); border-radius: 16px; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; font-size: 2rem;">
+            🎯
+003e
+          </div>
+          <h4>Project Based</h4>
+          <p style="color: var(--color-text-muted);">Build real projects as you learn. Portfolio-ready work.</p>
+        </div>
+
+        <div style="text-align: center;">
+          <div style="width: 64px; height: 64px; background: var(--color-bg-tertiary); border-radius: 16px; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; font-size: 2rem;">
+            🌙
+          </div>
+          <h4>Dark & Light</h4>
+          <p style="color: var(--color-text-muted);">Comfortable learning environment with theme toggle included.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer style="padding: 48px 0; border-top: 1px solid var(--color-border); background: var(--color-bg-secondary);">
+    <div class="container" style="text-align: center;">
+      <p style="color: var(--color-text-muted); margin-bottom: 16px;">
+        Built with ❤️ for aspiring web developers
+      </p>
+      <p style="color: var(--color-text-dark); font-size: 0.875rem;">
+        © 2026 Web Development Mastery Course. Learn, Build, Create.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/theme.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
