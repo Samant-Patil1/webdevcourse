@@ -1,0 +1,2427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Complete CSS3 Mastery - Learn every CSS property, technique, and best practice">
+  <title>CSS Mastery | Web Development Course</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/layouts.css">
+  <link rel="stylesheet" href="css/editor.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Progress Bar -->
+  <div class="progress-indicator">
+    <div class="progress-indicator-bar"></div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="navbar-content">
+      <a href="index.html" class="logo">
+        <span>🚀</span>
+        <span>WebDev Course</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="html-masterclass.html">HTML</a></li>
+        <li><a href="css-mastery.html" class="active">CSS</a></li>
+        <li><a href="javascript-mastery.html">JavaScript</a></li>
+        <li><a href="transitions-effects.html">Animations</a></li>
+        <li><a href="projects.html">Projects</a></li>
+      </ul>
+      <button class="theme-toggle" aria-label="Toggle dark mode"></button>
+    </div>
+  </nav>
+
+  <!-- Table of Contents Sidebar -->
+  <button class="toc-toggle btn btn-icon" style="position: fixed; left: 20px; bottom: 20px; z-index: 100;">📋</button>
+  <aside class="toc-sidebar">
+    <div class="toc-title">CSS Contents</div>
+    <ul class="toc-list">
+      <li class="toc-item"><a href="#section1" class="toc-link">Selectors & Specificity</a></li>
+      <li class="toc-item"><a href="#section2" class="toc-link">Box Model</a></li>
+      <li class="toc-item"><a href="#section3" class="toc-link">Display & Positioning</a></li>
+      <li class="toc-item"><a href="#section4" class="toc-link">Flexbox</a></li>
+      <li class="toc-item"><a href="#section5" class="toc-link">CSS Grid</a></li>
+      <li class="toc-item"><a href="#section6" class="toc-link">Typography</a></li>
+      <li class="toc-item"><a href="#section7" class="toc-link">Colors & Backgrounds</a></li>
+      <li class="toc-item"><a href="#section8" class="toc-link">Transforms & Transitions</a></li>
+      <li class="toc-item"><a href="#section9" class="toc-link">Animations</a></li>
+      <li class="toc-item"><a href="#section10" class="toc-link">Responsive Design</a></li>
+      <li class="toc-item"><a href="#section11" class="toc-link">CSS Variables & Themes</a></li>
+      <li class="toc-item"><a href="#section12" class="toc-link">Best Practices</a></li>
+    </ul>
+  </aside>
+
+  <!-- Section Navigation -->
+  <div class="section-nav">
+    <button class="nav-arrow up" title="Previous section">↑</button>
+    <button class="nav-arrow down" title="Next section">↓</button>
+  </div>
+
+  <!-- SECTION 1: Selectors & Specificity -->
+  <section class="lesson-section" id="section1">
+    <div class="panel panel-code">
+      <div class="section-number">01</div>
+      <div class="panel-content" style="width: 100%;">
+        <div class="code-editor-container" data-editor="css">
+          <div class="editor-header">
+            <div class="editor-tabs">
+              <button class="editor-tab active">CSS</button>
+              <button class="editor-tab">HTML</button>
+              <button class="editor-tab">Preview</button>
+            </div>
+            <div class="editor-actions">
+              <button class="editor-btn" title="Copy">📋</button>
+              <button class="run-btn">Run Code</button>
+            </div>
+          </div>
+          <div class="editor-body">
+            <textarea class="code-input" spellcheck="false">/* Universal Selector */
+* {
+  box-sizing: border-box;
+}
+
+/* Element (Type) Selectors */
+p {
+  line-height: 1.6;
+}
+
+h1, h2, h3 {
+  font-family: Georgia, serif;
+}
+
+/* Class Selectors */
+.card {
+  padding: 20px;
+  border-radius: 8px;
+}
+
+/* ID Selectors */
+#header {
+  position: sticky;
+  top: 0;
+}
+
+/* Attribute Selectors */
+input[type="text"] {
+  border: 2px solid #ccc;
+}
+
+a[href^="https"] {
+  color: green;
+}
+
+img[src$=".svg"] {
+  width: 24px;
+}
+
+/* Descendant Selector */
+nav ul li {
+  display: inline-block;
+}
+
+/* Child Selector */
+ul > li {
+  list-style: disc;
+}
+
+/* Adjacent Sibling */
+h2 + p {
+  font-size: 1.2em;
+}
+
+/* General Sibling */
+h2 ~ p {
+  color: #666;
+}
+
+/* Pseudo-classes */
+a:hover {
+  text-decoration: underline;
+}
+
+li:first-child {
+  font-weight: bold;
+}
+
+li:last-child {
+  margin-bottom: 0;
+}
+
+li:nth-child(odd) {
+  background: #f5f5f5;
+}
+
+input:focus {
+  outline: 2px solid blue;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* :is() - Modern grouping */
+:is(h1, h2, h3) span {
+  color: red;
+}
+
+/* :where() - Zero specificity */
+:where(.card, .panel) {
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* :has() - Parent selector (new!) */
+.card:has(img) {
+  padding-top: 0;
+}
+
+/* Pseudo-elements */
+p::first-line {
+  font-weight: bold;
+}
+
+p::first-letter {
+  font-size: 2em;
+  float: left;
+}
+
+a::after {
+  content: " →";
+}
+
+/* Specificity: !important > Inline > ID > Class/Attr > Element > Universal */
+/* Calculate: (a=ID, b=Class/Attr, c=Element) */</textarea>
+          </div>
+          <div class="editor-footer">
+            <span>CSS Selectors Reference</span>
+            <span>CSS</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-explanation">
+      <div class="panel-content">
+        <div class="topic-tags">
+          <span class="topic-tag">Selectors</span>
+          <span class="topic-tag">Specificity</span>
+          <span class="topic-tag">:is()</span>
+          <span class="topic-tag">:has()</span>
+        </div>
+        <h2>Selectors & Specificity</h2>
+        
+        <h3>Understanding CSS Selectors</h3>
+        <p>CSS selectors are patterns used to select the elements you want to style. The selector tells the browser which HTML elements should be affected by the CSS declarations.</p>
+        
+        <h3>Specificity Hierarchy</h3>
+        <p>When multiple rules apply to the same element, specificity determines which one wins:</p>
+        <ol>
+          <li><strong>Inline styles</strong> - <code>style="color: red"</code> (1000 points)</li>
+          <li><strong>IDs</strong> - <code>#header</code> (100 points)</li>
+          <li><strong>Classes, attributes, pseudo-classes</strong> - <code>.btn</code>, <code>[type]</code>, <code>:hover</code> (10 points each)</li>
+          <li><strong>Elements, pseudo-elements</strong> - <code>p</code>, <code>::before</code> (1 point each)</li>
+        </ol>
+        
+        <h3>Modern Selectors (CSS4+)</h3>
+        <ul>
+          <li><strong>:is()</strong> - Groups selectors, matches specificity of most specific argument</li>
+          <li><strong>:where()</strong> - Groups selectors with ZERO specificity</li>
+          <li><strong>:has()</strong> - The "parent selector" — style elements based on their children!</li>
+        </ul>
+        
+        <div class="tip-box">
+          <p><strong>Pro Tip:</strong> Avoid using <code>!important</code>. If you need it, your specificity is probably wrong. Use <code>:where()</code> for reset stylesheets to avoid specificity wars.</p>
+        </div>
+        
+        <h3>Specificity Calculator</h3>
+        <p><code>#nav .menu li a:hover</code> = (1 ID, 2 classes, 2 elements) = <strong>1-2-2</strong></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 2: Box Model -->
+  <section class="lesson-section" id="section2">
+    <div class="panel panel-explanation">
+      <div class="panel-content">
+        <div class="topic-tags">
+          <span class="topic-tag">Box Model</span>
+          <span class="topic-tag">Box-Sizing</span>
+          <span class="topic-tag">Margin</span>
+          <span class="topic-tag">Padding</span>
+        </div>
+        <h2>Box Model</h2>
+        
+        <h3>The CSS Box Model</h3>
+        <p>Every HTML element is a rectangular box. The box model describes how these boxes are sized and spaced:</p>
+        <ul>
+          <li><strong>Content</strong> - The actual content (text, images)</li>
+          <li><strong>Padding</strong> - Space inside the border</li>
+          <li><strong>Border</strong> - The edge of the box</li>
+          <li><strong>Margin</strong> - Space outside the border</li>
+        </ul>
+        
+        <h3>Box-Sizing Property</h3>
+        <p>The default <code>content-box</code> adds padding and border to the element's total size. Use <code>border-box</code> to include padding and border in the width calculation:</p>
+        <pre><code>/* Default (content-box) */
+width: 300px + padding + border
+
+/* border-box - RECOMMENDED */
+width: 300px (includes padding + border)</code></pre>
+        
+        <h3>Margin Collapsing</h3>
+        <p>Vertical margins between block elements collapse (the larger value wins). This doesn't happen with horizontal margins or flex/grid items.</p>
+        
+        <h3>Modern Techniques</h3>
+        <ul>
+          <li><code>margin-inline: auto</code> - Center block elements</li>
+          <li><code>margin-block</code> - Vertical margins (writing-mode aware)</li>
+          <li><code>padding-inline</code>, <code>padding-block</code> - Logical properties</li>
+        </ul>
+        
+        <div class="tip-box">
+          <p><strong>Best Practice:</strong> Always set <code>* { box-sizing: border-box; }</code> in your CSS reset. It makes layouts predictable and intuitive.</p>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-code">
+      <div class="section-number">02</div>
+      <div class="panel-content" style="width: 100%;">
+        <div class="code-editor-container">
+          <div class="editor-header">
+            <div class="editor-tabs">
+              <button class="editor-tab active">CSS</button>
+              <button class="editor-tab">HTML</button>
+              <button class="editor-tab">Preview</button>
+            </div>
+            <div class="editor-actions">
+              <button class="editor-btn">📋</button>
+              <button class="run-btn">Run Code</button>
+            </div>
+          </div>
+          <div class="editor-body">
+            <textarea class="code-input" spellcheck="false">/* Reset - Always use this! */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* Box Model Visualization */
+.box-model-demo {
+  /* Content dimensions */
+  width: 300px;
+  height: 200px;
+  
+  /* Padding (inside the border) */
+  padding: 20px;
+  padding-top: 10px;
+  padding-right: 15px;
+  padding-bottom: 20px;
+  padding-left: 15px;
+  /* Shorthand: padding: 10px 15px 20px 15px; */
+  
+  /* Border */
+  border: 3px solid #3498db;
+  border-radius: 8px;
+  
+  /* Margin (outside the border) */
+  margin: 30px auto; /* top/bottom 30px, left/right auto */
+  
+  background: #ecf0f1;
+}
+
+/* Content-box vs Border-box */
+.content-box {
+  box-sizing: content-box;
+  width: 300px;
+  padding: 20px;
+  border: 5px solid black;
+  /* Total width: 300 + 40 + 10 = 350px */
+}
+
+.border-box {
+  box-sizing: border-box;
+  width: 300px;
+  padding: 20px;
+  border: 5px solid black;
+  /* Total width: 300px (content is 230px) */
+}
+
+/* Margin tricks */
+.centered {
+  /* Horizontal centering */
+  margin-left: auto;
+  margin-right: auto;
+  /* Or: margin-inline: auto; */
+}
+
+/* Margin collapsing demonstration */
+.box1 {
+  margin-bottom: 30px;
+}
+.box2 {
+  margin-top: 20px;
+  /* Result: 30px gap (not 50px!) */
+}
+
+/* Logical Properties (modern) */
+.modern-box {
+  inline-size: 300px; /* width, writing-mode aware */
+  block-size: 200px;  /* height */
+  padding-inline: 20px; /* left + right */
+  padding-block: 10px;  /* top + bottom */
+  margin-inline-start: auto; /* margin-left in LTR */
+  border-inline: 2px solid red; /* left + right border */
+}
+
+/* Border styles */
+.border-demos {
+  border: none;
+  border-top: 3px solid;
+  border-right: 3px dashed;
+  border-bottom: 3px dotted;
+  border-left: 3px double;
+  border-radius: 10px 20px 30px 40px;
+}</textarea>
+          </div>
+          <div class="editor-footer">
+            <span>Box Model Deep Dive</span>
+            <span>CSS</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3: Display & Positioning -->
+  <section class="lesson-section" id="section3">
+    <div class="panel panel-code">
+      <div class="section-number">03</div>
+      <div class="panel-content" style="width: 100%;">
+        <div class="code-editor-container">
+          <div class="editor-header">
+            <div class="editor-tabs">
+              <button class="editor-tab active">CSS</button>
+              <button class="editor-tab">HTML</button>
+              <button class="editor-tab">Preview</button>
+            </div>
+            <div class="editor-actions">
+              <button class="editor-btn">📋</button>
+              <button class="run-btn">Run Code</button>
+            </div>
+          </div>
+          <div class="editor-body">
+            <textarea class="code-input" spellcheck="false">/* DISPLAY PROPERTY */
+
+/* Block - Full width, starts new line */
+.block-element {
+  display: block;
+  /* div, p, h1-h6, section, header, etc. */
+}
+
+/* Inline - Flows with text, no width/height */
+.inline-element {
+  display: inline;
+  /* span, a, strong, em */
+}
+
+/* Inline-block - Inline flow but accepts dimensions */
+.inline-block-element {
+  display: inline-block;
+  width: 100px;
+  height: 50px;
+  vertical-align: middle;
+}
+
+/* None - Removes from document flow */
+.hidden {
+  display: none;
+}
+
+/* Modern display values */
+.flex-container {
+  display: flex;
+}
+
+.grid-container {
+  display: grid;
+}
+
+/* POSITIONING */
+
+/* Static - Default (normal flow) */
+.static {
+  position: static;
+}
+
+/* Relative - Positioned relative to normal position */
+.relative {
+  position: relative;
+  top: 10px;    /* Move down 10px */
+  left: 20px;   /* Move right 20px */
+  /* Still occupies original space */
+}
+
+/* Absolute - Removed from flow, positioned to nearest positioned ancestor */
+.absolute {
+  position: absolute;
+  top: 0;
+  right: 0;
+  /* Positioned relative to first non-static ancestor */
+}
+
+/* Fixed - Positioned to viewport */
+.fixed-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+
+/* Sticky - Hybrid of relative and fixed */
+.sticky-nav {
+  position: sticky;
+  top: 0; /* Sticks when scroll reaches this point */
+}
+
+/* Z-INDEX - Controls stacking order */
+.overlay {
+  position: absolute;
+  z-index: 10;
+}
+
+.modal {
+  position: fixed;
+  z-index: 1000; /* Higher = on top */
+}
+
+/* Creating positioning context */
+.positioning-context {
+  position: relative; /* Now children absolute will position to this */
+}
+
+/* Centering techniques */
+.center-absolute {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Modern centering with inset */
+.center-modern {
+  position: absolute;
+  inset: 0; /* top, right, bottom, left = 0 */
+  margin: auto;
+  width: fit-content;
+  height: fit-content;
+}</textarea>
+          </div>
+          <div class="editor-footer">
+            <span>Display & Positioning</span>
+            <span>CSS</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-explanation">
+      <div class="panel-content">
+        <div class="topic-tags">
+          <span class="topic-tag">Display</span>
+          <span class="topic-tag">Position</span>
+          <span class="topic-tag">Z-Index</span>
+          <span class="topic-tag">Centering</span>
+        </div>
+        <h2>Display & Positioning</h2>
+        
+        <h3>Display Property Values</h3>
+        <table>
+          <tr><th>Value</th><th>Behavior</th><th>Examples</th></tr>
+          <tr><td><code>block</code></td><td>Full width, new line</td><td>div, p, section</td></tr>
+          <tr><td><code>inline</code></td><td>Flows with text</td><td>span, a, strong</td></tr>
+          <tr><td><code>inline-block</code></td><td>Inline but has dimensions</td><td>buttons, icons</td></tr>
+          <tr><td><code>flex</code></td><td>Flexbox container</td><td>navbars, cards</td></tr>
+          <tr><td><code>grid</code></td><td>Grid container</td><td>layouts, galleries</td></tr>
+          <tr><td><code>none</code></td><td>Hidden, no space</td><td>conditional UI</td></tr>
+        </table>
+        
+        <h3>Position Property</h3>
+        <ul>
+          <li><strong>static</strong> - Default, normal document flow</li>
+          <li><strong>relative</strong> - Offset from normal position, keeps space</li>
+          <li><strong>absolute</strong> - Removed from flow, positioned to nearest positioned ancestor</li>
+          <li><strong>fixed</strong> - Positioned to viewport, stays on scroll</li>
+          <li><strong>sticky</strong> - Relative until scroll threshold, then fixed</li>
+        </ul>
+        
+        <h3>Z-Index & Stacking Context</h3>
+        <p><code>z-index</code> only works on positioned elements (not <code>static</code>). Higher values appear on top. Creates new stacking contexts with:</p>
+        <ul>
+          <li><code>position</code> with <code>z-index</code></li>
+          <li><code>opacity</code> less than 1</li>
+          <li><code>transform</code>, <code>filter</code>, <code>clip-path</code></li>
+          <li><code>isolation: isolate</code></li>
+        </ul>
+        
+        <div class="tip-box">
+          <p><strong>Centering Trick:</strong> Use <code>position: absolute; inset: 0; margin: auto;</code> for perfect centering without transforms!</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 4: Flexbox -->
+  <section class="lesson-section" id="section4">
+    <div class="panel panel-explanation">
+      <div class="panel-content">
+        <div class="topic-tags">
+          <span class="topic-tag">Flexbox</span>
+          <span class="topic-tag">Layout</span>
+          <span class="topic-tag">Alignment</span>
+          <span class="topic-tag">Responsive</span>
+        </div>
+        <h2>Flexbox</h2>
+        
+        <h3>What is Flexbox?</h3>
+        <p>Flexbox is a one-dimensional layout method for arranging items in rows or columns. It's perfect for:</p>
+        <ul>
+          <li>Navigation bars</li>
+          <li>Card layouts</li>
+          <li>Centering content</li>
+          <li>Distributing space</li>
+        </ul>
+        
+        <h3>Container Properties</h3>
+        <ul>
+          <li><strong>flex-direction</strong> - row (default) | row-reverse | column | column-reverse</li>
+          <li><strong>flex-wrap</strong> - nowrap (default) | wrap | wrap-reverse</li>
+          <li><strong>justify-content</strong> - Main axis alignment (flex-start, center, space-between, etc.)</li>
+          <li><strong>align-items</strong> - Cross axis alignment (stretch, center, flex-start, etc.)</li>
+          <li><strong>align-content</strong> - Multi-line spacing (when wrapped)</li>
+          <li><strong>gap</strong> - Space between items (row-gap, column-gap)</li>
+        </ul>
+        
+        <h3>Item Properties</h3>
+        <ul>
+          <li><strong>flex-grow</strong> - How much item grows (0 = don't grow)</li>
+          <li><strong>flex-shrink</strong> - How much item shrinks (1 = shrink)</li>
+          <li><strong>flex-basis</strong> - Starting size before growing/shrinking</li>
+          <li><strong>flex</strong> - Shorthand: grow shrink basis</li>
+          <li><strong>align-self</strong> - Override container align-items for this item</li>
+          <li><strong>order</strong> - Visual order (not DOM order)</li>
+        </ul>
+        
+        <div class="tip-box">
+          <p><strong>Common Pattern:</strong> <code>flex: 1</code> is shorthand for <code>flex: 1 1 0%</code> — item grows equally, shrinks equally, starts at 0.</p>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-code">
+      <div class="section-number">04</div>
+      <div class="panel-content" style="width: 100%;">
+        <div class="code-editor-container">
+          <div class="editor-header">
+            <div class="editor-tabs">
+              <button class="editor-tab active">CSS</button>
+              <button class="editor-tab">HTML</button>
+              <button class="editor-tab">Preview</button>
+            </div>
+            <div class="editor-actions">
+              <button class="editor-btn">📋</button>
+              <button class="run-btn">Run Code</button>
+            </div>
+          </div>
+          <div class="editor-body">
+            <textarea class="code-input" spellcheck="false">/* FLEXBOX CONTAINER */
+.flex-container {
+  display: flex;
+  
+  /* Direction: row (default), row-reverse, column, column-reverse */
+  flex-direction: row;
+  
+  /* Wrap: nowrap (default), wrap, wrap-reverse */
+  flex-wrap: wrap;
+  /* Shorthand: flex-flow: row wrap; */
+  
+  /* Main axis alignment */
+  justify-content: center;
+  /* flex-start, flex-end, center, space-between, 
+     space-around, space-evenly */
+  
+  /* Cross axis alignment */
+  align-items: center;
+  /* stretch, flex-start, flex-end, center, baseline */
+  
+  /* Multi-line alignment (when wrapped) */
+  align-content: stretch;
+  
+  /* Gap between items */
+  gap: 20px;
+  /* row-gap: 20px; column-gap: 10px; */
+}
+
+/* FLEX ITEMS */
+.flex-item {
+  /* Grow factor (0 = don't grow) */
+  flex-grow: 0;
+  
+  /* Shrink factor (1 = can shrink) */
+  flex-shrink: 1;
+  
+  /* Starting size */
+  flex-basis: auto;
+  
+  /* Shorthand: flex: grow shrink basis */
+  flex: 0 1 auto; /* default */
+  flex: 1;        /* grow equally */
+  flex: 1 1 300px;/* grow, shrink, start at 300px */
+  
+  /* Override alignment for this item */
+  align-self: flex-start;
+  
+  /* Visual order (NOT DOM order!) */
+  order: 0;
+}
+
+/* COMMON PATTERNS */
+
+/* Center anything */
+.center-anything {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+/* Card layout */
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.card {
+  flex: 1 1 300px; /* Grow, shrink, min 300px */
+  /* Creates responsive grid without media queries! */
+}
+
+/* Sidebar layout */
+.layout {
+  display: flex;
+  gap: 20px;
+}
+
+.sidebar {
+  flex: 0 0 250px; /* Fixed 250px, no grow/shrink */
+}
+
+.main-content {
+  flex: 1; /* Takes remaining space */
+}
+
+/* Push footer down */
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1; /* Pushes footer to bottom */
+}</textarea>
+          </div>
+          <div class="editor-footer">
+            <span>Flexbox Complete Guide</span>
+            <span>CSS</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 5: CSS Grid -->
+  <section class="lesson-section" id="section5">
+    <div class="panel panel-code">
+      <div class="section-number">05</div>
+      <div class="panel-content" style="width: 100%;">
+        <div class="code-editor-container">
+          <div class="editor-header">
+            <div class="editor-tabs">
+              <button class="editor-tab active">CSS</button>
+              <button class="editor-tab">HTML</button>
+              <button class="editor-tab">Preview</button>
+            </div>
+            <div class="editor-actions">
+              <button class="editor-btn">📋</button>
+              <button class="run-btn">Run Code</button>
+            </div>
+          </div>
+          <div class="editor-body">
+            <textarea class="code-input" spellcheck="false">/* CSS GRID CONTAINER */
+.grid-container {
+  display: grid;
+  
+  /* Define columns */
+  grid-template-columns: 200px 1fr 200px;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  
+  /* Define rows */
+  grid-template-rows: 100px auto 100px;
+  
+  /* Gaps */
+  gap: 20px;
+  row-gap: 20px;
+  column-gap: 10px;
+  
+  /* Named grid areas */
+  grid-template-areas:
+    "header header header"
+    "sidebar main main"
+    "footer footer footer";
+}
+
+/* GRID ITEMS */
+.grid-item {
+  /* Position by line numbers */
+  grid-column: 1 / 3;     /* Start at 1, end at 3 */
+  grid-column: 1 / span 2;/* Start at 1, span 2 columns */
+  grid-row: 1 / -1;       /* Span all rows */
+  
+  /* Position by named areas */
+  grid-area: header;
+  
+  /* Shorthand: row-start / col-start / row-end / col-end */
+  grid-area: 1 / 1 / 2 / 3;
+}
+
+/* HEADER using named areas */
+.header {
+  grid-area: header;
+}
+
+.sidebar {
+  grid-area: sidebar;
+}
+
+.main {
+  grid-area: main;
+}
+
+.footer {
+  grid-area: footer;
+}
+
+/* AUTO-FIT vs AUTO-FILL */
+.responsive-grid {
+  display: grid;
+  /* Creates as many columns as fit, stretching to fill */
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+/* DENSE packing */
+.masonry-like {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-flow: dense; /* Fill holes in grid */
+  gap: 20px;
+}
+
+/* IMPLICIT GRID */
+.implicit-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: minmax(100px, auto);
+  grid-auto-flow: row;
+}
+
+/* ALIGNMENT */
+.align-grid {
+  display: grid;
+  place-items: center; /* align-items + justify-items */
+  place-content: center; /* align-content + justify-content */
+}
+
+/* SUBGRID (modern browsers) */
+.subgrid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.subgrid-item {
+  display: grid;
+  grid-template-columns: subgrid; /* Inherits parent's columns */
+  grid-column: span 3;
+}
+
+/* COMPLETE HOLY GRAIL LAYOUT */
+.holy-grail {
+  display: grid;
+  grid-template-columns: 200px 1fr 200px;
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas:
+    "header header header"
+    "nav main aside"
+    "footer footer footer";
+  min-height: 100vh;
+  gap: 20px;
+}
+
+@media (max-width: 768px) {
+  .holy-grail {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "header"
+      "nav"
+      "main"
+      "aside"
+      "footer";
+  }
+}</textarea>
+          </div>
+          <div class="editor-footer">
+            <span>CSS Grid Complete Guide</span>
+            <span>CSS</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-explanation">
+      <div class="panel-content">
+        <div class="topic-tags">
+          <span class="topic-tag">Grid</span>
+          <span class="topic-tag">Layout</span>
+          <span class="topic-tag">Responsive</span>
+          <span class="topic-tag">Subgrid</span>
+        </div>
+        <h2>CSS Grid</h2>
+        
+        <h3>Flexbox vs Grid</h3>
+        <table>
+          <tr><th>Flexbox</th><th>Grid</th></tr>
+          <tr><td>One-dimensional</td><td>Two-dimensional</td></tr>
+          <tr><td>Content-first</td><td>Layout-first</td></tr>
+          <tr><td>Rows OR columns</td><td>Rows AND columns</td></tr>
+          <tr><td>Great for components</td><td>Great for page layouts</td></tr>
+        </table>
+        
+        <h3>Grid Template Functions</h3>
+        <ul>
+          <li><strong>repeat()</strong> - <code>repeat(3, 1fr)</code> or <code>repeat(auto-fit, 200px)</code></li>
+          <li><strong>minmax()</strong> - <code>minmax(200px, 1fr)</code> min and max size</li>
+          <li><strong>fit-content()</strong> - <code>fit-content(300px)</code> shrink-to-fit with max</li>
+        </ul>
+        
+        <h3>Auto-Fit vs Auto-Fill</h3>
+        <ul>
+          <li><strong>auto-fill</strong> - Creates empty tracks to fill space</li>
+          <li><strong>auto-fit</strong> - Collapses empty tracks (stretches items)</li>
+        </ul>
+        <p><strong>Use auto-fit</strong> for most responsive layouts — it stretches items to fill space.</p>
+        
+        <h3>Grid Alignment</h3>
+        <ul>
+          <li><strong>justify-items</strong> - Align items horizontally in their cell</li>
+          <li><strong>align-items</strong> - Align items vertically in their cell</li>
+          <li><strong>place-items</strong> - Shorthand for both</li>
+          <li><strong>justify-content</strong> - Align entire grid horizontally</li>
+          <li><strong>align-content</strong> - Align entire grid vertically</li>
+        </ul>
+        
+        <div class="tip-box">
+          <p><strong>Responsive Grid Magic:</strong> <code>grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));</code> creates a responsive grid without any media queries!</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 6: Typography -->
+  <section class="lesson-section" id="section6">
+    <div class="panel panel-explanation">
+      <div class="panel-content">
+        <div class="topic-tags">
+          <span class="topic-tag">Typography</span>
+          <span class="topic-tag">Fonts</span>
+          <span class="topic-tag">Web Fonts</span>
+          <span class="topic-tag">Readability</span>
+        </div>
+        <h2>Typography</h2>
+        
+        <h3>Font Properties</h3>
+        <ul>
+          <li><strong>font-family</strong> - Font stack: <code>'Inter', system-ui, sans-serif</code></li>
+          <li><strong>font-size</strong> - Absolute (px), relative (em, rem), viewport (vw, vh)</li>
+          <li><strong>font-weight</strong> - 100-900, or keywords (normal, bold)</li>
+          <li><strong>font-style</strong> - normal, italic, oblique</li>
+          <li><strong>line-height</strong> - Unitless preferred: <code>1.5</code> (multiplier)</li>
+          <li><strong>letter-spacing</strong> - Space between letters</li>
+          <li><strong>word-spacing</strong> - Space between words</li>
+          <li><strong>text-transform</strong> - uppercase, lowercase, capitalize</li>
+        </ul>
+        
+        <h3>Web Fonts</h3>
+        <p>Load custom fonts from services like Google Fonts or self-host:</p>
+        <pre><code>@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+/* Or use link tag in HTML for better performance */
+&lt;link rel="preconnect" href="https://fonts.googleapis.com"&gt;</code></pre>
+        
+        <h3>Modern Typography Features</h3>
+        <ul>
+          <li><strong>font-display: swap</strong> - Show fallback font immediately, swap when loaded</li>
+          <li><strong>clamp()</strong> - Fluid typography: <code>font-size: clamp(1rem, 2.5vw, 2rem)</code></li>
+          <li><strong>@font-face</strong> - Self-host fonts for better performance</li>
+        </ul>
+        
+        <div class="tip-box">
+          <p><strong>Best Practice:</strong> Use <code>rem</code> for font sizes (relative to root), unitless <code>line-height</code> (1.5), and always include a system font fallback.</p>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-code">
+      <div class="section-number">06</div>
+      <div class="panel-content" style="width: 100%;">
+        <div class="code-editor-container">
+          <div class="editor-header">
+            <div class="editor-tabs">
+              <button class="editor-tab active">CSS</button>
+              <button class="editor-tab">HTML</button>
+              <button class="editor-tab">Preview</button>
+            </div>
+            <div class="editor-actions">
+              <button class="editor-btn">📋</button>
+              <button class="run-btn">Run Code</button>
+            </div>
+          </div>
+          <div class="editor-body">
+            <textarea class="code-input" spellcheck="false">/* IMPORT WEB FONTS */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+/* FONT FACE - Self-hosted */
+@font-face {
+  font-family: 'CustomFont';
+  src: url('fonts/custom.woff2') format('woff2'),
+       url('fonts/custom.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap; /* Show fallback immediately */
+}
+
+/* BASE TYPOGRAPHY */
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-size: 16px; /* Base size */
+  line-height: 1.6;
+  color: #333;
+}
+
+/* FLUID TYPOGRAPHY with clamp() */
+h1 {
+  /* min: 2rem, preferred: 5vw, max: 4rem */
+  font-size: clamp(2rem, 5vw, 4rem);
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  line-height: 1.3;
+}
+
+h3 {
+  font-size: clamp(1.25rem, 3vw, 1.75rem);
+}
+
+/* TEXT STYLING */
+.lead {
+  font-size: 1.25rem;
+  line-height: 1.7;
+  color: #555;
+}
+
+.caption {
+  font-size: 0.875rem;
+  color: #777;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.code {
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-size: 0.9em;
+  background: #f4f4f4;
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
+}
+
+/* TEXT ALIGNMENT & DECORATION */
+.centered-text {
+  text-align: center;
+}
+
+.justified {
+  text-align: justify;
+  hyphens: auto;
+}
+
+.truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Multi-line truncate */
+.clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* TYPOGRAPHIC UTILITIES */
+.uppercase { text-transform: uppercase; }
+.lowercase { text-transform: lowercase; }
+.capitalize { text-transform: capitalize; }
+
+.bold { font-weight: 700; }
+.semibold { font-weight: 600; }
+.medium { font-weight: 500; }
+.normal { font-weight: 400; }
+
+.italic { font-style: italic; }
+
+/* Optimal reading width */
+.readable {
+  max-width: 65ch; /* Character units */
+  margin-inline: auto;
+}
+
+/* Vertical rhythm */
+.flow > * + * {
+  margin-top: 1.5em;
+}</textarea>
+          </div>
+          <div class="editor-footer">
+            <span>Typography Mastery</span>
+            <span>CSS</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 7: Colors & Backgrounds -->
+  <section class="lesson-section" id="section7">
+    <div class="panel panel-code">
+      <div class="section-number">07</div>
+      <div class="panel-content" style="width: 100%;">
+        <div class="code-editor-container">
+          <div class="editor-header">
+            <div class="editor-tabs">
+              <button class="editor-tab active">CSS</button>
+              <button class="editor-tab">HTML</button>
+              <button class="editor-tab">Preview</button>
+            </div>
+            <div class="editor-actions">
+              <button class="editor-btn">📋</button>
+              <button class="run-btn">Run Code</button>
+            </div>
+          </div>
+          <div class="editor-body">
+            <textarea class="code-input" spellcheck="false">/* COLOR FORMATS */
+
+/* Named colors */
+.color-named {
+  color: rebeccapurple;
+  background: coral;
+}
+
+/* Hexadecimal */
+.color-hex {
+  color: #ff6b6b;
+  color: #f6c; /* Short: #ff66cc */
+  color: #ff6b6b80; /* With alpha (50%) */
+}
+
+/* RGB */
+.color-rgb {
+  color: rgb(255, 107, 107);
+  background: rgba(255, 107, 107, 0.5); /* With alpha */
+}
+
+/* HSL - Best for theming! */
+.color-hsl {
+  color: hsl(0, 100%, 71%);
+  background: hsla(0, 100%, 71%, 0.5);
+}
+
+/* Modern syntax (CSS Color Module Level 4) */
+.color-modern {
+  color: rgb(255 107 107 / 50%); /* Space-separated + alpha */
+  color: hsl(0 100% 71% / 0.5);
+}
+
+/* LAB, LCH - Perceptually uniform */
+.color-lch {
+  color: lch(50% 100 200);
+}
+
+/* OKLCH - Better perceptual uniformity */
+.color-oklch {
+  color: oklch(70% 0.2 250);
+}
+
+/* BACKGROUNDS */
+
+/* Solid color */
+.bg-solid {
+  background-color: #f0f0f0;
+}
+
+/* Linear gradient */
+.bg-gradient-linear {
+  background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+  background: linear-gradient(to right, red, orange, yellow);
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+/* Radial gradient */
+.bg-gradient-radial {
+  background: radial-gradient(circle, #ff6b6b, #4ecdc4);
+  background: radial-gradient(ellipse at top, #ff6b6b, transparent),
+              radial-gradient(ellipse at bottom, #4ecdc4, transparent);
+}
+
+/* Conic gradient */
+.bg-gradient-conic {
+  background: conic-gradient(from 45deg, red, orange, yellow, green, blue, purple, red);
+}
+
+/* Repeating gradients */
+.bg-repeating {
+  background: repeating-linear-gradient(
+    45deg,
+    #606dbc,
+    #606dbc 10px,
+    #465298 10px,
+    #465298 20px
+  );
+}
+
+/* Multiple backgrounds */
+.bg-multiple {
+  background: 
+    linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+    url('image.jpg') center/cover no-repeat;
+}
+
+/* Background properties */
+.bg-properties {
+  background-color: #f0f0f0;
+  background-image: url('pattern.svg');
+  background-position: center top;
+  background-size: cover; /* contain, 100% 100%, 50px 50px */
+  background-repeat: no-repeat; /* repeat, repeat-x, repeat-y */
+  background-attachment: fixed; /* scroll, local */
+  background-origin: border-box; /* padding-box, content-box */
+  background-clip: content-box; /* border-box, padding-box */
+  /* Shorthand: */
+  background: #f0f0f0 url('img.jpg') center/cover no-repeat fixed;
+}
+
+/* Modern: background-blend-mode */
+.bg-blend {
+  background-image: url('photo.jpg'), linear-gradient(purple, blue);
+  background-blend-mode: overlay;
+  /* multiply, screen, overlay, darken, lighten, etc. */
+}</textarea>
+          </div>
+          <div class="editor-footer">
+            <span>Colors & Backgrounds</span>
+            <span>CSS</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-explanation">
+      <div class="panel-content">
+        <div class="topic-tags">
+          <span class="topic-tag">Colors</span>
+          <span class="topic-tag">Gradients</span>
+          <span class="topic-tag">HSL</span>
+          <span class="topic-tag">Backgrounds</span>
+        </div>
+        <h2>Colors & Backgrounds</h2>
+        
+        <h3>Color Format Comparison</h3>
+        <table>
+          <tr><th>Format</th><th>Example</th><th>Best For</th></tr>
+          <tr><td>Hex</td><td><code>#ff6b6b</code></td><td>Copying from design tools</td></tr>
+          <tr><td>RGB</td><td><code>rgb(255, 107, 107)</code></td><td>JavaScript manipulation</td></tr>
+          <tr><td>HSL</td><td><code>hsl(0, 100%, 71%)</code></td><td>Theming, adjustments</td></tr>
+          <tr><td>OKLCH</td><td><code>oklch(70% 0.2 250)</code></td><td>Accessible color systems</td></tr>
+        </table>
+        
+        <h3>Why HSL is Best for Theming</h3>
+        <p>HSL (Hue, Saturation, Lightness) is intuitive:</p>
+        <ul>
+          <li><strong>Hue</strong> (0-360) - The color (0=red, 120=green, 240=blue)</li>
+          <li><strong>Saturation</strong> (0-100%) - Gray to full color</li>
+          <li><strong>Lightness</strong> (0-100%) - Black to white</li>
+        </ul>
+        <p>Want a lighter version? Just increase lightness! <code>hsl(200 80% 50%)</code> → <code>hsl(200 80% 70%)</code></p>
+        
+        <h3>Gradient Types</h3>
+        <ul>
+          <li><strong>linear-gradient</strong> - Directional fade between colors</li>
+          <li><strong>radial-gradient</strong> - Circular/elliptical fade from center</li>
+          <li><strong>conic-gradient</strong> - Colors around a center point (pie charts!)</li>
+          <li><strong>repeating-*</strong> - Pattern gradients</li>
+        </ul>
+        
+        <div class="tip-box">
+          <p><strong>Gradient Trick:</strong> Use <code>transparent</code> instead of rgba() for smoother edges: <code>linear-gradient(to bottom, black, transparent)</code></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 8: Transforms & Transitions -->
+  <section class="lesson-section" id="section8">
+    <div class="panel panel-explanation">
+      <div class="panel-content">
+        <div class="topic-tags">
+          <span class="topic-tag">Transforms</span>
+          <span class="topic-tag">Transitions</span>
+          <span class="topic-tag">Animations</span>
+          <span class="topic-tag">GPU</span>
+        </div>
+        <h2>Transforms & Transitions</h2>
+        
+        <h3>2D Transforms</h3>
+        <ul>
+          <li><strong>translate(x, y)</strong> - Move element</li>
+          <li><strong>rotate(angle)</strong> - Rotate (degrees, radians, turns)</li>
+          <li><strong>scale(x, y)</strong> - Resize (1 = normal, 2 = double)</li>
+          <li><strong>skew(x, y)</strong> - Skew/shear</li>
+          <li><strong>matrix()</strong> - Combine all (advanced)</li>
+        </ul>
+        
+        <h3>3D Transforms</h3>
+        <ul>
+          <li><strong>translate3d(x, y, z)</strong> - 3D movement</li>
+          <li><strong>rotateX/Y/Z(angle)</strong> - Rotate around axis</li>
+          <li><strong>scale3d(x, y, z)</strong> - 3D scaling</li>
+          <li><strong>perspective</strong> - Create 3D depth</li>
+        </ul>
+        
+        <h3>Transition Properties</h3>
+        <ul>
+          <li><strong>transition-property</strong> - Which properties animate (all, none, or list)</li>
+          <li><strong>transition-duration</strong> - How long (ms or s)</li>
+          <li><strong>transition-timing-function</strong> - Speed curve</li>
+          <li><strong>transition-delay</strong> - Wait before starting</li>
+        </ul>
+        
+        <h3>Timing Functions</h3>
+        <ul>
+          <li><strong>ease</strong> - Slow start, fast middle, slow end (default)</li>
+          <li><strong>linear</strong> - Constant speed</li>
+          <li><strong>ease-in</strong> - Slow start</li>
+          <li><strong>ease-out</strong> - Slow end</li>
+          <li><strong>cubic-bezier()</strong> - Custom curve</li>
+          <li><strong>steps()</strong> - Step animation</li>
+        </ul>
+        
+        <div class="tip-box">
+          <p><strong>Performance:</strong> Only animate <code>transform</code> and <code>opacity</code> for 60fps. They don't trigger layout or paint — just compositing!</p>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-code">
+      <div class="section-number">08</div>
+      <div class="panel-content" style="width: 100%;">
+        <div class="code-editor-container">
+          <div class="editor-header">
+            <div class="editor-tabs">
+              <button class="editor-tab active">CSS</button>
+              <button class="editor-tab">HTML</button>
+              <button class="editor-tab">Preview</button>
+            </div>
+            <div class="editor-actions">
+              <button class="editor-btn">📋</button>
+              <button class="run-btn">Run Code</button>
+            </div>
+          </div>
+          <div class="editor-body">
+            <textarea class="code-input" spellcheck="false">/* 2D TRANSFORMS */
+
+/* Move element */
+.move-right {
+  transform: translateX(100px);
+}
+
+.move-diagonal {
+  transform: translate(50px, 100px);
+}
+
+/* Perfect centering with translate */
+.center-perfect {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Rotate */
+.rotate-45 {
+  transform: rotate(45deg);
+  transform: rotate(0.25turn); /* Same as 90deg */
+}
+
+/* Scale */
+.scale-up {
+  transform: scale(1.5); /* 150% size */
+}
+
+.scale-down {
+  transform: scale(0.8);
+}
+
+.scale-xy {
+  transform: scale(1.5, 0.5); /* width, height */
+}
+
+/* Combine transforms */
+.combo {
+  transform: translateX(100px) rotate(45deg) scale(1.2);
+  /* Order matters! Applied right to left */
+}
+
+/* Transform origin */
+.origin-top-left {
+  transform-origin: top left;
+  transform: rotate(45deg);
+  /* Rotates around top-left corner instead of center */
+}
+
+/* 3D TRANSFORMS */
+.perspective-container {
+  perspective: 1000px; /* Create 3D space */
+}
+
+.card-3d {
+  transform: rotateY(45deg);
+  transform-style: preserve-3d;
+}
+
+/* TRANSITIONS */
+
+/* Basic transition */
+.button {
+  background: blue;
+  transition: background 0.3s ease;
+}
+
+.button:hover {
+  background: darkblue;
+}
+
+/* Multiple properties */
+.card {
+  transform: scale(1);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+/* Shorthand syntax */
+.animated {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  /* property duration timing-function delay */
+}
+
+/* Stagger with delay */
+.item:nth-child(1) { transition-delay: 0ms; }
+.item:nth-child(2) { transition-delay: 100ms; }
+.item:nth-child(3) { transition-delay: 200ms; }
+
+/* Hardware acceleration hint */
+.gpu-accelerated {
+  transform: translateZ(0); /* Forces GPU layer */
+  will-change: transform;   /* Hint for browser optimization */
+}
+
+/* Smooth height animation trick */
+.expandable {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.3s ease;
+}
+
+.expandable.open {
+  grid-template-rows: 1fr;
+}
+
+.expandable > div {
+  overflow: hidden;
+}</textarea>
+          </div>
+          <div class="editor-footer">
+            <span>Transforms & Transitions</span>
+            <span>CSS</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 9: Animations -->
+  <section class="lesson-section" id="section9">
+    <div class="panel panel-code">
+      <div class="section-number">09</div>
+      <div class="panel-content" style="width: 100%;">
+        <div class="code-editor-container">
+          <div class="editor-header">
+            <div class="editor-tabs">
+              <button class="editor-tab active">CSS</button>
+              <button class="editor-tab">HTML</button>
+              <button class="editor-tab">Preview</button>
+            </div>
+            <div class="editor-actions">
+              <button class="editor-btn">📋</button>
+              <button class="run-btn">Run Code</button>
+            </div>
+          </div>
+          <div class="editor-body">
+            <textarea class="code-input" spellcheck="false">/* KEYFRAME ANIMATIONS */
+
+/* Define keyframes */
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-30px);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.8;
+  }
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Apply animations */
+.bouncing-ball {
+  animation: bounce 1s ease-in-out infinite;
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+.loading-spinner {
+  animation: spin 1s linear infinite;
+}
+
+.pulsing {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.animated-gradient {
+  background: linear-gradient(90deg, #ff6b6b, #4ecdc4, #45b7d1, #ff6b6b);
+  background-size: 300% 300%;
+  animation: gradient 5s ease infinite;
+}
+
+/* ANIMATION PROPERTIES */
+.animation-control {
+  animation-name: fadeIn;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+  animation-delay: 0.5s;
+  animation-iteration-count: 3; /* number or infinite */
+  animation-direction: normal; /* reverse, alternate, alternate-reverse */
+  animation-fill-mode: forwards; /* none, forwards, backwards, both */
+  animation-play-state: running; /* paused, running */
+  
+  /* Shorthand: */
+  animation: fadeIn 1s ease-out 0.5s 3 normal forwards;
+}
+
+/* PAUSE ON HOVER */
+.hover-pause:hover {
+  animation-play-state: paused;
+}
+
+/* STAGGERED ENTRANCE */
+.stagger-item {
+  opacity: 0;
+  animation: fadeIn 0.5s ease forwards;
+}
+
+.stagger-item:nth-child(1) { animation-delay: 0.1s; }
+.stagger-item:nth-child(2) { animation-delay: 0.2s; }
+.stagger-item:nth-child(3) { animation-delay: 0.3s; }
+.stagger-item:nth-child(4) { animation-delay: 0.4s; }
+
+/* SHORTHAND TIPS */
+/* animation: name duration timing-function delay iteration direction fill-mode play-state */
+.quick-pulse {
+  animation: pulse 1s ease-in-out infinite;
+}
+
+.once-and-stay {
+  animation: slideIn 0.5s ease-out forwards;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}</textarea>
+          </div>
+          <div class="editor-footer">
+            <span>CSS Animations</span>
+            <span>CSS</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-explanation">
+      <div class="panel-content">
+        <div class="topic-tags">
+          <span class="topic-tag">@keyframes</span>
+          <span class="topic-tag">Animation</span>
+          <span class="topic-tag">Performance</span>
+          <span class="topic-tag">Accessibility</span>
+        </div>
+        <h2>Animations</h2>
+        
+        <h3>@keyframes Rule</h3>
+        <p>Define animations with <code>@keyframes</code> and apply with <code>animation</code> property:</p>
+        <pre><code>@keyframes name {
+  from { /* start state */ }
+  to { /* end state */ }
+  /* OR */
+  0% { /* start */ }
+  50% { /* middle */ }
+  100% { /* end */ }
+}</code></pre>
+        
+        <h3>Animation Properties</h3>
+        <table>
+          <tr><th>Property</th><th>Description</th></tr>
+          <tr><td><code>animation-name</code></td><td>Name of @keyframes</td></tr>
+          <tr><td><code>animation-duration</code></td><td>How long (ms or s)</td></tr>
+          <tr><td><code>animation-timing-function</code></td><td>Speed curve</td></tr>
+          <tr><td><code>animation-delay</code></td><td>Wait before start</td></tr>
+          <tr><td><code>animation-iteration-count</code></td><td>Number or infinite</td></tr>
+          <tr><td><code>animation-direction</code></td><td>normal, reverse, alternate</td></tr>
+          <tr><td><code>animation-fill-mode</code></td><td>Keep styles after animation</td></tr>
+          <tr><td><code>animation-play-state</code></td><td>running or paused</td></tr>
+        </table>
+        
+        <h3>Transitions vs Animations</h3>
+        <ul>
+          <li><strong>Transitions</strong> - Triggered by state change (hover, click), two states only</li>
+          <li><strong>Animations</strong> - Can run automatically, multiple keyframes, more control</li>
+        </ul>
+        
+        <h3>Accessibility</h3>
+        <p>Always respect <code>prefers-reduced-motion</code>:</p>
+        <pre><code>@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}</code></pre>
+        
+        <div class="tip-box">
+          <p><strong>Performance Tip:</strong> Use <code>will-change: transform, opacity</code> sparingly before animations, then remove it. Too many layers hurt performance!</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 10: Responsive Design -->
+  <section class="lesson-section" id="section10">
+    <div class="panel panel-explanation">
+      <div class="panel-content">
+        <div class="topic-tags">
+          <span class="topic-tag">Media Queries</span>
+          <span class="topic-tag">Mobile-First</span>
+          <span class="topic-tag">Breakpoints</span>
+          <span class="topic-tag">Container Queries</span>
+        </div>
+        <h2>Responsive Design</h2>
+        
+        <h3>Mobile-First Approach</h3>
+        <p>Start with mobile styles, then enhance for larger screens:</p>
+        <pre><code>/* Mobile styles (default) */
+.card { width: 100%; }
+
+/* Tablet and up */
+@media (min-width: 768px) {
+  .card { width: 50%; }
+}
+
+/* Desktop and up */
+@media (min-width: 1024px) {
+  .card { width: 33.33%; }
+}</code></pre>
+        
+        <h3>Common Breakpoints</h3>
+        <ul>
+          <li><strong>Mobile:</strong> 0 - 767px</li>
+          <li><strong>Tablet:</strong> 768px - 1023px</li>
+          <li><strong>Desktop:</strong> 1024px+</li>
+          <li><strong>Large:</strong> 1440px+</li>
+        </ul>
+        
+        <h3>Media Query Types</h3>
+        <ul>
+          <li><strong>width/height</strong> - Viewport dimensions</li>
+          <li><strong>orientation</strong> - portrait or landscape</li>
+          <li><strong>prefers-color-scheme</strong> - dark or light mode</li>
+          <li><strong>prefers-reduced-motion</strong> - accessibility</li>
+          <li><strong>hover</strong> - Does device support hover?</li>
+          <li><strong>pointer</strong> - coarse (touch) or fine (mouse)</li>
+        </ul>
+        
+        <h3>Container Queries (Modern!)</h3>
+        <p>Style based on container size, not viewport:</p>
+        <pre><code>.card-container { container-type: inline-size; }
+
+@container (min-width: 400px) {
+  .card { display: flex; }
+}</code></pre>
+        
+        <div class="tip-box">
+          <p><strong>Fluid Design:</strong> Use <code>clamp()</code> for fluid typography and spacing. No more breakpoint hell!</p>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-code">
+      <div class="section-number">10</div>
+      <div class="panel-content" style="width: 100%;">
+        <div class="code-editor-container">
+          <div class="editor-header">
+            <div class="editor-tabs">
+              <button class="editor-tab active">CSS</button>
+              <button class="editor-tab">HTML</button>
+              <button class="editor-tab">Preview</button>
+            </div>
+            <div class="editor-actions">
+              <button class="editor-btn">📋</button>
+              <button class="run-btn">Run Code</button>
+            </div>
+          </div>
+          <div class="editor-body">
+            <textarea class="code-input" spellcheck="false">/* MOBILE-FIRST RESPONSIVE DESIGN */
+
+/* Base styles - Mobile (0-767px) */
+.container {
+  padding: 1rem;
+}
+
+.card-grid {
+  display: grid;
+  gap: 1rem;
+  /* Single column on mobile */
+  grid-template-columns: 1fr;
+}
+
+/* Tablet breakpoint (768px+) */
+@media (min-width: 768px) {
+  .container {
+    padding: 2rem;
+  }
+  
+  .card-grid {
+    /* Two columns on tablet */
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .nav-toggle {
+    display: none; /* Hide hamburger menu */
+  }
+  
+  .nav-menu {
+    display: flex;
+    gap: 2rem;
+  }
+}
+
+/* Desktop breakpoint (1024px+) */
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .card-grid {
+    /* Three columns on desktop */
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Large screens (1440px+) */
+@media (min-width: 1440px) {
+  .card-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* RANGE MEDIA QUERIES (modern) */
+/* Between 768px and 1023px */
+@media (768px <= width < 1024px) {
+  .sidebar {
+    width: 200px;
+  }
+}
+
+/* OR syntax for complex conditions */
+@media (min-width: 768px) and (max-width: 1023px) {
+  /* Tablet only */
+}
+
+/* OR for multiple conditions */
+@media (min-width: 1024px), (orientation: landscape) {
+  /* Large screens OR landscape */
+}
+
+/* FEATURE MEDIA QUERIES */
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1a1a1a;
+    --text: #ffffff;
+  }
+}
+
+/* Reduced motion (accessibility) */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Touch devices */
+@media (hover: none) and (pointer: coarse) {
+  .hover-effect {
+    display: none; /* Remove hover-only elements */
+  }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  :root {
+    --border-width: 2px;
+  }
+}
+
+/* CONTAINER QUERIES (Modern!) */
+.card-container {
+  container-type: inline-size;
+  container-name: cards;
+}
+
+@container cards (min-width: 400px) {
+  .card {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .card-image {
+    width: 40%;
+  }
+}
+
+@container cards (min-width: 600px) {
+  .card {
+    flex-direction: row;
+  }
+}
+
+/* FLUID TYPOGRAPHY (no breakpoints needed!) */
+.fluid-text {
+  font-size: clamp(1rem, 2.5vw, 2rem);
+}
+
+.fluid-padding {
+  padding: clamp(1rem, 5vw, 3rem);
+}</textarea>
+          </div>
+          <div class="editor-footer">
+            <span>Responsive Design Patterns</span>
+            <span>CSS</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 11: CSS Variables & Themes -->
+  <section class="lesson-section" id="section11">
+    <div class="panel panel-code">
+      <div class="section-number">11</div>
+      <div class="panel-content" style="width: 100%;">
+        <div class="code-editor-container">
+          <div class="editor-header">
+            <div class="editor-tabs">
+              <button class="editor-tab active">CSS</button>
+              <button class="editor-tab">HTML</button>
+              <button class="editor-tab">Preview</button>
+            </div>
+            <div class="editor-actions">
+              <button class="editor-btn">📋</button>
+              <button class="run-btn">Run Code</button>
+            </div>
+          </div>
+          <div class="editor-body">
+            <textarea class="code-input" spellcheck="false"><!-- HTML: Theme Toggle Button -->
+<button id="theme-toggle" aria-label="Toggle dark mode">
+  🌙 / ☀️
+</button>
+
+<style>
+/* CSS VARIABLES (Custom Properties) */
+
+/* Define in :root for global scope */
+:root {
+  /* Colors */
+  --color-primary: #3b82f6;
+  --color-primary-dark: #2563eb;
+  --color-secondary: #8b5cf6;
+  
+  /* Neutral scale */
+  --color-white: #ffffff;
+  --color-gray-100: #f3f4f6;
+  --color-gray-200: #e5e7eb;
+  --color-gray-800: #1f2937;
+  --color-black: #000000;
+  
+  /* Semantic colors (change per theme) */
+  --bg-primary: var(--color-white);
+  --bg-secondary: var(--color-gray-100);
+  --text-primary: var(--color-gray-800);
+  --text-secondary: #6b7280;
+  --border-color: var(--color-gray-200);
+  
+  /* Spacing scale */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-8: 2rem;
+  
+  /* Typography */
+  --font-sans: system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  
+  /* Border radius */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 1rem;
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+  --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+  
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-base: 250ms ease;
+}
+
+/* DARK THEME - Override variables */
+[data-theme="dark"] {
+  --bg-primary: var(--color-gray-800);
+  --bg-secondary: #374151;
+  --text-primary: var(--color-white);
+  --text-secondary: #9ca3af;
+  --border-color: #4b5563;
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.3);
+  --shadow-md: 0 4px 6px rgba(0,0,0,0.4);
+}
+
+/* USE VARIABLES */
+body {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  transition: background var(--transition-base),
+              color var(--transition-fast);
+}
+
+.card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+  box-shadow: var(--shadow-sm);
+}
+
+.button {
+  background: var(--color-primary);
+  color: white;
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-sm);
+  transition: background var(--transition-fast);
+}
+
+.button:hover {
+  background: var(--color-primary-dark);
+}
+
+/* VARIABLE FALLBACKS */
+.legacy-support {
+  /* Fallback if variable not defined */
+  color: var(--custom-color, #3b82f6);
+}
+
+/* LOCAL SCOPED VARIABLES */
+.card {
+  --card-padding: 2rem;
+  padding: var(--card-padding);
+}
+
+.card-compact {
+  --card-padding: 1rem; /* Override for this class */
+}
+
+/* DYNAMIC VARIABLES WITH CALC() */
+.responsive-spacing {
+  padding: calc(var(--space-4) + 2vw);
+}
+</style>
+
+<script>
+// THEME TOGGLE IMPLEMENTATION
+const themeToggle = document.getElementById('theme-toggle');
+const html = document.documentElement;
+
+// Check for saved theme preference or system preference
+const savedTheme = localStorage.getItem('theme');
+const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+// Apply theme
+if (savedTheme) {
+  html.setAttribute('data-theme', savedTheme);
+} else if (systemPrefersDark) {
+  html.setAttribute('data-theme', 'dark');
+}
+
+// Toggle handler
+themeToggle.addEventListener('click', () => {
+  const currentTheme = html.getAttribute('data-theme');
+  const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+  
+  html.setAttribute('data-theme', newTheme);
+  localStorage.setItem('theme', newTheme);
+});
+
+// Listen for system theme changes
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+  if (!localStorage.getItem('theme')) {
+    html.setAttribute('data-theme', e.matches ? 'dark' : 'light');
+  }
+});
+</script></textarea>
+          </div>
+          <div class="editor-footer">
+            <span>CSS Variables & Theme System</span>
+            <span>CSS + JS</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-explanation">
+      <div class="panel-content">
+        <div class="topic-tags">
+          <span class="topic-tag">CSS Variables</span>
+          <span class="topic-tag">Theming</span>
+          <span class="topic-tag">Dark Mode</span>
+          <span class="topic-tag">Design Systems</span>
+        </div>
+        <h2>CSS Variables & Themes</h2>
+        
+        <h3>Custom Properties Basics</h3>
+        <p>CSS Variables (Custom Properties) are defined with <code>--</code> prefix and used with <code>var()</code>:</p>
+        <pre><code>:root {
+  --primary: #3b82f6;
+}
+
+.button {
+  background: var(--primary);
+}</code></pre>
+        
+        <h3>Variable Scope</h3>
+        <ul>
+          <li><strong>:root</strong> - Global scope (available everywhere)</li>
+          <li><strong>Any selector</strong> - Local scope (inherited by children)</li>
+          <li><strong>Inline style</strong> - Element-specific</li>
+        </ul>
+        
+        <h3>Dark/Light Theme Implementation</h3>
+        <ol>
+          <li>Define semantic variables in <code>:root</code> (light theme)</li>
+          <li>Override in <code>[data-theme="dark"]</code> selector</li>
+          <li>Toggle with JavaScript by setting <code>data-theme</code> attribute</li>
+          <li>Save preference to <code>localStorage</code></li>
+          <li>Check <code>prefers-color-scheme</code> for system preference</li>
+        </ol>
+        
+        <h3>Design Token Strategy</h3>
+        <p>Organize variables in layers:</p>
+        <ul>
+          <li><strong>Primitives:</strong> Raw values (<code>--blue-500: #3b82f6</code>)</li>
+          <li><strong>Semantics:</strong> Purpose-based (<code>--primary: var(--blue-500)</code>)</li>
+          <li><strong>Components:</strong> Component-specific (<code>--button-bg: var(--primary)</code>)</li>
+        </ul>
+        
+        <div class="tip-box">
+          <p><strong>Pro Tip:</strong> Use HSL for color variables: <code>--primary-h: 217; --primary: hsl(var(--primary-h) 90% 60%);</code> Then adjust lightness for variants!</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 12: Best Practices & Challenge -->
+  <section class="lesson-section" id="section12">
+    <div class="panel panel-explanation">
+      <div class="panel-content">
+        <div class="topic-tags">
+          <span class="topic-tag">BEM</span>
+          <span class="topic-tag">Organization</span>
+          <span class="topic-tag">Performance</span>
+          <span class="topic-tag">Challenge</span>
+        </div>
+        <h2>Best Practices & Build Challenge</h2>
+        
+        <h3>BEM Naming Convention</h3>
+        <p><strong>B</strong>lock <strong>E</strong>lement <strong>M</strong>odifier — keeps CSS organized:</p>
+        <pre><code>/* Block */
+.card { }
+
+/* Element (part of block) */
+.card__title { }
+.card__image { }
+.card__button { }
+
+/* Modifier (variation) */
+.card--featured { }
+.card--compact { }
+.card__button--primary { }</code></pre>
+        
+        <h3>CSS Organization Methods</h3>
+        <ul>
+          <li><strong>ITCSS</strong> - Inverted Triangle: Settings → Tools → Generic → Elements → Objects → Components → Utilities</li>
+          <li><strong>SMACSS</strong> - Base, Layout, Module, State, Theme</li>
+          <li><strong>Atomic CSS</strong> - Utility-first (Tailwind approach)</li>
+        </ul>
+        
+        <h3>Performance Best Practices</h3>
+        <ul>
+          <li>Avoid deep nesting (max 3 levels)</li>
+          <li>Don't over-qualify selectors (<code>div.button</code> → <code>.button</code>)</li>
+          <li>Minimize reflows (batch DOM changes)</li>
+          <li>Use <code>transform</code> and <code>opacity</code> for animations</li>
+          <li>Lazy load below-fold images</li>
+          <li>Compress and minify CSS</li>
+        </ul>
+        
+        <h3>🎯 Build Challenge</h3>
+        <div class="challenge-box">
+          <h4>Create a Responsive Pricing Page</h4>
+          <p>Build a pricing page with these requirements:</p>
+          <ul>
+            <li>3 pricing cards in a responsive grid</li>
+            <li>Dark/light theme toggle (use CSS variables)</li>
+            <li>Hover animations on cards (transform + shadow)</li>
+            <li>Featured card stands out (bigger, different color)</li>
+            <li>Mobile: cards stack vertically</li>
+            <li>Tablet: 2 cards per row, 1 full width</li>
+            <li>Desktop: 3 cards side by side</li>
+            <li>Use BEM naming convention</li>
+            <li>Include CSS custom properties for theming</li>
+          </ul>
+        </div>
+        
+        <div class="tip-box">
+          <p><strong>Remember:</strong> Write CSS that scales! Use variables, keep specificity low, and organize logically. Future you will thank present you.</p>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-code">
+      <div class="section-number">12</div>
+      <div class="panel-content" style="width: 100%;">
+        <div class="code-editor-container">
+          <div class="editor-header">
+            <div class="editor-tabs">
+              <button class="editor-tab active">CSS</button>
+              <button class="editor-tab">HTML</button>
+              <button class="editor-tab">Preview</button>
+            </div>
+            <div class="editor-actions">
+              <button class="editor-btn">📋</button>
+              <button class="run-btn">Run Code</button>
+            </div>
+          </div>
+          <div class="editor-body">
+            <textarea class="code-input" spellcheck="false">/* CSS BEST PRACTICES EXAMPLE */
+
+/* 1. USE CSS VARIABLES FOR THEMING */
+:root {
+  --color-primary: #3b82f6;
+  --color-primary-dark: #2563eb;
+  --bg-primary: #ffffff;
+  --bg-secondary: #f3f4f6;
+  --text-primary: #1f2937;
+  --radius: 0.5rem;
+  --shadow: 0 4px 6px rgba(0,0,0,0.1);
+  --transition: 250ms ease;
+}
+
+[data-theme="dark"] {
+  --bg-primary: #1f2937;
+  --bg-secondary: #374151;
+  --text-primary: #f9fafb;
+}
+
+/* 2. BEM NAMING CONVENTION */
+
+/* Block */
+.pricing-card {
+  background: var(--bg-primary);
+  border-radius: var(--radius);
+  padding: 2rem;
+  transition: transform var(--transition),
+              box-shadow var(--transition);
+}
+
+.pricing-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow);
+}
+
+/* Element */
+.pricing-card__title {
+  font-size: 1.5rem;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.pricing-card__price {
+  font-size: 3rem;
+  font-weight: bold;
+  color: var(--color-primary);
+}
+
+.pricing-card__features {
+  list-style: none;
+  padding: 0;
+}
+
+.pricing-card__feature {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--bg-secondary);
+}
+
+.pricing-card__button {
+  width: 100%;
+  padding: 1rem;
+  background: var(--color-primary);
+  color: white;
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: background var(--transition);
+}
+
+.pricing-card__button:hover {
+  background: var(--color-primary-dark);
+}
+
+/* Modifier */
+.pricing-card--featured {
+  background: var(--color-primary);
+  color: white;
+  transform: scale(1.05);
+}
+
+.pricing-card--featured .pricing-card__title,
+.pricing-card--featured .pricing-card__price {
+  color: white;
+}
+
+.pricing-card--featured .pricing-card__button {
+  background: white;
+  color: var(--color-primary);
+}
+
+/* 3. RESPONSIVE GRID */
+.pricing-grid {
+  display: grid;
+  gap: 2rem;
+  padding: 2rem;
+  /* Mobile: single column */
+  grid-template-columns: 1fr;
+}
+
+/* Tablet: 2 columns */
+@media (min-width: 768px) {
+  .pricing-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .pricing-card--featured {
+    grid-column: 1 / -1; /* Full width */
+  }
+}
+
+/* Desktop: 3 columns */
+@media (min-width: 1024px) {
+  .pricing-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .pricing-card--featured {
+    grid-column: auto; /* Reset */
+    transform: scale(1.1);
+  }
+}
+
+/* 4. UTILITY CLASSES (for common patterns) */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.text-center { text-align: center; }
+.mt-2 { margin-top: 2rem; }
+.mb-2 { margin-bottom: 2rem; }
+
+/* 5. ACCESSIBILITY */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Focus styles */
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}</textarea>
+          </div>
+          <div class="editor-footer">
+            <span>CSS Best Practices & Challenge</span>
+            <span>CSS</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer Navigation -->
+  <footer class="lesson-footer">
+    <div class="footer-content">
+      <a href="html-masterclass.html" class="footer-link">
+        <span>← Previous</span>
+        <span>HTML Masterclass</span>
+      </a>
+      <div class="footer-center">
+        <span>CSS Mastery Complete!</span>
+        <span>12 Sections • 150+ Properties</span>
+      </div>
+      <a href="javascript-mastery.html" class="footer-link">
+        <span>Next →</span>
+        <span>JavaScript Mastery</span>
+      </a>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/theme.js"></script>
+  <script src="js/editor.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

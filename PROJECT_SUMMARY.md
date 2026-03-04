@@ -1,7 +1,7 @@
 # Web Development Mastery Course - Project Summary
 
 ## 📌 PROJECT GOAL
-Build a comprehensive, interactive web development learning platform that teaches HTML, CSS, JavaScript, GSAP animations, and Three.js through alternating left-right panel layouts with live code editors.
+Build a comprehensive, interactive full-stack web development learning platform that teaches HTML, CSS, JavaScript, GSAP animations, Three.js, React, Node.js, Databases, and Backend Development through alternating left-right panel layouts with live code editors.
 
 ---
 
@@ -19,7 +19,8 @@ web-dev-course/
 │   ├── editor.js          (13.4 KB) - Live code editor with preview
 │   └── main.js            (8.8 KB) - Navigation, scroll progress, utilities
 ├── index.html             (13.8 KB) - Landing page with course overview
-└── html-masterclass.html  (66.4 KB) - Complete HTML module (12 sections)
+├── html-masterclass.html  (66.4 KB) - Complete HTML module (12 sections)
+└── css-mastery.html       (70.4 KB) - Complete CSS module (12 sections)
 ```
 
 ### 2. Core Features Implemented
@@ -44,38 +45,28 @@ web-dev-course/
 11. **Graphics & Media APIs**: Canvas, SVG, Web Storage, Geolocation
 12. **Best Practices & Challenge**: Style guide, validation, build challenge
 
+### 4. CSS Mastery Complete (12 Sections)
+1. **Selectors & Specificity**: All selector types, specificity calculation, :is(), :where(), :has()
+2. **Box Model**: Content-box vs border-box, padding, margin, border-radius, logical properties
+3. **Display & Positioning**: block/inline/flex/grid, static/relative/absolute/fixed/sticky, z-index
+4. **Flexbox**: Container properties, item properties, common patterns, responsive layouts
+5. **CSS Grid**: Grid template, gaps, areas, minmax, auto-fit/auto-fill, subgrid
+6. **Typography**: Font families, web fonts, clamp() for fluid type, text styling
+7. **Colors & Backgrounds**: All color formats (hex, rgb, hsl, oklch), gradients, multiple backgrounds
+8. **Transforms & Transitions**: 2D/3D transforms, transition properties, timing functions
+9. **Animations**: @keyframes, animation properties, performance, reduced motion
+10. **Responsive Design**: Media queries, mobile-first, breakpoints, container queries
+11. **CSS Variables & Themes**: :root variables, theming system, dark/light implementation
+12. **Best Practices & Challenge**: BEM naming, ITCSS/SMACSS, organization, pricing page challenge
+
 ---
 
 ## 🚧 REMAINING TO BUILD
 
-### 1. CSS Mastery Page (`css-mastery.html`)
-**Layout**: 12 sections with alternating panels
-**Content to cover**:
-
-| Section | Topic | Code Examples |
-|---------|-------|---------------|
-| 1 | Selectors & Specificity | All selectors, specificity calculation, :is, :where, :has |
-| 2 | Box Model | Content-box vs border-box, padding, margin, border-radius |
-| 3 | Display & Positioning | block/inline/inline-block/flex/grid, static/relative/absolute/fixed/sticky |
-| 4 | Flexbox | Container properties, item properties, common patterns |
-| 5 | CSS Grid | Grid template, gaps, areas, minmax, auto-fit/auto-fill |
-| 6 | Typography | Font families, web fonts, text properties, line-height |
-| 7 | Colors & Backgrounds | All color formats, gradients, multiple backgrounds |
-| 8 | Transforms & Transitions | 2D/3D transforms, transition properties, timing functions |
-| 9 | Animations | @keyframes, animation properties, performance |
-| 10 | Responsive Design | Media queries, mobile-first, breakpoints, viewport units |
-| 11 | CSS Variables & Themes | :root variables, theming system, dark/light implementation |
-| 12 | Best Practices | BEM naming, organization, challenge |
-
-**Special Features to Include**:
-- CSS Variables for theming (like the working theme toggle in theme.js)
-- Complete flexbox and grid visualization examples
-- Animation playground
-- Responsive breakpoint demo
-
-### 2. JavaScript Mastery Page (`javascript-mastery.html`)
+### 1. JavaScript Mastery Page (`javascript-mastery.html`) ✅ COMPLETE
 **Layout**: 16 sections with alternating panels
-**Content to cover**:
+**Status**: ✅ Complete (96 KB)
+**File**: `javascript-mastery.html`
 
 | Section | Topic | Details |
 |---------|-------|---------|
@@ -96,9 +87,10 @@ web-dev-course/
 | 15 | Error Handling | try/catch, debugging, common errors |
 | 16 | Best Practices & Challenge | Build a Notes App with all features |
 
-### 3. Transitions & Effects Page (`transitions-effects.html`)
+### 2. Transitions & Effects Page (`transitions-effects.html`)
 **Layout**: 9 sections covering GSAP + Three.js
-**Content**:
+**Status**: ⏳ Not Started
+**Estimated Size**: ~60 KB
 
 | Section | Topic | Technology |
 |---------|-------|------------|
@@ -112,8 +104,11 @@ web-dev-course/
 | 8 | GSAP + Three.js Integration | Combining 2D and 3D animations |
 | 9 | Practical Projects | Portfolio loader, image gallery, hero section, scroll story |
 
-### 4. Projects Page (`projects.html`)
-**10 Progressive Build Challenges**:
+### 3. Projects Page (`projects.html`)
+**10 Progressive Build Challenges**
+**Status**: ⏳ Not Started
+**Estimated Size**: ~40 KB
+
 1. Personal Portfolio (HTML/CSS only)
 2. Responsive Restaurant Website
 3. Dashboard with Charts
@@ -125,7 +120,10 @@ web-dev-course/
 9. 3D Landing Page (Three.js)
 10. Full E-commerce Site
 
-### 5. Flask Backend (`backend/app.py`)
+### 4. Flask Backend (`backend/app.py`)
+**Basic Python Backend**
+**Status**: ⏳ Not Started
+
 **Required Endpoints**:
 ```python
 - POST /api/submit-form      # Handle form submissions
@@ -141,6 +139,90 @@ web-dev-course/
 - Input validation
 - Error handling
 - Mock data for demos
+
+---
+
+## 🚀 EXPANDED SCOPE (NEW MODULES)
+
+### 5. React Fundamentals (`react-fundamentals.html`)
+**Layout**: 14 sections
+**Status**: ⏳ Not Started
+**Estimated Size**: ~75 KB
+
+| Section | Topic | Details |
+|---------|-------|---------|
+| 1 | React Introduction | What is React, JSX, Virtual DOM |
+| 2 | Components | Functional vs Class components, props |
+| 3 | State Management | useState, state lifting, prop drilling |
+| 4 | Event Handling | onClick, onChange, event objects |
+| 5 | Conditional Rendering | &&, ternary, if statements |
+| 6 | Lists & Keys | .map(), key prop, list updates |
+| 7 | useEffect Hook | Side effects, dependencies, cleanup |
+| 8 | Forms in React | Controlled inputs, form validation |
+| 9 | Component Lifecycle | Mount, update, unmount |
+| 10 | Context API | Global state without Redux |
+| 11 | useRef Hook | DOM refs, persistent values |
+| 12 | Custom Hooks | Building reusable logic |
+| 13 | React Router | SPA navigation, routes, params |
+| 14 | Build Challenge | Todo App with all features |
+
+### 6. Node.js & Express (`nodejs-express.html`)
+**Layout**: 12 sections
+**Status**: ⏳ Not Started
+**Estimated Size**: ~65 KB
+
+| Section | Topic | Details |
+|---------|-------|---------|
+| 1 | Node.js Basics | Event loop, modules, npm, package.json |
+| 2 | File System | fs module, reading/writing files |
+| 3 | HTTP Module | Creating basic server |
+| 4 | Express Introduction | Routing, middleware, request/response |
+| 5 | Express Routing | GET, POST, PUT, DELETE, route params |
+| 6 | Middleware | Custom middleware, error handling, logging |
+| 7 | Template Engines | EJS, Pug, Handlebars basics |
+| 8 | Static Files | Serving CSS, JS, images |
+| 9 | Environment Variables | dotenv, config management |
+| 10 | Authentication | JWT, bcrypt, protected routes |
+| 11 | API Best Practices | RESTful design, status codes, versioning |
+| 12 | Build Challenge | Complete REST API with auth |
+
+### 7. Databases (`databases.html`)
+**Layout**: 10 sections (MongoDB + SQL)
+**Status**: ⏳ Not Started
+**Estimated Size**: ~55 KB
+
+| Section | Topic | Details |
+|---------|-------|---------|
+| 1 | Database Fundamentals | SQL vs NoSQL, ACID, scaling |
+| 2 | MongoDB Basics | Documents, collections, BSON |
+| 3 | MongoDB CRUD | insert, find, update, delete |
+| 4 | MongoDB Aggregation | Pipeline, match, group, sort |
+| 5 | Mongoose ODM | Schemas, models, validation |
+| 6 | SQL Basics | Tables, rows, columns, data types |
+| 7 | SQL CRUD | SELECT, INSERT, UPDATE, DELETE |
+| 8 | SQL Relationships | Joins, foreign keys, normalization |
+| 9 | Database Integration | Connecting Node.js to MongoDB/SQL |
+| 10 | Build Challenge | Full-stack app with database |
+
+### 8. Advanced Backend Development (`advanced-backend.html`)
+**Layout**: 12 sections
+**Status**: ⏳ Not Started
+**Estimated Size**: ~70 KB
+
+| Section | Topic | Details |
+|---------|-------|---------|
+| 1 | Advanced Express | Rate limiting, compression, helmet |
+| 2 | Error Handling | Try/catch, error middleware, custom errors |
+| 3 | Validation | Joi, express-validator, sanitization |
+| 4 | File Uploads | Multer, cloud storage (AWS S3, Cloudinary) |
+| 5 | Real-time Communication | Socket.io, WebSockets, chat apps |
+| 6 | Caching | Redis, in-memory caching strategies |
+| 7 | Task Queues | Bull, background jobs, email sending |
+| 8 | Testing | Jest, Supertest, unit/integration tests |
+| 9 | Deployment | Heroku, Railway, VPS setup |
+| 10 | Docker | Containers, docker-compose |
+| 11 | CI/CD | GitHub Actions, automated testing |
+| 12 | Final Project | Production-ready full-stack application |
 
 ---
 
@@ -181,35 +263,20 @@ web-dev-course/
 
 ---
 
-## 📚 CONTENT REQUIREMENTS
+## 📚 CONTENT SUMMARY
 
-### HTML Module (COMPLETED)
-- 60+ elements covered
-- 12 interactive sections
-- 1 comprehensive challenge
-
-### CSS Module (TO BUILD)
-- 150+ properties
-- Flexbox complete guide
-- Grid complete guide
-- Animation deep dive
-- Responsive design patterns
-- CSS Variables & theming (must teach actual implementation)
-
-### JS Module (TO BUILD)
-- 80+ concepts
-- Complete DOM manipulation
-- Async programming patterns
-- **CRITICAL**: Must teach how to implement Dark/Light theme toggle
-- Form handling with external processor
-- Modern ES6+ features
-
-### Transitions Module (TO BUILD)
-- GSAP license-free usage
-- Three.js basics to advanced
-- Page transitions
-- Scroll animations
-- 3D effects
+| Module | Sections | Status | Size |
+|--------|----------|--------|------|
+| HTML Masterclass | 12 | ✅ Complete | 66 KB |
+| CSS Mastery | 12 | ✅ Complete | 70 KB |
+| JavaScript Mastery | 16 | ✅ Complete | 96 KB |
+| Transitions & Effects | 9 | ⏳ Pending | ~60 KB |
+| React Fundamentals | 14 | ⏳ Pending | ~75 KB |
+| Node.js & Express | 12 | ⏳ Pending | ~65 KB |
+| Databases | 10 | ⏳ Pending | ~55 KB |
+| Advanced Backend | 12 | ⏳ Pending | ~70 KB |
+| Projects | 10 | ⏳ Pending | ~40 KB |
+| **TOTAL** | **107** | **3/9** | **~657 KB** |
 
 ---
 
@@ -223,12 +290,22 @@ web-dev-course/
 - CSS Grid and Flexbox for layouts
 - LocalStorage for persistence
 
+### React Section
+- CDN links for React/ ReactDOM (for learning, no build step)
+- Babel standalone for JSX transformation
+- Functional components + hooks focus
+
 ### Backend
-- Python Flask
+- **Phase 1 (Flask)**: Python Flask for basic concepts
+- **Phase 2 (Node.js)**: Express.js for advanced backend
 - RESTful API design
 - CORS configuration
 - JSON handling
 - File upload support
+
+### Database
+- MongoDB with Mongoose (NoSQL)
+- SQLite or PostgreSQL with node-postgres (SQL)
 
 ### Browser Support
 - Modern browsers (Chrome, Firefox, Safari, Edge)
@@ -243,9 +320,13 @@ web-dev-course/
 web-dev-course/
 ├── index.html                    # Landing page ✅
 ├── html-masterclass.html         # HTML module (12 sections) ✅
-├── css-mastery.html              # CSS module (12 sections) ⏳
-├── javascript-mastery.html       # JS module (16 sections) ⏳
+├── css-mastery.html              # CSS module (12 sections) ✅
+├── javascript-mastery.html       # JS module (16 sections) ✅
 ├── transitions-effects.html      # GSAP + Three.js (9 sections) ⏳
+├── react-fundamentals.html       # React basics (14 sections) ⏳
+├── nodejs-express.html           # Node.js + Express (12 sections) ⏳
+├── databases.html                # MongoDB + SQL (10 sections) ⏳
+├── advanced-backend.html         # Advanced Node.js (12 sections) ⏳
 ├── projects.html                 # Build challenges ⏳
 ├── css/
 │   ├── style.css                 # Core styles ✅
@@ -256,16 +337,19 @@ web-dev-course/
 │   ├── main.js                   # Core utilities ✅
 │   ├── theme.js                  # Theme toggle ✅
 │   ├── editor.js                 # Live editor ✅
-│   ├── html-examples.js          # HTML code samples ⏳
-│   ├── css-examples.js           # CSS code samples ⏳
-│   ├── js-examples.js            # JS code samples ⏳
-│   └── transitions.js            # GSAP utilities ⏳
+│   ├── react-demos.js            # React examples ⏳
+│   └── nodejs-examples.js        # Node.js examples ⏳
+├── backend/
+│   ├── flask/                    # Python Flask backend ⏳
+│   │   ├── app.py
+│   │   └── requirements.txt
+│   └── nodejs/                   # Node.js backend ⏳
+│       ├── server.js
+│       ├── package.json
+│       └── routes/
 ├── transitions/
 │   ├── gsap-examples.js          # GSAP demo code ⏳
 │   └── three-examples.js         # Three.js demo code ⏳
-├── backend/
-│   ├── app.py                    # Flask application ⏳
-│   └── requirements.txt          # Python deps ⏳
 └── assets/
     ├── images/                   # Screenshots, diagrams ⏳
     └── fonts/                    # Web fonts ⏳
@@ -278,40 +362,51 @@ web-dev-course/
 1. **Live Code Editing**: Every code example must be editable with instant preview
 2. **Alternating Layout**: Consistent Right→Left→Right→Left pattern
 3. **Theme Toggle**: Must teach implementation, not just have it
-4. **Form Handling**: Must demonstrate sending data to external Flask backend
-5. **Comprehensive Coverage**: Every HTML element, CSS property, JS concept
+4. **Form Handling**: Must demonstrate sending data to backend
+5. **Comprehensive Coverage**: Every concept from beginner to advanced
 6. **Progressive Learning**: Each module builds on the previous
-7. **Real Projects**: 10 build challenges to apply knowledge
+7. **Real Projects**: 10+ build challenges to apply knowledge
+8. **Full-Stack**: Frontend → Backend → Database complete flow
 
 ---
 
 ## 📝 NOTES FOR CONTINUATION
 
-### CSS Module Priority
-1. Start with selectors and specificity
-2. Box model is crucial foundation
-3. Flexbox and Grid need visual diagrams
-4. Theme implementation section must link to working theme.js
-5. Include CSS variables throughout (dogfooding)
-
-### JS Module Priority
+### JavaScript Module Priority
 1. Fundamentals first (variables, types, operators)
 2. DOM manipulation is core skill
-3. Theme implementation section is CRITICAL (user specifically requested)
+3. Theme implementation section is CRITICAL
 4. Form → Backend integration must work end-to-end
 5. Async/await is essential modern JS
+6. React prep (modules, destructuring, spread)
 
-### Transitions Module Priority
-1. GSAP is primary focus
-2. Three.js for advanced effects
-3. Practical projects at end
-4. May need CDN links for GSAP/Three.js
+### React Module Priority
+1. Start with CDN approach (no build tools)
+2. Functional components + hooks only (no class components)
+3. useState and useEffect are essential
+4. Build toward a complete Todo App
+5. Include React Router for SPA concepts
 
-### Backend Priority
-1. Form submission endpoint is most important
-2. CORS must be configured properly
-3. Return JSON responses
-4. Include error handling examples
+### Node.js Module Priority
+1. Start with built-in http module for understanding
+2. Express makes everything easier
+3. Middleware concept is crucial
+4. Route organization patterns
+5. Error handling middleware
+
+### Database Module Priority
+1. Start with MongoDB (easier for beginners)
+2. CRUD operations are fundamental
+3. Mongoose for schema validation
+4. SQL for relational concepts
+5. Integration with Node.js
+
+### Advanced Backend Priority
+1. Security first (helmet, validation, sanitization)
+2. Real-time with Socket.io (chat app)
+3. File uploads are commonly needed
+4. Testing is professional requirement
+5. Deployment is the final step
 
 ---
 
@@ -321,12 +416,17 @@ web-dev-course/
 - [x] Core CSS files (style, layouts, editor)
 - [x] Core JS files (theme, editor, main)
 - [x] index.html landing page
-- [x] html-masterclass.html complete
-- [ ] css-mastery.html
-- [ ] javascript-mastery.html
+- [x] html-masterclass.html complete (66 KB)
+- [x] css-mastery.html complete (70 KB)
+- [x] javascript-mastery.html complete (96 KB)
 - [ ] transitions-effects.html
+- [ ] react-fundamentals.html
+- [ ] nodejs-express.html
+- [ ] databases.html
+- [ ] advanced-backend.html
 - [ ] projects.html
 - [ ] Flask backend (app.py)
+- [ ] Node.js backend (server.js)
 - [ ] Test all interactive features
 - [ ] Mobile responsiveness check
 - [ ] Cross-browser testing
@@ -345,27 +445,46 @@ Must include:
 6. No-FOUC script (prevent flash on load)
 7. Accessibility (aria-label, aria-pressed)
 
-### Form to Backend (JS Module)
-Must include:
-1. HTML form with proper attributes
-2. Prevent default submission
-3. Collect form data (FormData or Object)
-4. Fetch POST request
-5. Handle loading state
-6. Handle success/error responses
-7. Display feedback to user
-8. Flask backend receiving and responding
+### React without Build Tools
+For the learning modules, use CDN approach:
+```html
+<script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script type="text/babel">
+  // JSX code here
+</script>
+```
 
-### Live Editor Implementation
-Already working in editor.js:
-- Tab switching between code/preview
-- iframe for isolated preview
-- Copy/Reset functionality
-- Debounced auto-preview
-- Combined HTML/CSS/JS mode support
+### Node.js Backend Structure
+```
+backend-nodejs/
+├── server.js           # Entry point
+├── package.json
+├── .env
+├── routes/
+│   ├── users.js
+│   └── posts.js
+├── middleware/
+│   ├── auth.js
+│   └── error.js
+├── models/
+│   └── User.js
+└── config/
+    └── db.js
+```
+
+### Full-Stack Integration Flow
+1. Frontend form (React/vanilla JS)
+2. Fetch API to Node.js backend
+3. Express route handles request
+4. Mongoose interacts with MongoDB
+5. JSON response back to frontend
+6. UI updates with new data
 
 ---
 
-**Last Updated**: March 3, 2024
-**Status**: HTML module complete, CSS/JS/Transitions/Backend remaining
-**Estimated Completion**: 3-4 more sessions
+**Last Updated**: March 4, 2025
+**Status**: HTML ✅, CSS ✅, JS ✅, Animations ⏳, React ⏳, Node.js ⏳, Database ⏳, Advanced Backend ⏳
+**Estimated Completion**: 5-7 more sessions
+**Total Scope**: 9 modules, 107 sections, ~657 KB of educational content

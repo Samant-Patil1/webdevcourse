@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Learn GSAP animations and Three.js 3D graphics for web development">
+  <title>Transitions & Effects | Web Development Course</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/layouts.css">
+  <link rel="stylesheet" href="css/editor.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+  <!-- Progress Bar -->
+  <div class="progress-indicator">
+    <div class="progress-indicator-bar"></div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="navbar-content">
+      <a href="index.html" class="logo">
+        <span>🚀</span>
+        <span>WebDev Course</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="html-masterclass.html">HTML</a></li>
+        <li><a href="css-mastery.html">CSS</a></li>
+        <li><a href="javascript-mastery.html">JavaScript</a></li>
+        <li><a href="transitions-effects.html" class="active">Animations</a></li>
+        <li><a href="projects.html">Projects</a></li>
+      </ul>
+      <button class="theme-toggle" aria-label="Toggle dark mode"></button>
+    </div>
+  </nav>
+
+  <!-- Table of Contents Sidebar -->
+  <button class="toc-toggle btn btn-icon" style="position: fixed; left: 20px; bottom: 20px; z-index: 100;">📋</button>
+  <aside class="toc-sidebar">
+    <div class="toc-title">Animation Contents</div>
+    <ul class="toc-list">
+      <li class="toc-item"><a href="#section1" class="toc-link">GSAP Basics</a></li>
+      <li class="toc-item"><a href="#section2" class="toc-link">Page Transitions</a></li>
+      <li class="toc-item"><a href="#section3" class="toc-link">Image Effects</a></li>
+      <li class="toc-item"><a href="#section4" class="toc-link">Text Animations</a></li>
+      <li class="toc-item"><a href="#section5" class="toc-link">Scroll Animations</a></li>
+      <li class="toc-item"><a href="#section6" class="toc-link">Three.js Basics</a></li>
+      <li class="toc-item"><a href="#section7" class="toc-link">3D Transitions</a></li>
+      <li class="toc-item"><a href="#section8" class="toc-link">Advanced 3D</a></li>
+      <li class="toc-item"><a href="#section9" class="toc-link">Practical Projects</a></li>
+    </ul>
+  </aside>
+
+  <!-- Section Navigation -->
+  <div class="section-nav">
+    <button class="nav-arrow up" title="Previous section">↑</button>
+    <button class="nav-arrow down" title="Next section">↓</button>
+  </div>
+
+  <!-- SECTION 1: GSAP Basics -->
+  <section class="lesson-section" id="section1">
+    <div class="panel panel-code">
+      <div class="section-number">01</div>
+      <div class="panel-content" style="width: 100%;">
+        <div class="code-editor-container" data-editor="js">
+          <div class="editor-header">
+            <div class="editor-tabs">
+              <button class="editor-tab active">JavaScript</button>
+              <button class="editor-tab">Preview</button>
+            </div>
+            <div class="editor-actions">
+              <button class="editor-btn" title="Copy">📋</button>
+              <button class="run-btn">Run Code</button>
+            </div>
+          </div>
+          <div class="editor-body">
+            <textarea class="code-input" spellcheck="false">// ===== GSAP BASICS =====
+// GSAP (GreenSock Animation Platform) is the industry standard for web animation
+
+// Register ScrollTrigger plugin
+gsap.registerPlugin(ScrollTrigger);
+
+// ===== BASIC TWEENS =====
+// Animate to a state (from current to specified)
+gsap.to(".box", {
+  x: 200,           // Move 200px right
+  rotation: 360,    // Rotate 360 degrees
+  duration: 2,      // 2 seconds
+  ease: "power2.inOut"
+});
+
+// Animate from a state (from specified to current)
+gsap.from(".circle", {
+  scale: 0,
+  opacity: 0,
+  duration: 1,
+  ease: "back.out(1.7)"
+});
+
+// Animate from one state to another
+gsap.fromTo(".element", 
+  { x: -100, opacity: 0 },    // From
+  { x: 100, opacity: 1, duration: 1.5 }  // To
+);
+
+// ===== TIMELINE =====
+// Chain multiple animations together
+const tl = gsap.timeline({
+  defaults: { ease: "power2.out" }
+});
+
+tl.to(".header", { y: 0, opacity: 1, duration: 1 })
+  .to(".subheader", { y: 0, opacity: 1, duration: 0.8 }, "-=0.5")
+  .to(".button", { scale: 1, opacity: 1, duration: 0.5 });
+
+// ===== STAGGER ANIMATIONS =====
+gsap.from(".card", {
+  y: 50,
+  opacity: 0,
+  duration: 0.8,
+  stagger: 0.2,
+  ease: "power2.out"
+});
+
+console.log("GSAP animations ready!");</textarea>
+          </div>
+          <div class="editor-footer">
+            <span class="editor-info">GSAP Basics</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-info">
+      <div class="panel-content">
+        <h2 class="section-title">GSAP Basics</h2>
+        <div class="section-description">
+          <p>GSAP is the industry standard for web animation, used by Google, Netflix, and Microsoft. It handles everything from simple fades to complex sequenced animations.</p>
+          
+          <h3>Core Methods</h3>
+          <ul>
+            <li><strong>gsap.to()</strong> - Animate TO a state</li>
+            <li><strong>gsap.from()</strong> - Animate FROM a state</li>
+            <li><strong>gsap.fromTo()</strong> - Full control with from/to</li>
+            <li><strong>gsap.timeline()</strong> - Chain animations</li>
+          </ul>
+
+          <div class="tip-box">
+            <strong>💡 Pro Tip:</strong> Use GSAP's built-in easing functions for better performance and control than CSS.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="js/theme.js"></script>
+  <script src="js/editor.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

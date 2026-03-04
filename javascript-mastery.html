@@ -1,0 +1,3063 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Complete JavaScript Mastery - Learn modern JavaScript from fundamentals to advanced concepts">
+  <title>JavaScript Mastery | Web Development Course</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/layouts.css">
+  <link rel="stylesheet" href="css/editor.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Progress Bar -->
+  <div class="progress-indicator">
+    <div class="progress-indicator-bar"></div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="navbar-content">
+      <a href="index.html" class="logo">
+        <span>🚀</span>
+        <span>WebDev Course</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="html-masterclass.html">HTML</a></li>
+        <li><a href="css-mastery.html">CSS</a></li>
+        <li><a href="javascript-mastery.html" class="active">JavaScript</a></li>
+        <li><a href="transitions-effects.html">Animations</a></li>
+        <li><a href="projects.html">Projects</a></li>
+      </ul>
+      <button class="theme-toggle" aria-label="Toggle dark mode"></button>
+    </div>
+  </nav>
+
+  <!-- Table of Contents Sidebar -->
+  <button class="toc-toggle btn btn-icon" style="position: fixed; left: 20px; bottom: 20px; z-index: 100;">📋</button>
+  <aside class="toc-sidebar">
+    <div class="toc-title">JS Contents</div>
+    <ul class="toc-list">
+      <li class="toc-item"><a href="#section1" class="toc-link">Fundamentals</a></li>
+      <li class="toc-item"><a href="#section2" class="toc-link">Control Flow</a></li>
+      <li class="toc-item"><a href="#section3" class="toc-link">Functions</a></li>
+      <li class="toc-item"><a href="#section4" class="toc-link">Arrays & Objects</a></li>
+      <li class="toc-item"><a href="#section5" class="toc-link">DOM Manipulation</a></li>
+      <li class="toc-item"><a href="#section6" class="toc-link">Events</a></li>
+      <li class="toc-item"><a href="#section7" class="toc-link">Forms & Input</a></li>
+      <li class="toc-item"><a href="#section8" class="toc-link">JSON & Data</a></li>
+      <li class="toc-item"><a href="#section9" class="toc-link">Fetch API</a></li>
+      <li class="toc-item"><a href="#section10" class="toc-link">Async Programming</a></li>
+      <li class="toc-item"><a href="#section11" class="toc-link">Storage & Persistence</a></li>
+      <li class="toc-item"><a href="#section12" class="toc-link">Theme Implementation</a></li>
+      <li class="toc-item"><a href="#section13" class="toc-link">Form to Backend</a></li>
+      <li class="toc-item"><a href="#section14" class="toc-link">Modern JS (ES6+)</a></li>
+      <li class="toc-item"><a href="#section15" class="toc-link">Error Handling</a></li>
+      <li class="toc-item"><a href="#section16" class="toc-link">Best Practices</a></li>
+    </ul>
+  </aside>
+
+  <!-- Section Navigation -->
+  <div class="section-nav">
+    <button class="nav-arrow up" title="Previous section">↑</button>
+    <button class="nav-arrow down" title="Next section">↓</button>
+  </div>
+
+  <!-- SECTION 1: JavaScript Fundamentals -->
+  <section class="lesson-section" id="section1">
+    <div class="panel panel-code">
+      <div class="section-number">01</div>
+      <div class="panel-content" style="width: 100%;">
+        <div class="code-editor-container" data-editor="js">
+          <div class="editor-header">
+            <div class="editor-tabs">
+              <button class="editor-tab active">JavaScript</button>
+              <button class="editor-tab">Preview</button>
+            </div>
+            <div class="editor-actions">
+              <button class="editor-btn" title="Copy">📋</button>
+              <button class="run-btn">Run Code</button>
+            </div>
+          </div>
+          <div class="editor-body">
+            <textarea class="code-input" spellcheck="false">// ===== VARIABLES =====
+// var - function scoped (older, avoid)
+var oldWay = "I'm function scoped";
+
+// let - block scoped, can reassign
+let count = 0;
+count = 1; // ✓ Valid
+
+// const - block scoped, cannot reassign
+const PI = 3.14159;
+// PI = 3.14; // ✗ Error!
+
+// const objects/arrays can be modified
+const user = { name: "Sam" };
+user.name = "Sammy"; // ✓ Valid (property changed)
+// user = {}; // ✗ Error! (reassignment)
+
+// ===== DATA TYPES =====
+// Primitive types
+const str = "Hello";           // String
+const num = 42;                // Number
+const big = 9007199254740991n; // BigInt
+const bool = true;             // Boolean
+const nothing = null;          // Null
+const notDefined = undefined;  // Undefined
+const sym = Symbol("id");      // Symbol
+
+// Reference type
+const obj = { key: "value" };  // Object
+const arr = [1, 2, 3];         // Array (special object)
+
+// Check type with typeof
+console.log(typeof str);   // "string"
+console.log(typeof num);   // "number"
+console.log(typeof obj);   // "object"
+console.log(typeof null);  // "object" (quirk!)
+console.log(Array.isArray(arr)); // true
+
+// ===== OPERATORS =====
+// Arithmetic
+let a = 10, b = 3;
+console.log(a + b);  // 13
+console.log(a - b);  // 7
+console.log(a * b);  // 30
+console.log(a / b);  // 3.333...
+console.log(a % b);  // 1 (remainder)
+console.log(a ** b); // 1000 (power)
+
+// Assignment
+let x = 5;
+x += 3;  // x = x + 3
+x -= 2;  // x = x - 2
+x *= 2;  // x = x * 2
+x /= 4;  // x = x / 4
+
+// Comparison
+console.log(5 == "5");   // true (loose equality)
+console.log(5 === "5");  // false (strict equality)
+console.log(5 != "5");   // false
+console.log(5 !== "5");  // true
+console.log(10 > 5);     // true
+console.log(10 <= 10);   // true
+
+// Logical
+const hasID = true;
+const isAdult = true;
+console.log(hasID && isAdult);  // AND: both true
+console.log(hasID || isAdult);  // OR: either true
+console.log(!hasID);            // NOT: inverse
+
+// Nullish coalescing (??)
+const value = null ?? "default";  // "default"
+const zero = 0 ?? "default";      // 0 (not nullish)
+
+// Ternary operator
+const age = 20;
+const status = age >= 18 ? "adult" : "minor";
+console.log(status); // "adult"
+
+// Template literals
+const name = "Sammy";
+const greeting = `Hello, ${name}!`;
+console.log(greeting); // "Hello, Sammy!"</textarea>
+          </div>
+          <div class="editor-footer">
+            <span class="editor-info">JS Basics</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-info">
+      <div class="panel-content">
+        <h2 class="section-title">JavaScript Fundamentals</h2>
+        <div class="section-description">
+          <p>JavaScript is the programming language of the web. It runs in browsers and on servers (via Node.js), making it one of the most versatile languages.</p>
+          
+          <h3>Variable Declaration</h3>
+          <p>Modern JavaScript uses <code>let</code> and <code>const</code>. Avoid <code>var</code> in new code.</p>
+          <ul>
+            <li><strong>let</strong> - Block-scoped, can be reassigned</li>
+            <li><strong>const</strong> - Block-scoped, cannot be reassigned (but objects/arrays can be modified)</li>
+          </ul>
+
+          <h3>Data Types</h3>
+          <p>JavaScript has 7 primitive types and objects. Everything that's not primitive is an object.</p>
+
+          <h3>Strict Equality (===)</h3>
+          <p>Always use <code>===</code> and <code>!==</code> instead of <code>==</code> and <code>!=</code>. Strict equality checks both value AND type, preventing unexpected type coercion.</p>
+
+          <div class="tip-box">
+            <strong>💡 Pro Tip:</strong> Use <code>const</code> by default. Only use <code>let</code> when you know the value will change. This makes your code more predictable.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 2: Control Flow -->
+  <section class="lesson-section" id="section2">
+    <div class="panel panel-info">
+      <div class="panel-content">
+        <h2 class="section-title">Control Flow</h2>
+        <div class="section-description">
+          <p>Control flow statements determine which code runs and when. Master these to create dynamic, responsive programs.</p>
+          
+          <h3>Conditional Statements</h3>
+          <p><code>if...else</code> chains and <code>switch</code> statements let your code make decisions based on conditions.</p>
+
+          <h3>Loops</h3>
+          <p>Choose the right loop for your task:</p>
+          <ul>
+            <li><strong>for</strong> - When you know the iteration count</li>
+            <li><strong>while</strong> - When the condition is dynamic</li>
+            <li><strong>for...of</strong> - For iterating over values (arrays, strings)</li>
+            <li><strong>for...in</strong> - For iterating over keys (objects)</li>
+          </ul>
+
+          <h3>Loop Control</h3>
+          <p><code>break</code> exits the loop entirely. <code>continue</code> skips to the next iteration.</p>
+
+          <div class="tip-box warning">
+            <strong>⚠️ Warning:</strong> Be careful with <code>for...in</code> on arrays - it iterates over ALL enumerable properties, not just indices. Use <code>for...of</code> or <code>forEach</code> for arrays instead.
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-code">
+      <div class="section-number">02</div>
+      <div class="panel-content" style="width: 100%;">
+        <div class="code-editor-container" data-editor="js">
+          <div class="editor-header">
+            <div class="editor-tabs">
+              <button class="editor-tab active">JavaScript</button>
+              <button class="editor-tab">Preview</button>
+            </div>
+            <div class="editor-actions">
+              <button class="editor-btn" title="Copy">📋</button>
+              <button class="run-btn">Run Code</button>
+            </div>
+          </div>
+          <div class="editor-body">
+            <textarea class="code-input" spellcheck="false">// ===== CONDITIONAL STATEMENTS =====
+
+// if...else if...else
+const score = 85;
+
+if (score >= 90) {
+  console.log("Grade: A");
+} else if (score >= 80) {
+  console.log("Grade: B");  // This runs
+} else if (score >= 70) {
+  console.log("Grade: C");
+} else {
+  console.log("Grade: F");
+}
+
+// switch statement
+const day = 3;
+let dayName;
+
+switch (day) {
+  case 1:
+    dayName = "Monday";
+    break;
+  case 2:
+    dayName = "Tuesday";
+    break;
+  case 3:
+    dayName = "Wednesday";  // This runs
+    break;
+  case 4:
+    dayName = "Thursday";
+    break;
+  case 5:
+    dayName = "Friday";
+    break;
+  default:
+    dayName = "Weekend";
+}
+console.log(dayName); // "Wednesday"
+
+// ===== LOOPS =====
+
+// for loop
+for (let i = 0; i < 5; i++) {
+  console.log(`Iteration ${i}`);
+}
+
+// while loop
+let count = 0;
+while (count < 3) {
+  console.log(`Count: ${count}`);
+  count++;
+}
+
+// do...while (runs at least once)
+let num = 0;
+do {
+  console.log(`Do-while: ${num}`);
+  num++;
+} while (num < 0); // Condition false, but ran once
+
+// for...of (iterates values)
+const fruits = ["apple", "banana", "cherry"];
+for (const fruit of fruits) {
+  console.log(fruit);
+}
+
+// for...in (iterates keys)
+const person = { name: "Sam", age: 25 };
+for (const key in person) {
+  console.log(`${key}: ${person[key]}`);
+}
+
+// Array methods as loops
+const numbers = [1, 2, 3, 4, 5];
+
+// forEach
+numbers.forEach((num, index) => {
+  console.log(`${index}: ${num}`);
+});
+
+// map (creates new array)
+const doubled = numbers.map(num => num * 2);
+console.log(doubled); // [2, 4, 6, 8, 10]
+
+// filter
+const evens = numbers.filter(num => num % 2 === 0);
+console.log(evens); // [2, 4]
+
+// Loop control
+for (let i = 0; i < 10; i++) {
+  if (i === 3) continue; // Skip 3
+  if (i === 7) break;    // Stop at 7
+  console.log(i);        // 0, 1, 2, 4, 5, 6
+}</textarea>
+          </div>
+          <div class="editor-footer">
+            <span class="editor-info">Control Flow</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3: Functions -->
+  <section class="lesson-section" id="section3">
+    <div class="panel panel-code">
+      <div class="section-number">03</div>
+      <div class="panel-content" style="width: 100%;">
+        <div class="code-editor-container" data-editor="js">
+          <div class="editor-header">
+            <div class="editor-tabs">
+              <button class="editor-tab active">JavaScript</button>
+              <button class="editor-tab">Preview</button>
+            </div>
+            <div class="editor-actions">
+              <button class="editor-btn" title="Copy">📋</button>
+              <button class="run-btn">Run Code</button>
+            </div>
+          </div>
+          <div class="editor-body">
+            <textarea class="code-input" spellcheck="false">// ===== FUNCTION DECLARATIONS =====
+// Hoisted (can be called before declaration)
+function greet(name) {
+  return `Hello, ${name}!`;
+}
+console.log(greet("Sam")); // "Hello, Sam!"
+
+// ===== FUNCTION EXPRESSIONS =====
+// Not hoisted
+const add = function(a, b) {
+  return a + b;
+};
+console.log(add(5, 3)); // 8
+
+// ===== ARROW FUNCTIONS =====
+// Concise syntax, no 'this' binding
+const multiply = (a, b) => a * b;
+console.log(multiply(4, 3)); // 12
+
+// Single parameter (no parentheses needed)
+const square = x => x * x;
+console.log(square(5)); // 25
+
+// Multi-line arrow function (needs braces and return)
+const divide = (a, b) => {
+  if (b === 0) return "Cannot divide by zero";
+  return a / b;
+};
+
+// ===== DEFAULT PARAMETERS =====
+function greetUser(name = "Guest", greeting = "Hello") {
+  return `${greeting}, ${name}!`;
+}
+console.log(greetUser());           // "Hello, Guest!"
+console.log(greetUser("Sam"));      // "Hello, Sam!"
+console.log(greetUser("Sam", "Hi")); // "Hi, Sam!"
+
+// ===== REST PARAMETERS =====
+function sum(...numbers) {
+  return numbers.reduce((total, num) => total + num, 0);
+}
+console.log(sum(1, 2, 3, 4, 5)); // 15
+
+// ===== SCOPE =====
+const globalVar = "I'm global";
+
+function outer() {
+  const outerVar = "I'm in outer";
+  
+  function inner() {
+    const innerVar = "I'm in inner";
+    console.log(globalVar); // ✓ Access global
+    console.log(outerVar);  // ✓ Access outer (closure!)
+    console.log(innerVar);  // ✓ Access own scope
+  }
+  
+  inner();
+}
+outer();
+
+// ===== CLOSURES =====
+// A function that remembers its outer scope
+function createCounter() {
+  let count = 0; // Private variable
+  
+  return {
+    increment: () => ++count,
+    decrement: () => --count,
+    getCount: () => count
+  };
+}
+
+const counter = createCounter();
+console.log(counter.increment()); // 1
+console.log(counter.increment()); // 2
+console.log(counter.getCount());  // 2
+console.log(counter.count);       // undefined (private!)
+
+// ===== HIGHER-ORDER FUNCTIONS =====
+// Functions that operate on other functions
+function withLogging(fn) {
+  return function(...args) {
+    console.log(`Calling ${fn.name} with`, args);
+    const result = fn(...args);
+    console.log(`Result:`, result);
+    return result;
+  };
+}
+
+const loggedAdd = withLogging(add);
+loggedAdd(2, 3);
+
+// ===== IIFE (Immediately Invoked Function Expression) =====
+// Creates private scope
+const result = (function() {
+  const secret = "I'm private";
+  return { public: "I'm public" };
+})();
+console.log(result.public);  // "I'm public"
+// console.log(result.secret); // undefined</textarea>
+          </div>
+          <div class="editor-footer">
+            <span class="editor-info">Functions</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-info">
+      <div class="panel-content">
+        <h2 class="section-title">Functions</h2>
+        <div class="section-description">
+          <p>Functions are the building blocks of JavaScript. They encapsulate reusable logic and enable powerful patterns like closures and higher-order functions.</p>
+          
+          <h3>Function Types</h3>
+          <ul>
+            <li><strong>Declaration</strong> - Hoisted, named function</li>
+            <li><strong>Expression</strong> - Assigned to a variable</li>
+            <li><strong>Arrow</strong> - Concise syntax, lexical <code>this</code></li>
+          </ul>
+
+          <h3>Scope & Closures</h3>
+          <p>JavaScript has function scope and block scope (with <code>let</code>/<code>const</code>). A closure is a function that "remembers" its outer scope even when called elsewhere.</p>
+
+          <h3>Arrow Functions vs Regular</h3>
+          <p>Arrow functions don't have their own <code>this</code>, <code>arguments</code>, or <code>super</code>. They're perfect for callbacks and when you don't need function-specific features.</p>
+
+          <div class="tip-box">
+            <strong>💡 Best Practice:</strong> Use arrow functions for short callbacks and when you want to preserve <code>this</code> from the outer scope. Use regular functions for methods and when you need the function's own <code>this</code>.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 4: Arrays & Objects -->
+  <section class="lesson-section" id="section4">
+    <div class="panel panel-info">
+      <div class="panel-content">
+        <h2 class="section-title">Arrays & Objects</h2>
+        <div class="section-description">
+          <p>Arrays and objects are JavaScript's primary data structures. Master their methods and manipulation techniques to handle complex data efficiently.</p>
+          
+          <h3>Array Methods</h3>
+          <p>Modern JavaScript provides powerful array methods:</p>
+          <ul>
+            <li><strong>Transform</strong> - map, flatMap</li>
+            <li><strong>Filter</strong> - filter, find, findIndex</li>
+            <li><strong>Aggregate</strong> - reduce, some, every</li>
+            <li><strong>Sort</strong> - sort (mutable), toSorted (immutable)</li>
+          </ul>
+
+          <h3>Destructuring</h3>
+          <p>Extract values from arrays and objects into variables cleanly.</p>
+
+          <h3>Spread & Rest</h3>
+          <p><code>...</code> spreads elements (copy/concat) or collects them (rest parameters).</p>
+
+          <div class="tip-box">
+            <strong>💡 Remember:</strong> Arrays are objects in JavaScript. Use <code>Array.isArray()</code> to check if something is specifically an array.
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-code">
+      <div class="section-number">04</div>
+      <div class="panel-content" style="width: 100%;">
+        <div class="code-editor-container" data-editor="js">
+          <div class="editor-header">
+            <div class="editor-tabs">
+              <button class="editor-tab active">JavaScript</button>
+              <button class="editor-tab">Preview</button>
+            </div>
+            <div class="editor-actions">
+              <button class="editor-btn" title="Copy">📋</button>
+              <button class="run-btn">Run Code</button>
+            </div>
+          </div>
+          <div class="editor-body">
+            <textarea class="code-input" spellcheck="false">// ===== ARRAY METHODS =====
+const numbers = [1, 2, 3, 4, 5];
+const words = ["hello", "world", "javascript"];
+
+// map - transform each element
+const doubled = numbers.map(n => n * 2);
+console.log(doubled); // [2, 4, 6, 8, 10]
+
+// filter - keep elements that match condition
+const evens = numbers.filter(n => n % 2 === 0);
+console.log(evens); // [2, 4]
+
+// find - get first matching element
+const firstEven = numbers.find(n => n > 2);
+console.log(firstEven); // 3
+
+// reduce - aggregate to single value
+const sum = numbers.reduce((acc, n) => acc + n, 0);
+console.log(sum); // 15
+
+// some/every - test elements
+const hasEven = numbers.some(n => n % 2 === 0); // true
+const allPositive = numbers.every(n => n > 0);  // true
+
+// includes - check if element exists
+console.log(numbers.includes(3)); // true
+
+// sort (mutable) - sort in place
+const sorted = [3, 1, 4, 1, 5].sort((a, b) => a - b);
+console.log(sorted); // [1, 1, 3, 4, 5]
+
+// toSorted (immutable) - ES2023
+const original = [3, 1, 4];
+const newSorted = original.toSorted((a, b) => a - b);
+console.log(original);  // [3, 1, 4] - unchanged!
+
+// Chaining
+const result = numbers
+  .filter(n => n > 2)
+  .map(n => n * 10)
+  .reduce((sum, n) => sum + n, 0);
+console.log(result); // 120 (30 + 40 + 50)
+
+// ===== OBJECT METHODS =====
+const user = {
+  name: "Sam",
+  age: 25,
+  email: "sam@example.com"
+};
+
+// Object.keys, values, entries
+console.log(Object.keys(user));    // ["name", "age", "email"]
+console.log(Object.values(user));  // ["Sam", 25, "sam@example.com"]
+console.log(Object.entries(user)); // [["name", "Sam"], ...]
+
+// Object.fromEntries (reverse of entries)
+const entries = [["x", 1], ["y", 2]];
+const obj = Object.fromEntries(entries);
+console.log(obj); // { x: 1, y: 2 }
+
+// Object.assign (merge objects)
+const defaults = { theme: "dark", lang: "en" };
+const settings = Object.assign({}, defaults, { lang: "fr" });
+console.log(settings); // { theme: "dark", lang: "fr" }
+
+// Spread operator (prefer over Object.assign)
+const newSettings = { ...defaults, lang: "es" };
+
+// ===== DESTRUCTURING =====
+// Array destructuring
+const [first, second, ...rest] = [1, 2, 3, 4, 5];
+console.log(first, second, rest); // 1, 2, [3, 4, 5]
+
+// Skip elements
+const [a, , c] = [1, 2, 3];
+console.log(a, c); // 1, 3
+
+// Default values
+const [x = 0, y = 0] = [5];
+console.log(x, y); // 5, 0
+
+// Object destructuring
+const { name, age, email = "no-email" } = user;
+console.log(name, age); // "Sam" 25
+
+// Rename variables
+const { name: userName, age: userAge } = user;
+console.log(userName); // "Sam"
+
+// Nested destructuring
+const person = {
+  info: { firstName: "Sam", lastName: "Smith" },
+  address: { city: "NYC" }
+};
+const { info: { firstName }, address: { city } } = person;
+console.log(firstName, city); // "Sam" "NYC"
+
+// ===== SPREAD OPERATOR =====
+// Copy arrays
+const copy = [...numbers];
+
+// Concatenate arrays
+const combined = [...numbers, ...words];
+
+// Copy objects
+const userCopy = { ...user };
+
+// Merge objects
+const merged = { ...user, ...settings };
+
+// Convert string to array
+const chars = [..."hello"]; // ["h", "e", "l", "l", "o"]
+
+// Function arguments
+const nums = [1, 2, 3];
+console.log(Math.max(...nums)); // 3</textarea>
+          </div>
+          <div class="editor-footer">
+            <span class="editor-info">Arrays & Objects</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 5: DOM Manipulation -->
+  <section class="lesson-section" id="section5">
+    <div class="panel panel-code">
+      <div class="section-number">05</div>
+      <div class="panel-content" style="width: 100%;">
+        <div class="code-editor-container" data-editor="js">
+          <div class="editor-header">
+            <div class="editor-tabs">
+              <button class="editor-tab active">JavaScript</button>
+              <button class="editor-tab">HTML</button>
+              <button class="editor-tab">Preview</button>
+            </div>
+            <div class="editor-actions">
+              <button class="editor-btn" title="Copy">📋</button>
+              <button class="run-btn">Run Code</button>
+            </div>
+          </div>
+          <div class="editor-body">
+            <textarea class="code-input" spellcheck="false">// ===== SELECTING ELEMENTS =====
+
+// Single element selectors
+const byId = document.getElementById("myId");
+const byQuery = document.querySelector(".my-class");
+const firstButton = document.querySelector("button");
+
+// Multiple element selectors
+const byClass = document.getElementsByClassName("item"); // HTMLCollection
+const byTag = document.getElementsByTagName("div");      // HTMLCollection
+const allButtons = document.querySelectorAll("button");  // NodeList
+
+// ===== TRAVERSING THE DOM =====
+const element = document.querySelector(".container");
+
+// Parent & siblings
+const parent = element.parentElement;
+const next = element.nextElementSibling;
+const prev = element.previousElementSibling;
+
+// Children
+const children = element.children;          // HTMLCollection
+const firstChild = element.firstElementChild;
+const lastChild = element.lastElementChild;
+
+// Closest ancestor
+const closest = element.closest(".wrapper");
+
+// Check if contains
+const hasChild = element.contains(childElement);
+
+// ===== MODIFYING CONTENT =====
+const box = document.querySelector(".box");
+
+// Text content (safest, escapes HTML)
+box.textContent = "Hello &lt;World&gt;"; // Shows: Hello &lt;World&gt;
+
+// Inner HTML (parses HTML tags)
+box.innerHTML = "<strong>Bold</strong> text";
+
+// Insert adjacent HTML
+box.insertAdjacentHTML("beforebegin", "<p>Before</p>");
+box.insertAdjacentHTML("afterbegin", "<span>First</span>");
+box.insertAdjacentHTML("beforeend", "<span>Last</span>");
+box.insertAdjacentHTML("afterend", "<p>After</p>");
+
+// ===== MODIFYING ATTRIBUTES =====
+const link = document.querySelector("a");
+
+// Standard attributes
+link.href = "https://example.com";
+link.target = "_blank";
+link.id = "new-id";
+
+// getAttribute / setAttribute
+link.setAttribute("data-custom", "value");
+const custom = link.getAttribute("data-custom");
+
+// Check/has attribute
+const hasHref = link.hasAttribute("href");
+link.removeAttribute("title");
+
+// Data attributes (dataset)
+const card = document.querySelector("[data-user-id]");
+console.log(card.dataset.userId);     // getter
+card.dataset.role = "admin";          // setter
+
+// ===== MODIFYING CLASSES =====
+const button = document.querySelector(".btn");
+
+// classList API (preferred)
+button.classList.add("active", "large");
+button.classList.remove("small");
+button.classList.toggle("disabled");
+button.classList.replace("old", "new");
+
+// Check class
+const isActive = button.classList.contains("active");
+
+// Old way (avoid)
+button.className = "btn active"; // Overwrites all classes!
+
+// ===== MODIFYING STYLES =====
+const box2 = document.querySelector(".box");
+
+// Inline styles
+box2.style.backgroundColor = "blue";
+box2.style.width = "100px";
+box2.style.cssText = "color: red; font-size: 20px;";
+
+// CSS variables
+box2.style.setProperty("--my-color", "purple");
+const color = getComputedStyle(box2).getPropertyValue("--my-color");
+
+// Computed styles
+const styles = getComputedStyle(box2);
+console.log(styles.backgroundColor);
+
+// ===== CREATING & REMOVING ELEMENTS =====
+
+// Create element
+const newDiv = document.createElement("div");
+newDiv.className = "new-box";
+newDiv.textContent = "I'm new!";
+
+// Add to DOM
+document.body.append(newDiv);              // Add at end
+document.body.prepend(newDiv);             // Add at beginning
+parent.appendChild(newDiv);                // Old way
+parent.insertBefore(newDiv, referenceNode); // Old way
+
+// Remove element
+newDiv.remove(); // Modern way
+// parent.removeChild(newDiv); // Old way
+
+// Clone element
+const clone = newDiv.cloneNode(true); // true = deep clone</textarea>
+          </div>
+          <div class="editor-footer">
+            <span class="editor-info">DOM Manipulation</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-info">
+      <div class="panel-content">
+        <h2 class="section-title">DOM Manipulation</h2>
+        <div class="section-description">
+          <p>The Document Object Model (DOM) is JavaScript's interface to HTML. Master DOM manipulation to create dynamic, interactive web pages.</p>
+          
+          <h3>Element Selection</h3>
+          <ul>
+            <li><strong>querySelector</strong> - Single element (CSS selector)</li>
+            <li><strong>querySelectorAll</strong> - All matching elements</li>
+            <li><strong>getElementById</strong> - Fastest for ID lookups</li>
+          </ul>
+
+          <h3>NodeList vs HTMLCollection</h3>
+          <p><code>querySelectorAll</code> returns a static NodeList. <code>getElementsBy*</code> returns a live HTMLCollection that updates when DOM changes.</p>
+
+          <h3>Performance Tips</h3>
+          <p>Cache selectors in variables. Use <code>textContent</code> over <code>innerHTML</code> for plain text. Batch DOM changes to minimize reflows.</p>
+
+          <div class="tip-box warning">
+            <strong>⚠️ Security:</strong> Never use <code>innerHTML</code> with user input - it opens XSS vulnerabilities. Use <code>textContent</code> instead.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 6: Events -->
+  <section class="lesson-section" id="section6">
+    <div class="panel panel-info">
+      <div class="panel-content">
+        <h2 class="section-title">Events</h2>
+        <div class="section-description">
+          <p>Events enable interactivity. They signal when something happens - a click, keypress, page load, or custom trigger.</p>
+          
+          <h3>Event Handling Methods</h3>
+          <ul>
+            <li><strong>addEventListener</strong> - Modern, multiple handlers per event</li>
+            <li><strong>onclick (inline)</strong> - Old way, overwrites previous handlers</li>
+          </ul>
+
+          <h3>Event Propagation</h3>
+          <p>Events bubble up from target to ancestors (bubbling phase). Capturing goes the opposite direction. Most handlers use bubbling.</p>
+
+          <h3>Event Delegation</h3>
+          <p>Instead of adding listeners to many elements, add one to a parent and check <code>event.target</code>. More efficient for dynamic content.</p>
+
+          <div class="tip-box">
+            <strong>💡 Performance:</strong> Always remove event listeners when components are destroyed to prevent memory leaks, especially in SPAs.
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-code">
+      <div class="section-number">06</div>
+      <div class="panel-content" style="width: 100%;">
+        <div class="code-editor-container" data-editor="js">
+          <div class="editor-header">
+            <div class="editor-tabs">
+              <button class="editor-tab active">JavaScript</button>
+              <button class="editor-tab">HTML</button>
+              <button class="editor-tab">Preview</button>
+            </div>
+            <div class="editor-actions">
+              <button class="editor-btn" title="Copy">📋</button>
+              <button class="run-btn">Run Code</button>
+            </div>
+          </div>
+          <div class="editor-body">
+            <textarea class="code-input" spellcheck="false">// ===== ADD EVENT LISTENERS =====
+const button = document.querySelector("#myBtn");
+
+// Modern approach (preferred)
+button.addEventListener("click", handleClick);
+
+function handleClick(event) {
+  console.log("Clicked!", event);
+}
+
+// Multiple handlers (both fire)
+button.addEventListener("click", () => console.log("Handler 2"));
+
+// Once option (auto-removes after firing)
+button.addEventListener("click", () => {
+  console.log("Fires only once!");
+}, { once: true });
+
+// Remove listener
+button.removeEventListener("click", handleClick);
+
+// ===== EVENT OBJECT =====
+button.addEventListener("click", (e) => {
+  e.preventDefault();     // Stop default behavior
+  e.stopPropagation();    // Stop bubbling
+  
+  console.log(e.type);     // "click"
+  console.log(e.target);   // Element that was clicked
+  console.log(e.currentTarget); // Element with listener
+  console.log(e.clientX, e.clientY); // Mouse position
+});
+
+// ===== COMMON EVENT TYPES =====
+
+// Mouse events
+button.addEventListener("click", () => {});      // Click
+button.addEventListener("dblclick", () => {});   // Double click
+button.addEventListener("mousedown", () => {});  // Mouse down
+button.addEventListener("mouseup", () => {});    // Mouse up
+button.addEventListener("mouseenter", () => {}); // Enter element
+button.addEventListener("mouseleave", () => {}); // Leave element
+button.addEventListener("mousemove", () => {});  // Moving over
+
+// Keyboard events
+document.addEventListener("keydown", (e) => {
+  console.log(e.key);      // Key pressed ("Enter", "a", etc.)
+  console.log(e.code);     // Physical key ("KeyA", "Enter")
+  console.log(e.ctrlKey);  // Ctrl pressed?
+  console.log(e.shiftKey); // Shift pressed?
+  
+  if (e.key === "Enter" && e.ctrlKey) {
+    console.log("Ctrl+Enter pressed!");
+  }
+});
+
+// Form events
+const input = document.querySelector("input");
+input.addEventListener("input", (e) => console.log(e.target.value));
+input.addEventListener("change", (e) => console.log("Changed to:", e.target.value));
+input.addEventListener("focus", () => console.log("Focused"));
+input.addEventListener("blur", () => console.log("Blurred"));
+
+// Window events
+window.addEventListener("load", () => console.log("Page loaded"));
+window.addEventListener("resize", () => console.log("Window resized"));
+window.addEventListener("scroll", () => console.log("Scrolling"));
+
+// ===== EVENT DELEGATION =====
+// Instead of adding listeners to every item
+const list = document.querySelector("#myList");
+
+list.addEventListener("click", (e) => {
+  if (e.target.matches("li")) {
+    console.log("List item clicked:", e.target.textContent);
+  }
+  
+  // Or use closest for nested elements
+  const item = e.target.closest("li");
+  if (item) {
+    console.log("Clicked inside:", item.textContent);
+  }
+});
+
+// ===== CUSTOM EVENTS =====
+const customEvent = new CustomEvent("userLogin", {
+  detail: { username: "Sam", id: 123 }
+});
+
+document.addEventListener("userLogin", (e) => {
+  console.log("User logged in:", e.detail.username);
+});
+
+document.dispatchEvent(customEvent);
+
+// ===== EVENT PROPAGATION VISUAL =====
+// <div id="grandparent">
+//   <div id="parent">
+//     <button id="child">Click</button>
+//   </div>
+// </div>
+
+// Clicking child fires:
+// 1. CAPTURING phase: grandparent → parent → child
+// 2. TARGET phase: child
+// 3. BUBBLING phase: child → parent → grandparent
+
+// Capturing listener (rarely used)
+document.getElementById("grandparent").addEventListener("click", () => {
+  console.log("Grandparent (capturing)");
+}, true); // true = capturing phase
+
+// Bubbling listener (default)
+document.getElementById("grandparent").addEventListener("click", () => {
+  console.log("Grandparent (bubbling)");
+}); // false or omitted = bubbling phase</textarea>
+          </div>
+          <div class="editor-footer">
+            <span class="editor-info">Events</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 7: Forms & Input -->
+  <section class="lesson-section" id="section7">
+    <div class="panel panel-code">
+      <div class="section-number">07</div>
+      <div class="panel-content" style="width: 100%;">
+        <div class="code-editor-container" data-editor="js">
+          <div class="editor-header">
+            <div class="editor-tabs">
+              <button class="editor-tab active">JavaScript</button>
+              <button class="editor-tab">HTML</button>
+              <button class="editor-tab">Preview</button>
+            </div>
+            <div class="editor-actions">
+              <button class="editor-btn" title="Copy">📋</button>
+              <button class="run-btn">Run Code</button>
+            </div>
+          </div>
+          <div class="editor-body">
+            <textarea class="code-input" spellcheck="false">// ===== FORM ELEMENTS =====
+const form = document.querySelector("#myForm");
+const input = document.querySelector("#username");
+const select = document.querySelector("#country");
+const checkbox = document.querySelector("#agree");
+const radioGroup = document.querySelectorAll("[name='gender']");
+
+// ===== READING VALUES =====
+// Text input
+console.log(input.value);        // Current value
+console.log(input.value.trim()); // Trimmed value
+
+// Checkbox
+console.log(checkbox.checked);   // true/false
+
+// Select (dropdown)
+console.log(select.value);              // Selected option value
+console.log(select.options[select.selectedIndex].text); // Display text
+
+// Radio buttons
+const selectedRadio = document.querySelector("[name='gender']:checked");
+console.log(selectedRadio?.value);
+
+// ===== SETTING VALUES =====
+input.value = "New value";
+checkbox.checked = true;
+select.value = "usa"; // Must match option value
+
+// Check radio by value
+document.querySelector("[name='gender'][value='male']").checked = true;
+
+// ===== FORM VALIDATION API =====
+const email = document.querySelector("#email");
+
+// Built-in validation
+email.required = true;
+email.type = "email";
+email.minLength = 5;
+email.maxLength = 100;
+email.pattern = "[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,}$";
+
+// Check validity
+if (email.validity.valid) {
+  console.log("Email is valid");
+} else {
+  console.log("Email errors:", email.validity);
+}
+
+// ValidityState properties
+// validity.valueMissing - empty required field
+// validity.typeMismatch - wrong format (e.g. not an email)
+// validity.patternMismatch - doesn't match pattern
+// validity.tooShort / tooLong
+// validity.rangeUnderflow / rangeOverflow
+// validity.valid - overall validity
+
+// Show custom error
+if (!email.validity.valid) {
+  email.setCustomValidity("Please enter a valid email");
+} else {
+  email.setCustomValidity(""); // Clear error
+}
+
+// ===== FORMDATA API =====
+form.addEventListener("submit", (e) => {
+  e.preventDefault(); // Stop actual submission
+  
+  // Collect all form data
+  const formData = new FormData(form);
+  
+  // Get individual value
+  console.log(formData.get("username"));
+  
+  // Get all values (including multiple checkboxes)
+  console.log(formData.getAll("interests"));
+  
+  // Iterate
+  for (const [key, value] of formData) {
+    console.log(`${key}: ${value}`);
+  }
+  
+  // Convert to object
+  const data = Object.fromEntries(formData);
+  console.log(data);
+  
+  // Convert to JSON
+  const json = JSON.stringify(data);
+  
+  // Send to server (shown in Fetch API section)
+  // fetch('/api/submit', { method: 'POST', body: formData });
+});
+
+// ===== FILE INPUTS =====
+const fileInput = document.querySelector("#avatar");
+
+fileInput.addEventListener("change", (e) => {
+  const file = e.target.files[0]; // Get first file
+  
+  if (file) {
+    console.log("Name:", file.name);
+    console.log("Size:", file.size);     // bytes
+    console.log("Type:", file.type);     // MIME type
+    console.log("Last modified:", file.lastModified);
+    
+    // Read file content
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      const content = e.target.result;
+      console.log("File content:", content);
+    };
+    reader.readAsText(file);     // As text
+    // reader.readAsDataURL(file); // As base64 (for images)
+    // reader.readAsArrayBuffer(file); // As binary
+  }
+});
+
+// ===== MULTIPLE FILES =====
+const multiInput = document.querySelector("#photos");
+
+multiInput.addEventListener("change", (e) => {
+  const files = Array.from(e.target.files);
+  
+  files.forEach(file => {
+    if (file.type.startsWith("image/")) {
+      // Create preview
+      const img = document.createElement("img");
+      img.src = URL.createObjectURL(file);
+      img.style.maxWidth = "100px";
+      document.body.append(img);
+    }
+  });
+});
+
+// ===== DRAG & DROP =====
+const dropZone = document.querySelector("#dropZone");
+
+dropZone.addEventListener("dragover", (e) => {
+  e.preventDefault();
+  dropZone.classList.add("drag-over");
+});
+
+dropZone.addEventListener("dragleave", () => {
+  dropZone.classList.remove("drag-over");
+});
+
+dropZone.addEventListener("drop", (e) => {
+  e.preventDefault();
+  dropZone.classList.remove("drag-over");
+  
+  const files = e.dataTransfer.files;
+  console.log("Dropped files:", files);
+});</textarea>
+          </div>
+          <div class="editor-footer">
+            <span class="editor-info">Forms & Input</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-info">
+      <div class="panel-content">
+        <h2 class="section-title">Forms & Input</h2>
+        <div class="section-description">
+          <p>Forms are the primary way users interact with websites. JavaScript enhances forms with validation, dynamic updates, and AJAX submission.</p>
+          
+          <h3>FormData API</h3>
+          <p>The <code>FormData</code> object makes it easy to collect and send form values. It handles all input types including files.</p>
+
+          <h3>Validation API</h3>
+          <p>HTML5 validation attributes (<code>required</code>, <code>pattern</code>, etc.) work with JavaScript's <code>validity</code> API for custom error handling.</p>
+
+          <h3>File Handling</h3>
+          <p>Use <code>FileReader</code> to read file contents. <code>URL.createObjectURL()</code> creates temporary URLs for previews.</p>
+
+          <div class="tip-box">
+            <strong>💡 UX Tip:</strong> Always validate on both client-side (for speed) AND server-side (for security). Client validation can be bypassed!
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 8: JSON & Data -->
+  <section class="lesson-section" id="section8">
+    <div class="panel panel-info">
+      <div class="panel-content">
+        <h2 class="section-title">JSON & Data</h2>
+        <div class="section-description">
+          <p>JSON (JavaScript Object Notation) is the universal data format for APIs. It's lightweight, human-readable, and supported by every modern language.</p>
+          
+          <h3>JSON.stringify</h3>
+          <p>Converts JavaScript objects to JSON strings. Use <code>replacer</code> to filter properties, <code>space</code> for pretty printing.</p>
+
+          <h3>JSON.parse</h3>
+          <p>Converts JSON strings back to JavaScript objects. Always wrap in try/catch when parsing external data.</p>
+
+          <h3>Working with APIs</h3>
+          <p>APIs return JSON. Use <code>Response.json()</code> to parse, or <code>JSON.parse()</code> for raw strings.</p>
+
+          <div class="tip-box warning">
+            <strong>⚠️ Limitations:</strong> JSON doesn't support functions, undefined, or circular references. Dates become strings - use libraries like date-fns for proper handling.
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-code">
+      <div class="section-number">08</div>
+      <div class="panel-content" style="width: 100%;">
+        <div class="code-editor-container" data-editor="js">
+          <div class="editor-header">
+            <div class="editor-tabs">
+              <button class="editor-tab active">JavaScript</button>
+              <button class="editor-tab">Preview</button>
+            </div>
+            <div class="editor-actions">
+              <button class="editor-btn" title="Copy">📋</button>
+              <button class="run-btn">Run Code</button>
+            </div>
+          </div>
+          <div class="editor-body">
+            <textarea class="code-input" spellcheck="false">// ===== JSON BASICS =====
+// JSON is a string format for data exchange
+
+const user = {
+  name: "Sam",
+  age: 25,
+  email: "sam@example.com",
+  hobbies: ["coding", "gaming"],
+  address: {
+    city: "Bangalore",
+    country: "India"
+  },
+  isActive: true,
+  createdAt: new Date()
+};
+
+// Convert object to JSON string
+const jsonString = JSON.stringify(user);
+console.log(jsonString);
+// {"name":"Sam","age":25,...}
+
+// Pretty print with indentation
+const prettyJSON = JSON.stringify(user, null, 2);
+console.log(prettyJSON);
+
+// ===== REPLACER FUNCTION =====
+// Filter what gets serialized
+const filtered = JSON.stringify(user, (key, value) => {
+  // Exclude email field
+  if (key === "email") return undefined;
+  return value;
+});
+console.log(filtered);
+
+// Or use an array of allowed keys
+const selected = JSON.stringify(user, ["name", "age"]);
+console.log(selected); // {"name":"Sam","age":25}
+
+// ===== PARSE JSON =====
+const json = '{"name":"Sam","age":25}';
+const parsed = JSON.parse(json);
+console.log(parsed.name); // "Sam"
+
+// Parse with reviver (transform values)
+const data = '{"date":"2024-01-15","count":"42"}';
+const revived = JSON.parse(data, (key, value) => {
+  if (key === "count") return parseInt(value);
+  return value;
+});
+console.log(revived.count); // 42 (number, not string)
+
+// ===== JSON LIMITATIONS =====
+// These are NOT supported in JSON:
+// - Functions
+// - undefined
+// - Symbols
+// - Circular references
+// - Special object types (Map, Set, Date becomes string)
+
+const problematic = {
+  fn: () => {},           // Lost
+  undef: undefined,       // Lost
+  sym: Symbol("id"),      // Lost
+  date: new Date()        // Converted to string
+};
+
+console.log(JSON.stringify(problematic));
+// {"date":"2024-03-04T..."}
+
+// ===== WORKING WITH APIS =====
+
+// Mock API response
+const apiResponse = `{
+  "users": [
+    { "id": 1, "name": "Sam", "role": "admin" },
+    { "id": 2, "name": "Alex", "role": "user" }
+  ],
+  "total": 2,
+  "page": 1
+}`;
+
+const apiData = JSON.parse(apiResponse);
+
+// Access nested data
+const users = apiData.users;
+const firstUser = users[0];
+console.log(firstUser.name); // "Sam"
+
+// Transform API data
+const userNames = apiData.users.map(u => u.name);
+console.log(userNames); // ["Sam", "Alex"]
+
+const admins = apiData.users.filter(u => u.role === "admin");
+console.log(admins); // [{ id: 1, name: "Sam", ... }]
+
+// ===== SAFE PARSING =====
+function safeJSONParse(str, defaultValue = null) {
+  try {
+    return JSON.parse(str);
+  } catch (e) {
+    console.error("Invalid JSON:", e.message);
+    return defaultValue;
+  }
+}
+
+const valid = safeJSONParse('{"a":1}');      // { a: 1 }
+const invalid = safeJSONParse('not json');    // null
+
+// ===== LOCALSTORAGE WITH JSON =====
+// Storage only accepts strings
+const settings = { theme: "dark", fontSize: 16 };
+
+// Save
+localStorage.setItem("settings", JSON.stringify(settings));
+
+// Load
+const saved = localStorage.getItem("settings");
+const loadedSettings = JSON.parse(saved);
+console.log(loadedSettings.theme); // "dark"
+
+// ===== DATA TRANSFORMATION =====
+const products = [
+  { id: 1, name: "Laptop", price: "999.99", stock: "15" },
+  { id: 2, name: "Mouse", price: "29.99", stock: "100" }
+];
+
+// Convert string numbers to actual numbers
+const normalized = products.map(p => ({
+  ...p,
+  price: parseFloat(p.price),
+  stock: parseInt(p.stock)
+}));
+
+console.log(normalized[0].price + normalized[1].price); // 1029.98</textarea>
+          </div>
+          <div class="editor-footer">
+            <span class="editor-info">JSON & Data</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 9: Fetch API -->
+  <section class="lesson-section" id="section9">
+    <div class="panel panel-code">
+      <div class="section-number">09</div>
+      <div class="panel-content" style="width: 100%;">
+        <div class="code-editor-container" data-editor="js">
+          <div class="editor-header">
+            <div class="editor-tabs">
+              <button class="editor-tab active">JavaScript</button>
+              <button class="editor-tab">Preview</button>
+            </div>
+            <div class="editor-actions">
+              <button class="editor-btn" title="Copy">📋</button>
+              <button class="run-btn">Run Code</button>
+            </div>
+          </div>
+          <div class="editor-body">
+            <textarea class="code-input" spellcheck="false">// ===== BASIC FETCH =====
+// GET request
+fetch("https://api.example.com/users")
+  .then(response => {
+    if (!response.ok) {
+      throw new Error(`HTTP ${response.status}`);
+    }
+    return response.json();
+  })
+  .then(data => console.log(data))
+  .catch(error => console.error("Fetch error:", error));
+
+// ===== ASYNC/AWAIT SYNTAX =====
+async function getUsers() {
+  try {
+    const response = await fetch("https://api.example.com/users");
+    
+    if (!response.ok) {
+      throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+    }
+    
+    const users = await response.json();
+    return users;
+  } catch (error) {
+    console.error("Failed to fetch users:", error);
+    return [];
+  }
+}
+
+// ===== POST REQUEST =====
+async function createUser(userData) {
+  try {
+    const response = await fetch("https://api.example.com/users", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer YOUR_TOKEN"
+      },
+      body: JSON.stringify(userData)
+    });
+    
+    const result = await response.json();
+    return result;
+  } catch (error) {
+    console.error("Failed to create user:", error);
+  }
+}
+
+// Usage
+createUser({
+  name: "Sam",
+  email: "sam@example.com"
+});
+
+// ===== DIFFERENT HTTP METHODS =====
+// PUT - Update entire resource
+fetch("/api/users/1", {
+  method: "PUT",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({ name: "New Name" })
+});
+
+// PATCH - Partial update
+fetch("/api/users/1", {
+  method: "PATCH",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({ age: 26 })
+});
+
+// DELETE
+fetch("/api/users/1", {
+  method: "DELETE"
+});
+
+// ===== SENDING FORM DATA =====
+const formData = new FormData();
+formData.append("name", "Sam");
+formData.append("avatar", fileInput.files[0]);
+
+fetch("/api/upload", {
+  method: "POST",
+  body: formData // No Content-Type header needed!
+});
+
+// ===== RESPONSE METHODS =====
+fetch("/api/data")
+  .then(response => {
+    console.log(response.status);     // 200
+    console.log(response.statusText); // "OK"
+    console.log(response.ok);         // true (200-299)
+    console.log(response.headers.get("Content-Type"));
+    
+    // Parse based on content type
+    if (response.headers.get("Content-Type").includes("json")) {
+      return response.json();
+    }
+    return response.text();
+  });
+
+// ===== ABORTING REQUESTS =====
+const controller = new AbortController();
+const signal = controller.signal;
+
+// Start fetch with signal
+fetch("/api/slow-endpoint", { signal })
+  .then(response => response.json())
+  .catch(err => {
+    if (err.name === "AbortError") {
+      console.log("Request was cancelled");
+    }
+  });
+
+// Cancel after 5 seconds
+setTimeout(() => controller.abort(), 5000);
+
+// Or cancel on user action
+document.getElementById("cancelBtn").addEventListener("click", () => {
+  controller.abort();
+});
+
+// ===== FETCH WITH TIMEOUT =====
+async function fetchWithTimeout(url, options = {}, timeout = 5000) {
+  const controller = new AbortController();
+  const id = setTimeout(() => controller.abort(), timeout);
+  
+  try {
+    const response = await fetch(url, {
+      ...options,
+      signal: controller.signal
+    });
+    clearTimeout(id);
+    return response;
+  } catch (error) {
+    clearTimeout(id);
+    throw error;
+  }
+}
+
+// ===== HANDLING ERRORS =====
+async function robustFetch(url) {
+  try {
+    const response = await fetch(url);
+    
+    if (response.status === 404) {
+      console.log("Resource not found");
+      return null;
+    }
+    
+    if (response.status === 401) {
+      console.log("Authentication required");
+      // Redirect to login
+      return null;
+    }
+    
+    if (!response.ok) {
+      throw new Error(`Server error: ${response.status}`);
+    }
+    
+    return await response.json();
+  } catch (error) {
+    if (error.name === "TypeError") {
+      console.log("Network error - check connection");
+    } else {
+      console.log("Error:", error.message);
+    }
+    return null;
+  }
+}
+
+// ===== QUERY PARAMETERS =====
+const params = new URLSearchParams({
+  page: "1",
+  limit: "10",
+  sort: "name"
+});
+
+const url = `https://api.example.com/users?${params}`;
+// Result: /users?page=1&limit=10&sort=name
+
+fetch(url)
+  .then(r => r.json())
+  .then(data => console.log(data));</textarea>
+          </div>
+          <div class="editor-footer">
+            <span class="editor-info">Fetch API</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-info">
+      <div class="panel-content">
+        <h2 class="section-title">Fetch API</h2>
+        <div class="section-description">
+          <p>The Fetch API is the modern way to make HTTP requests in JavaScript. It returns Promises and provides a cleaner interface than the older XMLHttpRequest.</p>
+          
+          <h3>Key Concepts</h3>
+          <ul>
+            <li><strong>fetch()</strong> returns a Promise that resolves to a Response</li>
+            <li><strong>response.ok</strong> is true for status 200-299</li>
+            <li><strong>response.json()</strong> parses JSON response</li>
+            <li><strong>AbortController</strong> cancels in-flight requests</li>
+          </ul>
+
+          <h3>Always Check response.ok</h3>
+          <p>Fetch doesn't reject on HTTP error codes (4xx, 5xx). You must check <code>ok</code> or <code>status</code> manually.</p>
+
+          <div class="tip-box">
+            <strong>💡 Best Practice:</strong> Use async/await for cleaner code, and always wrap fetches in try/catch. Create a wrapper function for consistent error handling across your app.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 10: Async Programming -->
+  <section class="lesson-section" id="section10">
+    <div class="panel panel-info">
+      <div class="panel-content">
+        <h2 class="section-title">Async Programming</h2>
+        <div class="section-description">
+          <p>JavaScript is single-threaded, but async operations let you handle tasks like API calls without freezing the UI. Understanding async patterns is essential for modern web development.</p>
+          
+          <h3>Evolution of Async</h3>
+          <ol>
+            <li><strong>Callbacks</strong> - Original approach, leads to "callback hell"</li>
+            <li><strong>Promises</strong> - Cleaner, chainable async handling</li>
+            <li><strong>Async/Await</strong> - Syntactic sugar over Promises, most readable</li>
+          </ol>
+
+          <h3>Promise States</h3>
+          <ul>
+            <li><strong>pending</strong> - Initial state</li>
+            <li><strong>fulfilled</strong> - Operation completed successfully</li>
+            <li><strong>rejected</strong> - Operation failed</li>
+          </ul>
+
+          <div class="tip-box">
+            <strong>💡 Remember:</strong> async/await is just Promises with better syntax. Every async function returns a Promise, and await can only be used inside async functions.
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-code">
+      <div class="section-number">10</div>
+      <div class="panel-content" style="width: 100%;">
+        <div class="code-editor-container" data-editor="js">
+          <div class="editor-header">
+            <div class="editor-tabs">
+              <button class="editor-tab active">JavaScript</button>
+              <button class="editor-tab">Preview</button>
+            </div>
+            <div class="editor-actions">
+              <button class="editor-btn" title="Copy">📋</button>
+              <button class="run-btn">Run Code</button>
+            </div>
+          </div>
+          <div class="editor-body">
+            <textarea class="code-input" spellcheck="false">// ===== CALLBACKS (Old Way) =====
+function fetchData(callback) {
+  setTimeout(() => {
+    callback(null, "Data received");
+  }, 1000);
+}
+
+fetchData((err, data) => {
+  if (err) console.error(err);
+  else console.log(data);
+});
+
+// Callback hell example
+getData((err, data) => {
+  if (err) return;
+  processData(data, (err, processed) => {
+    if (err) return;
+    saveData(processed, (err) => {
+      if (err) return;
+      console.log("Done!");
+    });
+  });
+});
+
+// ===== PROMISES =====
+// Creating a Promise
+const myPromise = new Promise((resolve, reject) => {
+  const success = true;
+  
+  if (success) {
+    resolve("Operation succeeded!");
+  } else {
+    reject(new Error("Operation failed!"));
+  }
+});
+
+// Using a Promise
+myPromise
+  .then(result => console.log(result))
+  .catch(error => console.error(error))
+  .finally(() => console.log("Always runs"));
+
+// Promise chaining
+fetchUser(1)
+  .then(user => fetchOrders(user.id))
+  .then(orders => console.log(orders))
+  .catch(err => console.error("Any step failed:", err));
+
+// ===== PROMISE METHODS =====
+
+// Promise.all - Wait for all (fails fast)
+const promises = [
+  fetch("/api/users"),
+  fetch("/api/posts"),
+  fetch("/api/comments")
+];
+
+Promise.all(promises)
+  .then(([users, posts, comments]) => {
+    console.log("All loaded!");
+  })
+  .catch(err => console.log("One failed:", err));
+
+// Promise.allSettled - Wait for all (never fails)
+Promise.allSettled(promises)
+  .then(results => {
+    results.forEach(result => {
+      if (result.status === "fulfilled") {
+        console.log("Success:", result.value);
+      } else {
+        console.log("Failed:", result.reason);
+      }
+    });
+  });
+
+// Promise.race - First to settle wins
+Promise.race([
+  fetch("/api/fast"),
+  new Promise((_, reject) => 
+    setTimeout(() => reject(new Error("Timeout")), 5000)
+  )
+])
+  .then(response => console.log("Fast one won!"))
+  .catch(err => console.log("Timeout or error"));
+
+// Promise.any - First to fulfill wins (ignores rejections)
+Promise.any([
+  fetch("/api/primary"),
+  fetch("/api/backup1"),
+  fetch("/api/backup2")
+])
+  .then(response => console.log("One succeeded!"))
+  .catch(err => console.log("All failed"));
+
+// ===== ASYNC/AWAIT =====
+async function loadUserData(userId) {
+  try {
+    const user = await fetchUser(userId);
+    const orders = await fetchOrders(user.id);
+    const details = await fetchOrderDetails(orders[0].id);
+    return { user, orders, details };
+  } catch (error) {
+    console.error("Failed to load:", error);
+    throw error;
+  }
+}
+
+// Parallel execution with await
+async function loadDashboard() {
+  // Sequential (slow)
+  // const users = await fetchUsers();
+  // const posts = await fetchPosts();
+  
+  // Parallel (fast)
+  const [users, posts, comments] = await Promise.all([
+    fetchUsers(),
+    fetchPosts(),
+    fetchComments()
+  ]);
+  
+  return { users, posts, comments };
+}
+
+// Error handling patterns
+async function robustOperation() {
+  // Pattern 1: Try/catch everything
+  try {
+    const data = await fetchData();
+    return data;
+  } catch (err) {
+    return null;
+  }
+  
+  // Pattern 2: Catch specific errors
+  const result = await fetchData().catch(err => {
+    console.log("Fetch failed, using default");
+    return defaultData;
+  });
+}
+
+// Top-level await (modern browsers)
+// const data = await fetch("/api/data").then(r => r.json());
+
+// ===== CONVERTING CALLBACKS TO PROMISES =====
+const { promisify } = require("util"); // Node.js
+
+// Or manually:
+function readFileAsync(path) {
+  return new Promise((resolve, reject) => {
+    fs.readFile(path, "utf8", (err, data) => {
+      if (err) reject(err);
+      else resolve(data);
+    });
+  });
+}</textarea>
+          </div>
+          <div class="editor-footer">
+            <span class="editor-info">Async Programming</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 11: Storage & Persistence -->
+  <section class="lesson-section" id="section11">
+    <div class="panel panel-code">
+      <div class="section-number">11</div>
+      <div class="panel-content" style="width: 100%;">
+        <div class="code-editor-container" data-editor="js">
+          <div class="editor-header">
+            <div class="editor-tabs">
+              <button class="editor-tab active">JavaScript</button>
+              <button class="editor-tab">Preview</button>
+            </div>
+            <div class="editor-actions">
+              <button class="editor-btn" title="Copy">📋</button>
+              <button class="run-btn">Run Code</button>
+            </div>
+          </div>
+          <div class="editor-body">
+            <textarea class="code-input" spellcheck="false">// ===== LOCALSTORAGE =====
+// Persists until explicitly deleted
+
+// Store data (must be strings)
+localStorage.setItem("username", "Sam");
+localStorage.setItem("theme", "dark");
+
+// Retrieve data
+const username = localStorage.getItem("username");
+console.log(username); // "Sam"
+
+// Remove item
+localStorage.removeItem("theme");
+
+// Clear all
+localStorage.clear();
+
+// Store objects (convert to JSON)
+const user = { name: "Sam", age: 25 };
+localStorage.setItem("user", JSON.stringify(user));
+
+// Retrieve objects
+const savedUser = JSON.parse(localStorage.getItem("user"));
+
+// ===== SESSIONSTORAGE =====
+// Persists only for the session (tab)
+
+sessionStorage.setItem("tempData", "value");
+
+// Same API as localStorage
+const temp = sessionStorage.getItem("tempData");
+sessionStorage.removeItem("tempData");
+
+// ===== STORAGE EVENTS =====
+// Fires when storage changes in OTHER tabs
+window.addEventListener("storage", (e) => {
+  console.log("Key changed:", e.key);
+  console.log("Old value:", e.oldValue);
+  console.log("New value:", e.newValue);
+  console.log("Storage type:", e.storageArea);
+});
+
+// ===== COOKIES =====
+// Sent with every HTTP request
+
+// Set cookie
+document.cookie = "username=Sam; path=/; max-age=86400";
+
+// Cookie with options
+document.cookie = `preferences=${encodeURIComponent(JSON.stringify({theme:"dark"}))}; 
+  path=/; 
+  max-age=${60*60*24*30}; 
+  secure; 
+  samesite=strict`;
+
+// Read all cookies
+console.log(document.cookie);
+// "username=Sam; preferences=%7B%22theme%22%3A%22dark%22%7D"
+
+// Parse cookies
+function getCookie(name) {
+  const value = `; ${document.cookie}`;
+  const parts = value.split(`; ${name}=`);
+  if (parts.length === 2) {
+    return decodeURIComponent(parts.pop().split(";").shift());
+  }
+}
+
+// ===== STORAGE HELPER CLASS =====
+class Storage {
+  constructor(type = "local") {
+    this.store = type === "session" ? sessionStorage : localStorage;
+  }
+  
+  set(key, value) {
+    this.store.setItem(key, JSON.stringify(value));
+  }
+  
+  get(key, defaultValue = null) {
+    const item = this.store.getItem(key);
+    return item ? JSON.parse(item) : defaultValue;
+  }
+  
+  remove(key) {
+    this.store.removeItem(key);
+  }
+  
+  clear() {
+    this.store.clear();
+  }
+  
+  has(key) {
+    return this.store.getItem(key) !== null;
+  }
+}
+
+// Usage
+const storage = new Storage("local");
+storage.set("settings", { theme: "dark", fontSize: 16 });
+const settings = storage.get("settings");
+
+// ===== STORAGE QUOTAS =====
+// LocalStorage: ~5-10MB
+// Check available space
+navigator.storage.estimate().then(estimate => {
+  console.log(`Used: ${estimate.usage} bytes`);
+  console.log(`Quota: ${estimate.quota} bytes`);
+});
+
+// ===== INDEXEDDB (Brief Overview) =====
+// For larger amounts of structured data
+// More complex API, use a library like Dexie.js
+
+// Quick example:
+const request = indexedDB.open("MyDatabase", 1);
+
+request.onupgradeneeded = (e) => {
+  const db = e.target.result;
+  db.createObjectStore("users", { keyPath: "id" });
+};
+
+request.onsuccess = (e) => {
+  const db = e.target.result;
+  // Use db for transactions...
+};</textarea>
+          </div>
+          <div class="editor-footer">
+            <span class="editor-info">Storage</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-info">
+      <div class="panel-content">
+        <h2 class="section-title">Storage & Persistence</h2>
+        <div class="section-description">
+          <p>Web storage APIs let you save data in the browser. Choose the right storage based on your needs for persistence, size, and security.</p>
+          
+          <h3>Storage Options</h3>
+          <table style="width:100%; margin: 1rem 0;">
+            <tr>
+              <th>Type</th>
+              <th>Persistence</th>
+              <th>Size</th>
+              <th>Sent to Server</th>
+            </tr>
+            <tr>
+              <td>localStorage</td>
+              <td>Until deleted</td>
+              <td>~5-10MB</td>
+              <td>No</td>
+            </tr>
+            <tr>
+              <td>sessionStorage</td>
+              <td>Tab session</td>
+              <td>~5-10MB</td>
+              <td>No</td>
+            </tr>
+            <tr>
+              <td>Cookies</td>
+              <td>Configurable</td>
+              <td>~4KB</td>
+              <td>Yes</td>
+            </tr>
+            <tr>
+              <td>IndexedDB</td>
+              <td>Until deleted</td>
+              <td>Large</td>
+              <td>No</td>
+            </tr>
+          </table>
+
+          <h3>Security Considerations</h3>
+          <ul>
+            <li>Never store sensitive data (passwords, tokens) in localStorage</li>
+            <li>Use <code>secure</code> and <code>HttpOnly</code> cookies for auth</li>
+            <li>Always validate data retrieved from storage</li>
+          </ul>
+
+          <div class="tip-box warning">
+            <strong>⚠️ XSS Warning:</strong> localStorage is accessible to any JavaScript on your domain. If an XSS vulnerability exists, attackers can steal stored data.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 12: Dark/Light Theme Implementation -->
+  <section class="lesson-section" id="section12">
+    <div class="panel panel-info">
+      <div class="panel-content">
+        <h2 class="section-title">Theme Implementation</h2>
+        <div class="section-description">
+          <p>Implementing a dark/light theme toggle teaches you about CSS variables, localStorage, and the matchMedia API. This section builds a complete theme system from scratch.</p>
+          
+          <h3>How It Works</h3>
+          <ol>
+            <li>Define CSS variables for both themes</li>
+            <li>Detect system preference with matchMedia</li>
+            <li>Save user choice to localStorage</li>
+            <li>Apply theme immediately to prevent flash</li>
+            <li>Add toggle button with ARIA attributes</li>
+          </ol>
+
+          <h3>Key Features</h3>
+          <ul>
+            <li><strong>No Flash of Unstyled Content</strong> - Script runs before body</li>
+            <li><strong>System Preference Detection</strong> - Respects user OS setting</li>
+            <li><strong>Persistence</strong> - Choice saved across sessions</li>
+            <li><strong>Accessibility</strong> - Proper ARIA labels</li>
+          </ul>
+
+          <div class="tip-box">
+            <strong>💡 Pro Tip:</strong> Place the no-flash script in the &lt;head&gt; to prevent theme flickering on page load.
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-code">
+      <div class="section-number">12</div>
+      <div class="panel-content" style="width: 100%;">
+        <div class="code-editor-container" data-editor="js">
+          <div class="editor-header">
+            <div class="editor-tabs">
+              <button class="editor-tab active">JavaScript</button>
+              <button class="editor-tab">CSS</button>
+              <button class="editor-tab">HTML</button>
+            </div>
+            <div class="editor-actions">
+              <button class="editor-btn" title="Copy">📋</button>
+              <button class="run-btn">Run Code</button>
+            </div>
+          </div>
+          <div class="editor-body">
+            <textarea class="code-input" spellcheck="false">// ===== STEP 1: NO-FOUC SCRIPT (Place in <head>) =====
+(function() {
+  // Check for saved theme or system preference
+  const savedTheme = localStorage.getItem("theme");
+  const systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+  
+  // Apply theme immediately before body renders
+  const theme = savedTheme || (systemDark ? "dark" : "light");
+  document.documentElement.setAttribute("data-theme", theme);
+})();
+
+// ===== STEP 2: THEME TOGGLE CLASS =====
+class ThemeManager {
+  constructor() {
+    this.toggleBtn = document.querySelector(".theme-toggle");
+    this.init();
+  }
+  
+  init() {
+    // Set initial button state
+    this.updateButtonIcon();
+    
+    // Listen for toggle
+    this.toggleBtn?.addEventListener("click", () => this.toggle());
+    
+    // Listen for system changes
+    window.matchMedia("(prefers-color-scheme: dark)")
+      .addEventListener("change", (e) => {
+        // Only auto-switch if user hasn't manually set
+        if (!localStorage.getItem("theme")) {
+          this.setTheme(e.matches ? "dark" : "light");
+        }
+      });
+  }
+  
+  toggle() {
+    const current = document.documentElement.getAttribute("data-theme");
+    const next = current === "dark" ? "light" : "dark";
+    this.setTheme(next);
+  }
+  
+  setTheme(theme) {
+    document.documentElement.setAttribute("data-theme", theme);
+    localStorage.setItem("theme", theme);
+    this.updateButtonIcon();
+    
+    // Dispatch custom event
+    window.dispatchEvent(new CustomEvent("themechange", { 
+      detail: { theme } 
+    }));
+  }
+  
+  updateButtonIcon() {
+    const isDark = document.documentElement.getAttribute("data-theme") === "dark";
+    if (this.toggleBtn) {
+      this.toggleBtn.textContent = isDark ? "🌙" : "☀️";
+      this.toggleBtn.setAttribute("aria-label", 
+        isDark ? "Switch to light mode" : "Switch to dark mode"
+      );
+      this.toggleBtn.setAttribute("aria-pressed", isDark);
+    }
+  }
+  
+  getCurrentTheme() {
+    return document.documentElement.getAttribute("data-theme") || "light";
+  }
+}
+
+// Initialize
+document.addEventListener("DOMContentLoaded", () => {
+  window.themeManager = new ThemeManager();
+});
+
+// ===== STEP 3: CSS VARIABLES =====
+/* 
+:root {
+  --bg-primary: #ffffff;
+  --text-primary: #1f2328;
+}
+
+[data-theme="dark"] {
+  --bg-primary: #0d1117;
+  --text-primary: #f0f6fc;
+}
+
+body {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+}
+*/
+
+// ===== STEP 4: TOGGLE BUTTON HTML =====
+/*
+<button class="theme-toggle" 
+        aria-label="Toggle dark mode"
+        aria-pressed="false">
+  🌙
+</button>
+*/
+
+// ===== REACT HOOK VERSION =====
+function useTheme() {
+  const [theme, setTheme] = React.useState(() => {
+    return localStorage.getItem("theme") || 
+           (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+  });
+  
+  React.useEffect(() => {
+    document.documentElement.setAttribute("data-theme", theme);
+    localStorage.setItem("theme", theme);
+  }, [theme]);
+  
+  const toggle = () => setTheme(t => t === "dark" ? "light" : "dark");
+  
+  return { theme, toggle, setTheme };
+}
+
+// Usage
+function App() {
+  const { theme, toggle } = useTheme();
+  
+  return (
+    <button onClick={toggle}>
+      {theme === "dark" ? "🌙" : "☀️"}
+    </button>
+  );
+}</textarea>
+          </div>
+          <div class="editor-footer">
+            <span class="editor-info">Theme System</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 13: Form to Backend -->
+  <section class="lesson-section" id="section13">
+    <div class="panel panel-code">
+      <div class="section-number">13</div>
+      <div class="panel-content" style="width: 100%;">
+        <div class="code-editor-container" data-editor="js">
+          <div class="editor-header">
+            <div class="editor-tabs">
+              <button class="editor-tab active">JavaScript</button>
+              <button class="editor-tab">HTML</button>
+              <button class="editor-tab">Python</button>
+            </div>
+            <div class="editor-actions">
+              <button class="editor-btn" title="Copy">📋</button>
+              <button class="run-btn">Run Code</button>
+            </div>
+          </div>
+          <div class="editor-body">
+            <textarea class="code-input" spellcheck="false">// ===== COMPLETE FORM HANDLER =====
+class FormHandler {
+  constructor(formSelector, apiUrl) {
+    this.form = document.querySelector(formSelector);
+    this.apiUrl = apiUrl;
+    this.submitBtn = this.form.querySelector('button[type="submit"]');
+    this.init();
+  }
+  
+  init() {
+    this.form.addEventListener("submit", (e) => this.handleSubmit(e));
+    
+    // Real-time validation
+    this.form.querySelectorAll("input, textarea").forEach(field => {
+      field.addEventListener("blur", () => this.validateField(field));
+      field.addEventListener("input", () => this.clearError(field));
+    });
+  }
+  
+  async handleSubmit(e) {
+    e.preventDefault();
+    
+    // Validate all fields
+    if (!this.validateForm()) return;
+    
+    // Show loading state
+    this.setLoading(true);
+    
+    try {
+      // Collect form data
+      const formData = new FormData(this.form);
+      const data = Object.fromEntries(formData);
+      
+      // Send to backend
+      const response = await fetch(this.apiUrl, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data)
+      });
+      
+      const result = await response.json();
+      
+      if (!response.ok) {
+        throw new Error(result.error || "Submission failed");
+      }
+      
+      // Success!
+      this.showSuccess(result.message);
+      this.form.reset();
+      
+    } catch (error) {
+      this.showError(error.message);
+    } finally {
+      this.setLoading(false);
+    }
+  }
+  
+  validateForm() {
+    let isValid = true;
+    this.form.querySelectorAll("[required]").forEach(field => {
+      if (!field.value.trim()) {
+        this.showFieldError(field, "This field is required");
+        isValid = false;
+      }
+    });
+    return isValid;
+  }
+  
+  validateField(field) {
+    if (field.hasAttribute("required") && !field.value.trim()) {
+      this.showFieldError(field, "This field is required");
+      return false;
+    }
+    
+    if (field.type === "email" && field.value) {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(field.value)) {
+        this.showFieldError(field, "Please enter a valid email");
+        return false;
+      }
+    }
+    
+    return true;
+  }
+  
+  showFieldError(field, message) {
+    field.classList.add("error");
+    let errorEl = field.parentElement.querySelector(".error-message");
+    if (!errorEl) {
+      errorEl = document.createElement("span");
+      errorEl.className = "error-message";
+      field.parentElement.appendChild(errorEl);
+    }
+    errorEl.textContent = message;
+  }
+  
+  clearError(field) {
+    field.classList.remove("error");
+    const errorEl = field.parentElement.querySelector(".error-message");
+    if (errorEl) errorEl.remove();
+  }
+  
+  setLoading(loading) {
+    this.submitBtn.disabled = loading;
+    this.submitBtn.textContent = loading ? "Sending..." : "Submit";
+  }
+  
+  showSuccess(message) {
+    const successEl = document.createElement("div");
+    successEl.className = "success-message";
+    successEl.textContent = message || "Submitted successfully!";
+    this.form.prepend(successEl);
+    setTimeout(() => successEl.remove(), 5000);
+  }
+  
+  showError(message) {
+    const errorEl = document.createElement("div");
+    errorEl.className = "error-message global";
+    errorEl.textContent = message;
+    this.form.prepend(errorEl);
+    setTimeout(() => errorEl.remove(), 5000);
+  }
+}
+
+// Usage
+document.addEventListener("DOMContentLoaded", () => {
+  new FormHandler("#contactForm", "/api/contact");
+});
+
+// ===== HTML FORM =====
+/*
+<form id="contactForm">
+  <div class="form-group">
+    <label for="name">Name *</label>
+    <input type="text" id="name" name="name" required>
+  </div>
+  
+  <div class="form-group">
+    <label for="email">Email *</label>
+    <input type="email" id="email" name="email" required>
+  </div>
+  
+  <div class="form-group">
+    <label for="message">Message *</label>
+    <textarea id="message" name="message" required></textarea>
+  </div>
+  
+  <button type="submit">Submit</button>
+</form>
+*/
+
+// ===== FLASK BACKEND (app.py) =====
+/*
+from flask import Flask, request, jsonify
+from flask_cors import CORS
+
+app = Flask(__name__)
+CORS(app)  # Enable CORS for frontend
+
+@app.route("/api/contact", methods=["POST"])
+def contact():
+    data = request.get_json()
+    
+    # Validation
+    if not data.get("name") or not data.get("email"):
+        return jsonify({"error": "Name and email are required"}), 400
+    
+    # Process (save to DB, send email, etc.)
+    print(f"Message from {data['name']}: {data.get('message', '')}")
+    
+    return jsonify({"message": "Thank you! We'll be in touch."}), 200
+
+if __name__ == "__main__":
+    app.run(debug=True, port=5000)
+*/</textarea>
+          </div>
+          <div class="editor-footer">
+            <span class="editor-info">Form to Backend</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-info">
+      <div class="panel-content">
+        <h2 class="section-title">Form to Backend</h2>
+        <div class="section-description">
+          <p>Connecting frontend forms to a backend is a core full-stack skill. This section shows a complete implementation with validation, loading states, and error handling.</p>
+          
+          <h3>Frontend Responsibilities</h3>
+          <ul>
+            <li>Collect form data with FormData or Object.fromEntries</li>
+            <li>Validate before sending (UX improvement)</li>
+            <li>Show loading state during submission</li>
+            <li>Handle success and error responses</li>
+            <li>Display appropriate feedback to user</li>
+          </ul>
+
+          <h3>Backend Responsibilities (Flask)</h3>
+          <ul>
+            <li>Enable CORS for cross-origin requests</li>
+            <li>Parse JSON body with request.get_json()</li>
+            <li>Validate all inputs (security!)</li>
+            <li>Return consistent JSON responses</li>
+            <li>Use appropriate HTTP status codes</li>
+          </ul>
+
+          <div class="tip-box">
+            <strong>💡 Production Tip:</strong> Never trust client-side validation alone. Always validate on the server. Client validation is for UX, server validation is for security.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 14: Modern JS (ES6+) -->
+  <section class="lesson-section" id="section14">
+    <div class="panel panel-info">
+      <div class="panel-content">
+        <h2 class="section-title">Modern JavaScript (ES6+)</h2>
+        <div class="section-description">
+          <p>ES6 (2015) and subsequent versions added powerful features that make JavaScript more expressive and easier to write. Master these for cleaner, more maintainable code.</p>
+          
+          <h3>Key ES6+ Features</h3>
+          <ul>
+            <li><strong>Template Literals</strong> - Backtick strings with ${interpolation}</li>
+            <li><strong>Destructuring</strong> - Extract values from arrays/objects</li>
+            <li><strong>Spread/Rest</strong> - ... operator for expansion/collection</li>
+            <li><strong>Arrow Functions</strong> - Concise function syntax</li>
+            <li><strong>Modules</strong> - import/export for code organization</li>
+            <li><strong>Optional Chaining</strong> - ?. for safe property access</li>
+            <li><strong>Nullish Coalescing</strong> - ?? for default values</li>
+          </ul>
+
+          <div class="tip-box">
+            <strong>💡 Compatibility:</strong> All modern browsers support ES6+. For older browsers, use a transpiler like Babel.
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-code">
+      <div class="section-number">14</div>
+      <div class="panel-content" style="width: 100%;">
+        <div class="code-editor-container" data-editor="js">
+          <div class="editor-header">
+            <div class="editor-tabs">
+              <button class="editor-tab active">JavaScript</button>
+              <button class="editor-tab">Preview</button>
+            </div>
+            <div class="editor-actions">
+              <button class="editor-btn" title="Copy">📋</button>
+              <button class="run-btn">Run Code</button>
+            </div>
+          </div>
+          <div class="editor-body">
+            <textarea class="code-input" spellcheck="false">// ===== TEMPLATE LITERALS =====
+const name = "Sam";
+const age = 25;
+
+// Multiline strings
+const message = `Hello ${name},
+You are ${age} years old.
+Next year you'll be ${age + 1}.`;
+
+// Tagged templates
+function highlight(strings, ...values) {
+  return strings.reduce((result, str, i) => {
+    const value = values[i] ? `<b>${values[i]}</b>` : "";
+    return result + str + value;
+  }, "");
+}
+const html = highlight`Hello ${name}, age ${age}`;
+
+// ===== OPTIONAL CHAINING (?.) =====
+const user = {
+  profile: {
+    address: {
+      city: "Bangalore"
+    }
+  }
+};
+
+// Old way (prone to errors)
+// const city = user && user.profile && user.profile.address && user.profile.address.city;
+
+// New way (safe)
+const city = user?.profile?.address?.city;
+const zip = user?.profile?.address?.zip; // undefined, no error
+
+// With function calls
+const result = someObject?.maybeMethod?.();
+
+// With arrays
+const firstItem = array?.[0];
+
+// ===== NULLISH COALESCING (??) =====
+// Returns right side only if left is null or undefined
+
+const value1 = null ?? "default";     // "default"
+const value2 = undefined ?? "default"; // "default"
+const value3 = 0 ?? "default";         // 0 (not nullish!)
+const value4 = "" ?? "default";        // "" (not nullish!)
+const value5 = false ?? "default";     // false (not nullish!)
+
+// Difference from || (OR)
+const orValue = 0 || "default";        // "default" (0 is falsy)
+const nullishValue = 0 ?? "default";   // 0
+
+// ===== LOGICAL ASSIGNMENT =====
+let a = null;
+let b = 5;
+
+a ??= 10;  // a is nullish, so a = 10
+b ??= 10;  // b is not nullish, stays 5
+
+// ||= (OR assignment) - assigns if falsy
+let c = 0;
+c ||= 10;  // c is 0 (falsy), so c = 10
+
+// &&= (AND assignment) - assigns if truthy
+let d = 5;
+d &&= 10;  // d is 5 (truthy), so d = 10
+
+// ===== DYNAMIC IMPORTS =====
+// Load modules on demand
+async function loadHeavyModule() {
+  const { heavyFunction } = await import("./heavy-module.js");
+  heavyFunction();
+}
+
+// Conditionally load
+if (userPrefersCharts) {
+  const Chart = await import("chart-library");
+  new Chart.Chart(canvas);
+}
+
+// ===== BIGINT =====
+// For numbers larger than Number.MAX_SAFE_INTEGER
+const huge = 9007199254740991n;
+const alsoHuge = BigInt(9007199254740991);
+
+console.log(huge + 1n); // 9007199254740992n
+
+// ===== GLOBALTHIS =====
+// Universal global object (window in browser, global in Node)
+globalThis.console.log("Works everywhere!");
+
+// ===== PRIVATE CLASS FIELDS =====
+class BankAccount {
+  #balance = 0;  // Private field
+  
+  deposit(amount) {
+    if (amount > 0) {
+      this.#balance += amount;
+    }
+  }
+  
+  getBalance() {
+    return this.#balance;
+  }
+}
+
+const account = new BankAccount();
+account.deposit(100);
+console.log(account.getBalance()); // 100
+// console.log(account.#balance); // SyntaxError! Private!
+
+// ===== AT METHOD =====
+// Modern way to access array elements
+const arr = ["a", "b", "c"];
+console.log(arr.at(0));   // "a"
+console.log(arr.at(-1));  // "c" (last element!)
+console.log(arr.at(-2));  // "b"</textarea>
+          </div>
+          <div class="editor-footer">
+            <span class="editor-info">Modern JS</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 15: Error Handling -->
+  <section class="lesson-section" id="section15">
+    <div class="panel panel-code">
+      <div class="section-number">15</div>
+      <div class="panel-content" style="width: 100%;">
+        <div class="code-editor-container" data-editor="js">
+          <div class="editor-header">
+            <div class="editor-tabs">
+              <button class="editor-tab active">JavaScript</button>
+              <button class="editor-tab">Preview</button>
+            </div>
+            <div class="editor-actions">
+              <button class="editor-btn" title="Copy">📋</button>
+              <button class="run-btn">Run Code</button>
+            </div>
+          </div>
+          <div class="editor-body">
+            <textarea class="code-input" spellcheck="false">// ===== TRY/CATCH/FINALLY =====
+try {
+  // Code that might throw
+  const result = riskyOperation();
+  console.log(result);
+} catch (error) {
+  // Handle the error
+  console.error("Error occurred:", error.message);
+} finally {
+  // Always runs (cleanup)
+  console.log("Cleanup complete");
+}
+
+// ===== THROWING ERRORS =====
+function divide(a, b) {
+  if (b === 0) {
+    throw new Error("Cannot divide by zero");
+  }
+  return a / b;
+}
+
+// Throw custom error types
+class ValidationError extends Error {
+  constructor(message, field) {
+    super(message);
+    this.name = "ValidationError";
+    this.field = field;
+  }
+}
+
+function validateEmail(email) {
+  if (!email.includes("@")) {
+    throw new ValidationError("Invalid email", "email");
+  }
+}
+
+// ===== ERROR TYPES =====
+// ReferenceError - accessing undefined variable
+// TypeError - wrong type operation
+// SyntaxError - invalid code syntax
+// RangeError - number out of range
+// URIError - invalid URI handling
+
+// ===== CATCHING SPECIFIC ERRORS =====
+try {
+  riskyOperation();
+} catch (error) {
+  if (error instanceof ValidationError) {
+    console.log("Validation failed:", error.field);
+  } else if (error instanceof TypeError) {
+    console.log("Type error:", error.message);
+  } else {
+    console.log("Unknown error:", error);
+  }
+}
+
+// ===== ASYNC ERROR HANDLING =====
+async function fetchUserData(id) {
+  try {
+    const response = await fetch(`/api/users/${id}`);
+    
+    if (!response.ok) {
+      throw new Error(`HTTP ${response.status}`);
+    }
+    
+    return await response.json();
+  } catch (error) {
+    if (error.name === "TypeError") {
+      console.error("Network error - check connection");
+    } else {
+      console.error("Fetch failed:", error.message);
+    }
+    return null;
+  }
+}
+
+// ===== ERROR BOUNDARIES (React Pattern) =====
+class ErrorBoundary {
+  constructor(component) {
+    this.component = component;
+    this.hasError = false;
+  }
+  
+  handleError(error) {
+    this.hasError = true;
+    console.error("Caught by boundary:", error);
+    // Render fallback UI
+  }
+}
+
+// ===== GLOBAL ERROR HANDLING =====
+// Catch uncaught errors
+window.addEventListener("error", (e) => {
+  console.error("Global error:", e.message);
+  // Log to analytics
+  analytics.track("error", { message: e.message });
+});
+
+// Catch unhandled promise rejections
+window.addEventListener("unhandledrejection", (e) => {
+  console.error("Unhandled promise rejection:", e.reason);
+  e.preventDefault(); // Prevent console error
+});
+
+// ===== COMMON ERRORS & FIXES =====
+
+// TypeError: Cannot read property 'x' of undefined
+// Fix: Use optional chaining
+// const x = obj?.property?.x;
+
+// ReferenceError: x is not defined
+// Fix: Check variable scope, use typeof check
+// if (typeof x !== "undefined") { ... }
+
+// TypeError: x is not a function
+// Fix: Check type before calling
+// if (typeof fn === "function") fn();
+
+// RangeError: Maximum call stack exceeded
+// Fix: Check for infinite recursion
+
+// ===== DEBUGGING TECHNIQUES =====
+// 1. Console methods
+console.log("Value:", variable);
+console.table(arrayOfObjects);
+console.trace("Where am I?");
+console.time("operation");
+// ... code
+console.timeEnd("operation");
+
+// 2. Debugger statement
+function complexFunction() {
+  debugger; // Pauses execution here
+  // ...
+}
+
+// 3. Source maps (for minified code)
+// Enable in dev tools settings
+
+// ===== ASSERTIONS =====
+console.assert(user.age >= 18, "User must be 18+");
+
+// Custom assert function
+function assert(condition, message) {
+  if (!condition) {
+    throw new Error(`Assertion failed: ${message}`);
+  }
+}
+
+assert(divide(10, 2) === 5, "Division should work");</textarea>
+          </div>
+          <div class="editor-footer">
+            <span class="editor-info">Error Handling</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-info">
+      <div class="panel-content">
+        <h2 class="section-title">Error Handling</h2>
+        <div class="section-description">
+          <p>Robust applications handle errors gracefully. JavaScript provides several mechanisms for catching and managing errors to prevent crashes and provide good user experiences.</p>
+          
+          <h3>Error Handling Patterns</h3>
+          <ul>
+            <li><strong>Try/Catch</strong> - Wrap risky synchronous code</li>
+            <li><strong>Async Try/Catch</strong> - Handle promise rejections</li>
+            <li><strong>Global Handlers</strong> - Catch unhandled errors</li>
+            <li><strong>Custom Errors</strong> - Create meaningful error types</li>
+          </ul>
+
+          <h3>Common Errors</h3>
+          <ul>
+            <li><strong>TypeError</strong> - Wrong type operation</li>
+            <li><strong>ReferenceError</strong> - Undefined variable</li>
+            <li><strong>SyntaxError</strong> - Invalid code</li>
+            <li><strong>RangeError</strong> - Number out of range</li>
+          </ul>
+
+          <div class="tip-box">
+            <strong>💡 Debugging Tip:</strong> Use console.table() for arrays/objects, console.trace() to see the call stack, and the debugger statement to pause execution at specific lines.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 16: Best Practices & Challenge -->
+  <section class="lesson-section" id="section16">
+    <div class="panel panel-info">
+      <div class="panel-content">
+        <h2 class="section-title">Best Practices & Challenge</h2>
+        <div class="section-description">
+          <p>Writing clean, maintainable JavaScript is a skill that comes with practice. Follow these best practices and then test your skills with the Notes App challenge.</p>
+          
+          <h3>Code Quality Guidelines</h3>
+          <ul>
+            <li>Use meaningful variable names (isLoading vs flag)</li>
+            <li>Keep functions small and focused (single responsibility)</li>
+            <li>Avoid global variables (use modules or closures)</li>
+            <li>Use const by default, let when needed</li>
+            <li>Always handle errors (don't ignore catch blocks)</li>
+            <li>Comment the "why", not the "what"</li>
+          </ul>
+
+          <h3>Performance Tips</h3>
+          <ul>
+            <li>Cache DOM queries in variables</li>
+            <li>Debounce input handlers</li>
+            <li>Use event delegation for dynamic lists</li>
+            <li>Lazy load non-critical resources</li>
+          </ul>
+
+          <h3>📝 Challenge: Build a Notes App</h3>
+          <p>Create a fully functional notes application with:</p>
+          <ul>
+            <li>Create, read, update, delete notes</li>
+            <li>LocalStorage persistence</li>
+            <li>Search/filter functionality</li>
+            <li>Responsive design</li>
+            <li>Dark/light theme toggle</li>
+          </ul>
+          <p>This project will solidify everything you've learned in this module!</p>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-code">
+      <div class="section-number">16</div>
+      <div class="panel-content" style="width: 100%;">
+        <div class="code-editor-container" data-editor="js">
+          <div class="editor-header">
+            <div class="editor-tabs">
+              <button class="editor-tab active">JavaScript</button>
+              <button class="editor-tab">HTML</button>
+              <button class="editor-tab">Preview</button>
+            </div>
+            <div class="editor-actions">
+              <button class="editor-btn" title="Copy">📋</button>
+              <button class="run-btn">Run Code</button>
+            </div>
+          </div>
+          <div class="editor-body">
+            <textarea class="code-input" spellcheck="false">// ===== NOTES APP STRUCTURE =====
+
+class NotesApp {
+  constructor() {
+    this.notes = this.loadNotes();
+    this.currentFilter = "";
+    this.init();
+  }
+  
+  init() {
+    this.cacheDOM();
+    this.bindEvents();
+    this.render();
+  }
+  
+  cacheDOM() {
+    this.form = document.getElementById("noteForm");
+    this.input = document.getElementById("noteInput");
+    this.list = document.getElementById("noteList");
+    this.search = document.getElementById("search");
+  }
+  
+  bindEvents() {
+    this.form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      this.addNote();
+    });
+    
+    this.search.addEventListener("input", (e) => {
+      this.currentFilter = e.target.value.toLowerCase();
+      this.render();
+    });
+    
+    // Event delegation for delete/edit
+    this.list.addEventListener("click", (e) => {
+      const id = e.target.closest("[data-id]")?.dataset.id;
+      if (!id) return;
+      
+      if (e.target.matches(".delete")) {
+        this.deleteNote(id);
+      } else if (e.target.matches(".edit")) {
+        this.editNote(id);
+      }
+    });
+  }
+  
+  addNote() {
+    const text = this.input.value.trim();
+    if (!text) return;
+    
+    const note = {
+      id: Date.now().toString(),
+      text,
+      createdAt: new Date().toISOString()
+    };
+    
+    this.notes.unshift(note);
+    this.saveNotes();
+    this.input.value = "";
+    this.render();
+  }
+  
+  deleteNote(id) {
+    this.notes = this.notes.filter(n => n.id !== id);
+    this.saveNotes();
+    this.render();
+  }
+  
+  editNote(id) {
+    const note = this.notes.find(n => n.id === id);
+    if (!note) return;
+    
+    const newText = prompt("Edit note:", note.text);
+    if (newText !== null && newText.trim()) {
+      note.text = newText.trim();
+      note.updatedAt = new Date().toISOString();
+      this.saveNotes();
+      this.render();
+    }
+  }
+  
+  getFilteredNotes() {
+    if (!this.currentFilter) return this.notes;
+    
+    return this.notes.filter(note =>
+      note.text.toLowerCase().includes(this.currentFilter)
+    );
+  }
+  
+  render() {
+    const filtered = this.getFilteredNotes();
+    
+    this.list.innerHTML = filtered.map(note => `
+      <li class="note" data-id="${note.id}">
+        <p>${this.escapeHtml(note.text)}</p>
+        <small>${new Date(note.createdAt).toLocaleString()}</small>
+        <div class="actions">
+          <button class="edit">✏️</button>
+          <button class="delete">🗑️</button>
+        </div>
+      </li>
+    `).join("");
+  }
+  
+  saveNotes() {
+    localStorage.setItem("notes", JSON.stringify(this.notes));
+  }
+  
+  loadNotes() {
+    try {
+      const saved = localStorage.getItem("notes");
+      return saved ? JSON.parse(saved) : [];
+    } catch {
+      return [];
+    }
+  }
+  
+  escapeHtml(text) {
+    const div = document.createElement("div");
+    div.textContent = text;
+    return div.innerHTML;
+  }
+}
+
+// Initialize
+document.addEventListener("DOMContentLoaded", () => {
+  new NotesApp();
+});
+
+// ===== BONUS: UTILITY FUNCTIONS =====
+
+// Debounce for search input
+function debounce(fn, delay) {
+  let timeout;
+  return (...args) => {
+    clearTimeout(timeout);
+    timeout = setTimeout(() => fn(...args), delay);
+  };
+}
+
+// Throttle for scroll events
+function throttle(fn, limit) {
+  let inThrottle;
+  return (...args) => {
+    if (!inThrottle) {
+      fn(...args);
+      inThrottle = true;
+      setTimeout(() => inThrottle = false, limit);
+    }
+  };
+}
+
+// Generate unique ID
+const generateId = () => Math.random().toString(36).substr(2, 9);
+
+// Format date nicely
+function formatDate(date) {
+  return new Intl.DateTimeFormat("en-US", {
+    dateStyle: "medium",
+    timeStyle: "short"
+  }).format(new Date(date));
+}
+
+// Deep clone an object
+function deepClone(obj) {
+  return JSON.parse(JSON.stringify(obj));
+}
+
+// Check if object is empty
+const isEmpty = obj => Object.keys(obj).length === 0;
+
+// Get nested value safely
+const get = (obj, path, defaultValue) => {
+  return path.split(".").reduce((acc, part) => 
+    acc?.[part], obj) ?? defaultValue;
+};
+
+// Usage: get(user, "profile.address.city", "Unknown")</textarea>
+          </div>
+          <div class="editor-footer">
+            <span class="editor-info">Notes App Challenge</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="js/theme.js"></script>
+  <script src="js/editor.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

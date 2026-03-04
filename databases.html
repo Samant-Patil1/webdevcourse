@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Learn MongoDB, SQL databases and backend integration">
+  <title>Databases | Web Development Course</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/layouts.css">
+  <link rel="stylesheet" href="css/editor.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Progress Bar -->
+  <div class="progress-indicator">
+    <div class="progress-indicator-bar"></div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="navbar-content">
+      <a href="index.html" class="logo">
+        <span>🚀</span>
+        <span>WebDev Course</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="html-masterclass.html">HTML</a></li>
+        <li><a href="css-mastery.html">CSS</a></li>
+        <li><a href="javascript-mastery.html">JavaScript</a></li>
+        <li><a href="transitions-effects.html">Animations</a></li>
+        <li><a href="projects.html">Projects</a></li>
+      </ul>
+      <button class="theme-toggle" aria-label="Toggle dark mode"></button>
+    </div>
+  </nav>
+
+  <!-- Table of Contents Sidebar -->
+  <button class="toc-toggle btn btn-icon" style="position: fixed; left: 20px; bottom: 20px; z-index: 100;">📋</button>
+  <aside class="toc-sidebar">
+    <div class="toc-title">Database Contents</div>
+    <ul class="toc-list">
+      <li class="toc-item"><a href="#section1" class="toc-link">Database Fundamentals</a></li>
+      <li class="toc-item"><a href="#section2" class="toc-link">MongoDB Basics</a></li>
+      <li class="toc-item"><a href="#section3" class="toc-link">MongoDB CRUD</a></li>
+      <li class="toc-item"><a href="#section4" class="toc-link">Mongoose ODM</a></li>
+      <li class="toc-item"><a href="#section5" class="toc-link">SQL Basics</a></li>
+      <li class="toc-item"><a href="#section6" class="toc-link">SQL CRUD</a></li>
+      <li class="toc-item"><a href="#section7" class="toc-link">SQL Relationships</a></li>
+      <li class="toc-item"><a href="#section8" class="toc-link">Database Integration</a></li>
+      <li class="toc-item"><a href="#section9" class="toc-link">Best Practices</a></li>
+      <li class="toc-item"><a href="#section10" class="toc-link">Build Challenge</a></li>
+    </ul>
+  </aside>
+
+  <!-- Section Navigation -->
+  <div class="section-nav">
+    <button class="nav-arrow up" title="Previous section">↑</button>
+    <button class="nav-arrow down" title="Next section">↓</button>
+  </div>
+
+  <!-- SECTION 1: Database Fundamentals -->
+  <section class="lesson-section" id="section1">
+    <div class="panel panel-code">
+      <div class="section-number">01</div>
+      <div class="panel-content" style="width: 100%;">
+        <div class="code-editor-container" data-editor="js">
+          <div class="editor-header">
+            <div class="editor-tabs">
+              <button class="editor-tab active">JavaScript</button>
+              <button class="editor-tab">Preview</button>
+            </div>
+            <div class="editor-actions">
+              <button class="editor-btn" title="Copy">📋</button>
+              <button class="run-btn">Run Code</button>
+            </div>
+          </div>
+          <div class="editor-body">
+            <textarea class="code-input" spellcheck="false">// ===== DATABASE CONCEPTS =====
+
+// Database Types:
+// SQL (Relational) - MySQL, PostgreSQL, SQLite
+// NoSQL (Non-relational) - MongoDB, Redis, DynamoDB
+
+// ===== MONGOOSE SCHEMA EXAMPLE =====
+const mongoose = require('mongoose');
+
+// Define schema
+const userSchema = new mongoose.Schema({
+  name: {
+    type: String,
+    required: [true, 'Name is required'],
+    trim: true,
+    maxlength: [50, 'Name cannot exceed 50 characters']
+  },
+  email: {
+    type: String,
+    required: true,
+    unique: true,
+    lowercase: true
+  },
+  age: {
+    type: Number,
+    min: [13, 'Must be at least 13'],
+    max: [120, 'Invalid age']
+  },
+  role: {
+    type: String,
+    enum: ['user', 'admin', 'moderator'],
+    default: 'user'
+  },
+  createdAt: {
+    type: Date,
+    default: Date.now
+  },
+  isActive: {
+    type: Boolean,
+    default: true
+  }
+});
+
+// Create model
+const User = mongoose.model('User', userSchema);
+
+// ===== BASIC CRUD OPERATIONS =====
+
+// CREATE
+const createUser = async () => {
+  const user = new User({
+    name: 'John Doe',
+    email: 'john@example.com',
+    age: 25
+  });
+  const saved = await user.save();
+  console.log('Created:', saved);
+};
+
+// READ
+const findUsers = async () => {
+  // Find all
+  const allUsers = await User.find();
+  
+  // Find one
+  const user = await User.findOne({ email: 'john@example.com' });
+  
+  // Find by ID
+  const byId = await User.findById('userId123');
+  
+  // With conditions
+  const adults = await User.find({ age: { $gte: 18 } });
+  
+  console.log('Found:', adults);
+};
+
+// UPDATE
+const updateUser = async () => {
+  // Update one
+  await User.updateOne(
+    { email: 'john@example.com' },
+    { $set: { age: 26 } }
+  );
+  
+  // Find and update
+  const updated = await User.findOneAndUpdate(
+    { email: 'john@example.com' },
+    { $set: { name: 'Jane Doe' } },
+    { new: true }  // Return updated document
+  );
+  
+  console.log('Updated:', updated);
+};
+
+// DELETE
+const deleteUser = async () => {
+  // Delete one
+  await User.deleteOne({ email: 'john@example.com' });
+  
+  // Find and delete
+  const deleted = await User.findOneAndDelete({ email: 'john@example.com' });
+  
+  console.log('Deleted:', deleted);
+};
+
+console.log('Database operations defined!');</textarea>
+          </div>
+          <div class="editor-footer">
+            <span class="editor-info">Database Basics</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-info">
+      <div class="panel-content">
+        <h2 class="section-title">Database Fundamentals</h2>
+        <div class="section-description">
+          <p>Databases store and organize data for web applications. Understanding both SQL and NoSQL databases makes you a versatile developer.</p>
+          
+          <h3>SQL vs NoSQL</h3>
+          <table>
+            <tr><th>SQL</th><th>NoSQL</th></tr>
+            <tr><td>Structured schema</td><td>Flexible schema</td></tr>
+            <tr><td>ACID compliance</td><td>Eventual consistency</td></tr>
+            <tr><td>Relationships via JOINs</td><td>Embedded documents</td></tr>
+            <tr><td>Best for complex queries</td><td>Best for rapid development</td></tr>
+          </table>
+
+          <div class="tip-box">
+            <strong>💡 Best Practice:</strong> Use SQL for structured data with relationships. Use NoSQL for unstructured/scalable data or rapid prototyping.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="js/theme.js"></script>
+  <script src="js/editor.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
