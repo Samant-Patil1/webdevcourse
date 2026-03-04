@@ -270,13 +270,14 @@ web-dev-course/
 | HTML Masterclass | 12 | ✅ Complete | 66 KB |
 | CSS Mastery | 12 | ✅ Complete | 70 KB |
 | JavaScript Mastery | 16 | ✅ Complete | 96 KB |
-| Transitions & Effects | 9 | ⏳ Pending | ~60 KB |
-| React Fundamentals | 14 | ⏳ Pending | ~75 KB |
-| Node.js & Express | 12 | ⏳ Pending | ~65 KB |
-| Databases | 10 | ⏳ Pending | ~55 KB |
+| Transitions & Effects | 9 | 🔄 In Progress | ~60 KB |
+| React Fundamentals | 14 | 🔄 In Progress | ~75 KB |
+| Node.js & Express | 12 | 🔄 In Progress | ~65 KB |
+| Databases | 10 | 🔄 In Progress | ~55 KB |
+| Flask Backend | 1 | ✅ Complete | 4 KB |
 | Advanced Backend | 12 | ⏳ Pending | ~70 KB |
-| Projects | 10 | ⏳ Pending | ~40 KB |
-| **TOTAL** | **107** | **3/9** | **~657 KB** |
+| Projects | 10 | 🔄 In Progress | ~40 KB |
+| **TOTAL** | **107** | **4/9** | **~720 KB** |
 
 ---
 

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Learn React fundamentals - Components, Hooks, State Management">
+  <title>React Fundamentals | Web Development Course</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/layouts.css">
+  <link rel="stylesheet" href="css/editor.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+  <!-- Progress Bar -->
+  <div class="progress-indicator">
+    <div class="progress-indicator-bar"></div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="navbar-content">
+      <a href="index.html" class="logo">
+        <span>🚀</span>
+        <span>WebDev Course</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="html-masterclass.html">HTML</a></li>
+        <li><a href="css-mastery.html">CSS</a></li>
+        <li><a href="javascript-mastery.html">JavaScript</a></li>
+        <li><a href="transitions-effects.html">Animations</a></li>
+        <li><a href="react-fundamentals.html" class="active">React</a></li>
+        <li><a href="nodejs-express.html">Node.js</a></li>
+        <li><a href="databases.html">Databases</a></li>
+        <li><a href="projects.html">Projects</a></li>
+      </ul>
+      <button class="theme-toggle" aria-label="Toggle dark mode"></button>
+    </div>
+  </nav>
+
+  <!-- Table of Contents Sidebar -->
+  <button class="toc-toggle btn btn-icon" style="position: fixed; left: 20px; bottom: 20px; z-index: 100;">📋</button>
+  <aside class="toc-sidebar">
+    <div class="toc-title">React Contents</div>
+    <ul class="toc-list">
+      <li class="toc-item"><a href="#section1" class="toc-link">React Introduction</a></li>
+      <li class="toc-item"><a href="#section2" class="toc-link">Components</a></li>
+      <li class="toc-item"><a href="#section3" class="toc-link">JSX</a></li>
+      <li class="toc-item"><a href="#section4" class="toc-link">Props</a></li>
+      <li class="toc-item"><a href="#section5" class="toc-link">State (useState)</a></li>
+      <li class="toc-item"><a href="#section6" class="toc-link">Events</a></li>
+      <li class="toc-item"><a href="#section7" class="toc-link">Conditional Rendering</a></li>
+      <li class="toc-item"><a href="#section8" class="toc-link">Lists & Keys</a></li>
+      <li class="toc-item"><a href="#section9" class="toc-link">useEffect Hook</a></li>
+      <li class="toc-item"><a href="#section10" class="toc-link">Forms</a></li>
+      <li class="toc-item"><a href="#section11" class="toc-link">Context API</a></li>
+      <li class="toc-item"><a href="#section12" class="toc-link">Custom Hooks</a></li>
+      <li class="toc-item"><a href="#section13" class="toc-link">React Router</a></li>
+      <li class="toc-item"><a href="#section14" class="toc-link">Build Challenge</a></li>
+    </ul>
+  </aside>
+
+  <!-- Section Navigation -->
+  <div class="section-nav">
+    <button class="nav-arrow up" title="Previous section">↑</button>
+    <button class="nav-arrow down" title="Next section">↓</button>
+  </div>
+
+  <!-- SECTION 1: React Introduction -->
+  <section class="lesson-section" id="section1">
+    <div class="panel panel-code">
+      <div class="section-number">01</div>
+      <div class="panel-content" style="width: 100%;">
+        <div class="code-editor-container" data-editor="js">
+          <div class="editor-header">
+            <div class="editor-tabs">
+              <button class="editor-tab active">JSX</button>
+              <button class="editor-tab">Preview</button>
+            </div>
+            <div class="editor-actions">
+              <button class="editor-btn copy-btn" title="Copy">📋</button>
+              <button class="run-btn">Run Code</button>
+            </div>
+          </div>
+          <div class="editor-body">
+            <textarea class="code-input" spellcheck="false">// ===== REACT HELLO WORLD =====
+// Using React CDN with Babel for JSX transformation
+
+function App() {
+  return (
+    <div>
+      <h1>Hello, React! 👋</h1>
+      <p>Welcome to your first React component.</p>
+    </div>
+  );
+}
+
+// Render to DOM
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<App />);
+
+// ===== COMPONENT WITH PROPS =====
+function Greeting(props) {
+  return <h2>Hello, {props.name}! You are {props.age} years old.</h2>;
+}
+
+function App2() {
+  return (
+    <div>
+      <Greeting name="Alice" age={25} />
+      <Greeting name="Bob" age={30} />
+      <Greeting name="Charlie" age={35} />
+    </div>
+  );
+}
+
+// ===== STATE WITH useState =====
+function Counter() {
+  const [count, setCount] = React.useState(0);
+  
+  return (
+    <div>
+      <p>Count: {count}</p>
+      <button onClick={() => setCount(count + 1)} >
+        Increment
+      </button>
+      <button onClick={() => setCount(count - 1)}>
+        Decrement
+      </button>
+    </div>
+  );
+}
+
+// Render Counter
+// root.render(<Counter />);
+
+console.log('React components loaded!');</textarea>
+          </div>
+          <div class="editor-footer">
+            <span class="editor-info">React Intro</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-explanation">
+      <div class="panel-content">
+        <h2 class="section-title">React Introduction</h2>
+        <div class="section-description">
+          <p>React is a JavaScript library for building user interfaces. It lets you create reusable components that manage their own state.</p>
+          
+          <h3>Why React?</h3>
+          <ul>
+            <li><strong>Component-Based</strong> - Build encapsulated components</li>
+            <li><strong>Declarative</strong> - Describe what UI should look like</li>
+            <li><strong>Virtual DOM</strong> - Efficient updates</li>
+            <li><strong>One-Way Data Flow</strong> - Predictable state management</li>
+          </ul>
+
+          <h3>Key Concepts</h3>
+          <ul>
+            <li><strong>Components</strong> - Reusable UI building blocks</li>
+            <li><strong>JSX</strong> - JavaScript XML syntax</li>
+            <li><strong>Props</strong> - Data passed to components</li>
+            <li><strong>State</strong> - Component's internal data</li>
+            <li><strong>Hooks</strong> - Functions to use React features</li>
+          </ul>
+
+          <div class="tip-box">
+            <strong>💡 Learning Path:</strong> Master components, JSX, props, and useState before moving to advanced topics.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="js/theme.js"></script>
+  <script src="js/editor.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

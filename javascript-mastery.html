@@ -30,6 +30,9 @@
         <li><a href="css-mastery.html">CSS</a></li>
         <li><a href="javascript-mastery.html" class="active">JavaScript</a></li>
         <li><a href="transitions-effects.html">Animations</a></li>
+        <li><a href="react-fundamentals.html">React</a></li>
+        <li><a href="nodejs-express.html">Node.js</a></li>
+        <li><a href="databases.html">Databases</a></li>
         <li><a href="projects.html">Projects</a></li>
       </ul>
       <button class="theme-toggle" aria-label="Toggle dark mode"></button>
@@ -78,7 +81,7 @@
               <button class="editor-tab">Preview</button>
             </div>
             <div class="editor-actions">
-              <button class="editor-btn" title="Copy">📋</button>
+              <button class="editor-btn copy-btn" title="Copy">📋</button>
               <button class="run-btn">Run Code</button>
             </div>
           </div>
@@ -173,7 +176,7 @@ console.log(greeting); // "Hello, Sammy!"</textarea>
         </div>
       </div>
     </div>
-    <div class="panel panel-info">
+    <div class="panel panel-explanation">
       <div class="panel-content">
         <h2 class="section-title">JavaScript Fundamentals</h2>
         <div class="section-description">
@@ -202,34 +205,7 @@ console.log(greeting); // "Hello, Sammy!"</textarea>
 
   <!-- SECTION 2: Control Flow -->
   <section class="lesson-section" id="section2">
-    <div class="panel panel-info">
-      <div class="panel-content">
-        <h2 class="section-title">Control Flow</h2>
-        <div class="section-description">
-          <p>Control flow statements determine which code runs and when. Master these to create dynamic, responsive programs.</p>
-          
-          <h3>Conditional Statements</h3>
-          <p><code>if...else</code> chains and <code>switch</code> statements let your code make decisions based on conditions.</p>
-
-          <h3>Loops</h3>
-          <p>Choose the right loop for your task:</p>
-          <ul>
-            <li><strong>for</strong> - When you know the iteration count</li>
-            <li><strong>while</strong> - When the condition is dynamic</li>
-            <li><strong>for...of</strong> - For iterating over values (arrays, strings)</li>
-            <li><strong>for...in</strong> - For iterating over keys (objects)</li>
-          </ul>
-
-          <h3>Loop Control</h3>
-          <p><code>break</code> exits the loop entirely. <code>continue</code> skips to the next iteration.</p>
-
-          <div class="tip-box warning">
-            <strong>⚠️ Warning:</strong> Be careful with <code>for...in</code> on arrays - it iterates over ALL enumerable properties, not just indices. Use <code>for...of</code> or <code>forEach</code> for arrays instead.
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="panel panel-code">
+    <div class="panel panel-code"
       <div class="section-number">02</div>
       <div class="panel-content" style="width: 100%;">
         <div class="code-editor-container" data-editor="js">
@@ -239,7 +215,7 @@ console.log(greeting); // "Hello, Sammy!"</textarea>
               <button class="editor-tab">Preview</button>
             </div>
             <div class="editor-actions">
-              <button class="editor-btn" title="Copy">📋</button>
+              <button class="editor-btn copy-btn" title="Copy">📋</button>
               <button class="run-btn">Run Code</button>
             </div>
           </div>
@@ -344,12 +320,34 @@ for (let i = 0; i < 10; i++) {
             <span class="editor-info">Control Flow</span>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
+      </div></div>
+    <div class="panel panel-explanation"
+      <div class="panel-content">
+        <h2 class="section-title">Control Flow</h2>
+        <div class="section-description">
+          <p>Control flow statements determine which code runs and when. Master these to create dynamic, responsive programs.</p>
+          
+          <h3>Conditional Statements</h3>
+          <p><code>if...else</code> chains and <code>switch</code> statements let your code make decisions based on conditions.</p>
 
-  <!-- SECTION 3: Functions -->
-  <section class="lesson-section" id="section3">
+          <h3>Loops</h3>
+          <p>Choose the right loop for your task:</p>
+          <ul>
+            <li><strong>for</strong> - When you know the iteration count</li>
+            <li><strong>while</strong> - When the condition is dynamic</li>
+            <li><strong>for...of</strong> - For iterating over values (arrays, strings)</li>
+            <li><strong>for...in</strong> - For iterating over keys (objects)</li>
+          </ul>
+
+          <h3>Loop Control</h3>
+          <p><code>break</code> exits the loop entirely. <code>continue</code> skips to the next iteration.</p>
+
+          <div class="tip-box warning">
+            <strong>⚠️ Warning:</strong> Be careful with <code>for...in</code> on arrays - it iterates over ALL enumerable properties, not just indices. Use <code>for...of</code> or <code>forEach</code> for arrays instead.
+          </div>
+        </div>
+      </div></div>
+  </section><section class="lesson-section" id="section3">
     <div class="panel panel-code">
       <div class="section-number">03</div>
       <div class="panel-content" style="width: 100%;">
@@ -360,7 +358,7 @@ for (let i = 0; i < 10; i++) {
               <button class="editor-tab">Preview</button>
             </div>
             <div class="editor-actions">
-              <button class="editor-btn" title="Copy">📋</button>
+              <button class="editor-btn copy-btn" title="Copy">📋</button>
               <button class="run-btn">Run Code</button>
             </div>
           </div>
@@ -472,7 +470,7 @@ console.log(result.public);  // "I'm public"
         </div>
       </div>
     </div>
-    <div class="panel panel-info">
+    <div class="panel panel-explanation">
       <div class="panel-content">
         <h2 class="section-title">Functions</h2>
         <div class="section-description">
@@ -501,34 +499,7 @@ console.log(result.public);  // "I'm public"
 
   <!-- SECTION 4: Arrays & Objects -->
   <section class="lesson-section" id="section4">
-    <div class="panel panel-info">
-      <div class="panel-content">
-        <h2 class="section-title">Arrays & Objects</h2>
-        <div class="section-description">
-          <p>Arrays and objects are JavaScript's primary data structures. Master their methods and manipulation techniques to handle complex data efficiently.</p>
-          
-          <h3>Array Methods</h3>
-          <p>Modern JavaScript provides powerful array methods:</p>
-          <ul>
-            <li><strong>Transform</strong> - map, flatMap</li>
-            <li><strong>Filter</strong> - filter, find, findIndex</li>
-            <li><strong>Aggregate</strong> - reduce, some, every</li>
-            <li><strong>Sort</strong> - sort (mutable), toSorted (immutable)</li>
-          </ul>
-
-          <h3>Destructuring</h3>
-          <p>Extract values from arrays and objects into variables cleanly.</p>
-
-          <h3>Spread & Rest</h3>
-          <p><code>...</code> spreads elements (copy/concat) or collects them (rest parameters).</p>
-
-          <div class="tip-box">
-            <strong>💡 Remember:</strong> Arrays are objects in JavaScript. Use <code>Array.isArray()</code> to check if something is specifically an array.
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="panel panel-code">
+    <div class="panel panel-code"
       <div class="section-number">04</div>
       <div class="panel-content" style="width: 100%;">
         <div class="code-editor-container" data-editor="js">
@@ -538,7 +509,7 @@ console.log(result.public);  // "I'm public"
               <button class="editor-tab">Preview</button>
             </div>
             <div class="editor-actions">
-              <button class="editor-btn" title="Copy">📋</button>
+              <button class="editor-btn copy-btn" title="Copy">📋</button>
               <button class="run-btn">Run Code</button>
             </div>
           </div>
@@ -664,12 +635,34 @@ console.log(Math.max(...nums)); // 3</textarea>
             <span class="editor-info">Arrays & Objects</span>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
+      </div></div>
+    <div class="panel panel-explanation"
+      <div class="panel-content">
+        <h2 class="section-title">Arrays & Objects</h2>
+        <div class="section-description">
+          <p>Arrays and objects are JavaScript's primary data structures. Master their methods and manipulation techniques to handle complex data efficiently.</p>
+          
+          <h3>Array Methods</h3>
+          <p>Modern JavaScript provides powerful array methods:</p>
+          <ul>
+            <li><strong>Transform</strong> - map, flatMap</li>
+            <li><strong>Filter</strong> - filter, find, findIndex</li>
+            <li><strong>Aggregate</strong> - reduce, some, every</li>
+            <li><strong>Sort</strong> - sort (mutable), toSorted (immutable)</li>
+          </ul>
 
-  <!-- SECTION 5: DOM Manipulation -->
-  <section class="lesson-section" id="section5">
+          <h3>Destructuring</h3>
+          <p>Extract values from arrays and objects into variables cleanly.</p>
+
+          <h3>Spread & Rest</h3>
+          <p><code>...</code> spreads elements (copy/concat) or collects them (rest parameters).</p>
+
+          <div class="tip-box">
+            <strong>💡 Remember:</strong> Arrays are objects in JavaScript. Use <code>Array.isArray()</code> to check if something is specifically an array.
+          </div>
+        </div>
+      </div></div>
+  </section><section class="lesson-section" id="section5">
     <div class="panel panel-code">
       <div class="section-number">05</div>
       <div class="panel-content" style="width: 100%;">
@@ -681,7 +674,7 @@ console.log(Math.max(...nums)); // 3</textarea>
               <button class="editor-tab">Preview</button>
             </div>
             <div class="editor-actions">
-              <button class="editor-btn" title="Copy">📋</button>
+              <button class="editor-btn copy-btn" title="Copy">📋</button>
               <button class="run-btn">Run Code</button>
             </div>
           </div>
@@ -810,7 +803,7 @@ const clone = newDiv.cloneNode(true); // true = deep clone</textarea>
         </div>
       </div>
     </div>
-    <div class="panel panel-info">
+    <div class="panel panel-explanation">
       <div class="panel-content">
         <h2 class="section-title">DOM Manipulation</h2>
         <div class="section-description">
@@ -839,31 +832,7 @@ const clone = newDiv.cloneNode(true); // true = deep clone</textarea>
 
   <!-- SECTION 6: Events -->
   <section class="lesson-section" id="section6">
-    <div class="panel panel-info">
-      <div class="panel-content">
-        <h2 class="section-title">Events</h2>
-        <div class="section-description">
-          <p>Events enable interactivity. They signal when something happens - a click, keypress, page load, or custom trigger.</p>
-          
-          <h3>Event Handling Methods</h3>
-          <ul>
-            <li><strong>addEventListener</strong> - Modern, multiple handlers per event</li>
-            <li><strong>onclick (inline)</strong> - Old way, overwrites previous handlers</li>
-          </ul>
-
-          <h3>Event Propagation</h3>
-          <p>Events bubble up from target to ancestors (bubbling phase). Capturing goes the opposite direction. Most handlers use bubbling.</p>
-
-          <h3>Event Delegation</h3>
-          <p>Instead of adding listeners to many elements, add one to a parent and check <code>event.target</code>. More efficient for dynamic content.</p>
-
-          <div class="tip-box">
-            <strong>💡 Performance:</strong> Always remove event listeners when components are destroyed to prevent memory leaks, especially in SPAs.
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="panel panel-code">
+    <div class="panel panel-code"
       <div class="section-number">06</div>
       <div class="panel-content" style="width: 100%;">
         <div class="code-editor-container" data-editor="js">
@@ -874,7 +843,7 @@ const clone = newDiv.cloneNode(true); // true = deep clone</textarea>
               <button class="editor-tab">Preview</button>
             </div>
             <div class="editor-actions">
-              <button class="editor-btn" title="Copy">📋</button>
+              <button class="editor-btn copy-btn" title="Copy">📋</button>
               <button class="run-btn">Run Code</button>
             </div>
           </div>
@@ -999,12 +968,31 @@ document.getElementById("grandparent").addEventListener("click", () => {
             <span class="editor-info">Events</span>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
+      </div></div>
+    <div class="panel panel-explanation"
+      <div class="panel-content">
+        <h2 class="section-title">Events</h2>
+        <div class="section-description">
+          <p>Events enable interactivity. They signal when something happens - a click, keypress, page load, or custom trigger.</p>
+          
+          <h3>Event Handling Methods</h3>
+          <ul>
+            <li><strong>addEventListener</strong> - Modern, multiple handlers per event</li>
+            <li><strong>onclick (inline)</strong> - Old way, overwrites previous handlers</li>
+          </ul>
 
-  <!-- SECTION 7: Forms & Input -->
-  <section class="lesson-section" id="section7">
+          <h3>Event Propagation</h3>
+          <p>Events bubble up from target to ancestors (bubbling phase). Capturing goes the opposite direction. Most handlers use bubbling.</p>
+
+          <h3>Event Delegation</h3>
+          <p>Instead of adding listeners to many elements, add one to a parent and check <code>event.target</code>. More efficient for dynamic content.</p>
+
+          <div class="tip-box">
+            <strong>💡 Performance:</strong> Always remove event listeners when components are destroyed to prevent memory leaks, especially in SPAs.
+          </div>
+        </div>
+      </div></div>
+  </section><section class="lesson-section" id="section7">
     <div class="panel panel-code">
       <div class="section-number">07</div>
       <div class="panel-content" style="width: 100%;">
@@ -1016,7 +1004,7 @@ document.getElementById("grandparent").addEventListener("click", () => {
               <button class="editor-tab">Preview</button>
             </div>
             <div class="editor-actions">
-              <button class="editor-btn" title="Copy">📋</button>
+              <button class="editor-btn copy-btn" title="Copy">📋</button>
               <button class="run-btn">Run Code</button>
             </div>
           </div>
@@ -1180,7 +1168,7 @@ dropZone.addEventListener("drop", (e) => {
         </div>
       </div>
     </div>
-    <div class="panel panel-info">
+    <div class="panel panel-explanation">
       <div class="panel-content">
         <h2 class="section-title">Forms & Input</h2>
         <div class="section-description">
@@ -1205,28 +1193,7 @@ dropZone.addEventListener("drop", (e) => {
 
   <!-- SECTION 8: JSON & Data -->
   <section class="lesson-section" id="section8">
-    <div class="panel panel-info">
-      <div class="panel-content">
-        <h2 class="section-title">JSON & Data</h2>
-        <div class="section-description">
-          <p>JSON (JavaScript Object Notation) is the universal data format for APIs. It's lightweight, human-readable, and supported by every modern language.</p>
-          
-          <h3>JSON.stringify</h3>
-          <p>Converts JavaScript objects to JSON strings. Use <code>replacer</code> to filter properties, <code>space</code> for pretty printing.</p>
-
-          <h3>JSON.parse</h3>
-          <p>Converts JSON strings back to JavaScript objects. Always wrap in try/catch when parsing external data.</p>
-
-          <h3>Working with APIs</h3>
-          <p>APIs return JSON. Use <code>Response.json()</code> to parse, or <code>JSON.parse()</code> for raw strings.</p>
-
-          <div class="tip-box warning">
-            <strong>⚠️ Limitations:</strong> JSON doesn't support functions, undefined, or circular references. Dates become strings - use libraries like date-fns for proper handling.
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="panel panel-code">
+    <div class="panel panel-code"
       <div class="section-number">08</div>
       <div class="panel-content" style="width: 100%;">
         <div class="code-editor-container" data-editor="js">
@@ -1236,7 +1203,7 @@ dropZone.addEventListener("drop", (e) => {
               <button class="editor-tab">Preview</button>
             </div>
             <div class="editor-actions">
-              <button class="editor-btn" title="Copy">📋</button>
+              <button class="editor-btn copy-btn" title="Copy">📋</button>
               <button class="run-btn">Run Code</button>
             </div>
           </div>
@@ -1380,12 +1347,28 @@ console.log(normalized[0].price + normalized[1].price); // 1029.98</textarea>
             <span class="editor-info">JSON & Data</span>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
+      </div></div>
+    <div class="panel panel-explanation"
+      <div class="panel-content">
+        <h2 class="section-title">JSON & Data</h2>
+        <div class="section-description">
+          <p>JSON (JavaScript Object Notation) is the universal data format for APIs. It's lightweight, human-readable, and supported by every modern language.</p>
+          
+          <h3>JSON.stringify</h3>
+          <p>Converts JavaScript objects to JSON strings. Use <code>replacer</code> to filter properties, <code>space</code> for pretty printing.</p>
 
-  <!-- SECTION 9: Fetch API -->
-  <section class="lesson-section" id="section9">
+          <h3>JSON.parse</h3>
+          <p>Converts JSON strings back to JavaScript objects. Always wrap in try/catch when parsing external data.</p>
+
+          <h3>Working with APIs</h3>
+          <p>APIs return JSON. Use <code>Response.json()</code> to parse, or <code>JSON.parse()</code> for raw strings.</p>
+
+          <div class="tip-box warning">
+            <strong>⚠️ Limitations:</strong> JSON doesn't support functions, undefined, or circular references. Dates become strings - use libraries like date-fns for proper handling.
+          </div>
+        </div>
+      </div></div>
+  </section><section class="lesson-section" id="section9">
     <div class="panel panel-code">
       <div class="section-number">09</div>
       <div class="panel-content" style="width: 100%;">
@@ -1396,7 +1379,7 @@ console.log(normalized[0].price + normalized[1].price); // 1029.98</textarea>
               <button class="editor-tab">Preview</button>
             </div>
             <div class="editor-actions">
-              <button class="editor-btn" title="Copy">📋</button>
+              <button class="editor-btn copy-btn" title="Copy">📋</button>
               <button class="run-btn">Run Code</button>
             </div>
           </div>
@@ -1590,7 +1573,7 @@ fetch(url)
         </div>
       </div>
     </div>
-    <div class="panel panel-info">
+    <div class="panel panel-explanation">
       <div class="panel-content">
         <h2 class="section-title">Fetch API</h2>
         <div class="section-description">
@@ -1617,33 +1600,7 @@ fetch(url)
 
   <!-- SECTION 10: Async Programming -->
   <section class="lesson-section" id="section10">
-    <div class="panel panel-info">
-      <div class="panel-content">
-        <h2 class="section-title">Async Programming</h2>
-        <div class="section-description">
-          <p>JavaScript is single-threaded, but async operations let you handle tasks like API calls without freezing the UI. Understanding async patterns is essential for modern web development.</p>
-          
-          <h3>Evolution of Async</h3>
-          <ol>
-            <li><strong>Callbacks</strong> - Original approach, leads to "callback hell"</li>
-            <li><strong>Promises</strong> - Cleaner, chainable async handling</li>
-            <li><strong>Async/Await</strong> - Syntactic sugar over Promises, most readable</li>
-          </ol>
-
-          <h3>Promise States</h3>
-          <ul>
-            <li><strong>pending</strong> - Initial state</li>
-            <li><strong>fulfilled</strong> - Operation completed successfully</li>
-            <li><strong>rejected</strong> - Operation failed</li>
-          </ul>
-
-          <div class="tip-box">
-            <strong>💡 Remember:</strong> async/await is just Promises with better syntax. Every async function returns a Promise, and await can only be used inside async functions.
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="panel panel-code">
+    <div class="panel panel-code"
       <div class="section-number">10</div>
       <div class="panel-content" style="width: 100%;">
         <div class="code-editor-container" data-editor="js">
@@ -1653,7 +1610,7 @@ fetch(url)
               <button class="editor-tab">Preview</button>
             </div>
             <div class="editor-actions">
-              <button class="editor-btn" title="Copy">📋</button>
+              <button class="editor-btn copy-btn" title="Copy">📋</button>
               <button class="run-btn">Run Code</button>
             </div>
           </div>
@@ -1818,12 +1775,33 @@ function readFileAsync(path) {
             <span class="editor-info">Async Programming</span>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
+      </div></div>
+    <div class="panel panel-explanation"
+      <div class="panel-content">
+        <h2 class="section-title">Async Programming</h2>
+        <div class="section-description">
+          <p>JavaScript is single-threaded, but async operations let you handle tasks like API calls without freezing the UI. Understanding async patterns is essential for modern web development.</p>
+          
+          <h3>Evolution of Async</h3>
+          <ol>
+            <li><strong>Callbacks</strong> - Original approach, leads to "callback hell"</li>
+            <li><strong>Promises</strong> - Cleaner, chainable async handling</li>
+            <li><strong>Async/Await</strong> - Syntactic sugar over Promises, most readable</li>
+          </ol>
 
-  <!-- SECTION 11: Storage & Persistence -->
-  <section class="lesson-section" id="section11">
+          <h3>Promise States</h3>
+          <ul>
+            <li><strong>pending</strong> - Initial state</li>
+            <li><strong>fulfilled</strong> - Operation completed successfully</li>
+            <li><strong>rejected</strong> - Operation failed</li>
+          </ul>
+
+          <div class="tip-box">
+            <strong>💡 Remember:</strong> async/await is just Promises with better syntax. Every async function returns a Promise, and await can only be used inside async functions.
+          </div>
+        </div>
+      </div></div>
+  </section><section class="lesson-section" id="section11">
     <div class="panel panel-code">
       <div class="section-number">11</div>
       <div class="panel-content" style="width: 100%;">
@@ -1834,7 +1812,7 @@ function readFileAsync(path) {
               <button class="editor-tab">Preview</button>
             </div>
             <div class="editor-actions">
-              <button class="editor-btn" title="Copy">📋</button>
+              <button class="editor-btn copy-btn" title="Copy">📋</button>
               <button class="run-btn">Run Code</button>
             </div>
           </div>
@@ -1971,7 +1949,7 @@ request.onsuccess = (e) => {
         </div>
       </div>
     </div>
-    <div class="panel panel-info">
+    <div class="panel panel-explanation">
       <div class="panel-content">
         <h2 class="section-title">Storage & Persistence</h2>
         <div class="section-description">
@@ -2028,36 +2006,7 @@ request.onsuccess = (e) => {
 
   <!-- SECTION 12: Dark/Light Theme Implementation -->
   <section class="lesson-section" id="section12">
-    <div class="panel panel-info">
-      <div class="panel-content">
-        <h2 class="section-title">Theme Implementation</h2>
-        <div class="section-description">
-          <p>Implementing a dark/light theme toggle teaches you about CSS variables, localStorage, and the matchMedia API. This section builds a complete theme system from scratch.</p>
-          
-          <h3>How It Works</h3>
-          <ol>
-            <li>Define CSS variables for both themes</li>
-            <li>Detect system preference with matchMedia</li>
-            <li>Save user choice to localStorage</li>
-            <li>Apply theme immediately to prevent flash</li>
-            <li>Add toggle button with ARIA attributes</li>
-          </ol>
-
-          <h3>Key Features</h3>
-          <ul>
-            <li><strong>No Flash of Unstyled Content</strong> - Script runs before body</li>
-            <li><strong>System Preference Detection</strong> - Respects user OS setting</li>
-            <li><strong>Persistence</strong> - Choice saved across sessions</li>
-            <li><strong>Accessibility</strong> - Proper ARIA labels</li>
-          </ul>
-
-          <div class="tip-box">
-            <strong>💡 Pro Tip:</strong> Place the no-flash script in the &lt;head&gt; to prevent theme flickering on page load.
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="panel panel-code">
+    <div class="panel panel-code"
       <div class="section-number">12</div>
       <div class="panel-content" style="width: 100%;">
         <div class="code-editor-container" data-editor="js">
@@ -2068,7 +2017,7 @@ request.onsuccess = (e) => {
               <button class="editor-tab">HTML</button>
             </div>
             <div class="editor-actions">
-              <button class="editor-btn" title="Copy">📋</button>
+              <button class="editor-btn copy-btn" title="Copy">📋</button>
               <button class="run-btn">Run Code</button>
             </div>
           </div>
@@ -2205,12 +2154,36 @@ function App() {
             <span class="editor-info">Theme System</span>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
+      </div></div>
+    <div class="panel panel-explanation"
+      <div class="panel-content">
+        <h2 class="section-title">Theme Implementation</h2>
+        <div class="section-description">
+          <p>Implementing a dark/light theme toggle teaches you about CSS variables, localStorage, and the matchMedia API. This section builds a complete theme system from scratch.</p>
+          
+          <h3>How It Works</h3>
+          <ol>
+            <li>Define CSS variables for both themes</li>
+            <li>Detect system preference with matchMedia</li>
+            <li>Save user choice to localStorage</li>
+            <li>Apply theme immediately to prevent flash</li>
+            <li>Add toggle button with ARIA attributes</li>
+          </ol>
 
-  <!-- SECTION 13: Form to Backend -->
-  <section class="lesson-section" id="section13">
+          <h3>Key Features</h3>
+          <ul>
+            <li><strong>No Flash of Unstyled Content</strong> - Script runs before body</li>
+            <li><strong>System Preference Detection</strong> - Respects user OS setting</li>
+            <li><strong>Persistence</strong> - Choice saved across sessions</li>
+            <li><strong>Accessibility</strong> - Proper ARIA labels</li>
+          </ul>
+
+          <div class="tip-box">
+            <strong>💡 Pro Tip:</strong> Place the no-flash script in the &lt;head&gt; to prevent theme flickering on page load.
+          </div>
+        </div>
+      </div></div>
+  </section><section class="lesson-section" id="section13">
     <div class="panel panel-code">
       <div class="section-number">13</div>
       <div class="panel-content" style="width: 100%;">
@@ -2222,7 +2195,7 @@ function App() {
               <button class="editor-tab">Python</button>
             </div>
             <div class="editor-actions">
-              <button class="editor-btn" title="Copy">📋</button>
+              <button class="editor-btn copy-btn" title="Copy">📋</button>
               <button class="run-btn">Run Code</button>
             </div>
           </div>
@@ -2411,7 +2384,7 @@ if __name__ == "__main__":
         </div>
       </div>
     </div>
-    <div class="panel panel-info">
+    <div class="panel panel-explanation">
       <div class="panel-content">
         <h2 class="section-title">Form to Backend</h2>
         <div class="section-description">
@@ -2445,30 +2418,7 @@ if __name__ == "__main__":
 
   <!-- SECTION 14: Modern JS (ES6+) -->
   <section class="lesson-section" id="section14">
-    <div class="panel panel-info">
-      <div class="panel-content">
-        <h2 class="section-title">Modern JavaScript (ES6+)</h2>
-        <div class="section-description">
-          <p>ES6 (2015) and subsequent versions added powerful features that make JavaScript more expressive and easier to write. Master these for cleaner, more maintainable code.</p>
-          
-          <h3>Key ES6+ Features</h3>
-          <ul>
-            <li><strong>Template Literals</strong> - Backtick strings with ${interpolation}</li>
-            <li><strong>Destructuring</strong> - Extract values from arrays/objects</li>
-            <li><strong>Spread/Rest</strong> - ... operator for expansion/collection</li>
-            <li><strong>Arrow Functions</strong> - Concise function syntax</li>
-            <li><strong>Modules</strong> - import/export for code organization</li>
-            <li><strong>Optional Chaining</strong> - ?. for safe property access</li>
-            <li><strong>Nullish Coalescing</strong> - ?? for default values</li>
-          </ul>
-
-          <div class="tip-box">
-            <strong>💡 Compatibility:</strong> All modern browsers support ES6+. For older browsers, use a transpiler like Babel.
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="panel panel-code">
+    <div class="panel panel-code"
       <div class="section-number">14</div>
       <div class="panel-content" style="width: 100%;">
         <div class="code-editor-container" data-editor="js">
@@ -2478,7 +2428,7 @@ if __name__ == "__main__":
               <button class="editor-tab">Preview</button>
             </div>
             <div class="editor-actions">
-              <button class="editor-btn" title="Copy">📋</button>
+              <button class="editor-btn copy-btn" title="Copy">📋</button>
               <button class="run-btn">Run Code</button>
             </div>
           </div>
@@ -2606,12 +2556,30 @@ console.log(arr.at(-2));  // "b"</textarea>
             <span class="editor-info">Modern JS</span>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
+      </div></div>
+    <div class="panel panel-explanation"
+      <div class="panel-content">
+        <h2 class="section-title">Modern JavaScript (ES6+)</h2>
+        <div class="section-description">
+          <p>ES6 (2015) and subsequent versions added powerful features that make JavaScript more expressive and easier to write. Master these for cleaner, more maintainable code.</p>
+          
+          <h3>Key ES6+ Features</h3>
+          <ul>
+            <li><strong>Template Literals</strong> - Backtick strings with ${interpolation}</li>
+            <li><strong>Destructuring</strong> - Extract values from arrays/objects</li>
+            <li><strong>Spread/Rest</strong> - ... operator for expansion/collection</li>
+            <li><strong>Arrow Functions</strong> - Concise function syntax</li>
+            <li><strong>Modules</strong> - import/export for code organization</li>
+            <li><strong>Optional Chaining</strong> - ?. for safe property access</li>
+            <li><strong>Nullish Coalescing</strong> - ?? for default values</li>
+          </ul>
 
-  <!-- SECTION 15: Error Handling -->
-  <section class="lesson-section" id="section15">
+          <div class="tip-box">
+            <strong>💡 Compatibility:</strong> All modern browsers support ES6+. For older browsers, use a transpiler like Babel.
+          </div>
+        </div>
+      </div></div>
+  </section><section class="lesson-section" id="section15">
     <div class="panel panel-code">
       <div class="section-number">15</div>
       <div class="panel-content" style="width: 100%;">
@@ -2622,7 +2590,7 @@ console.log(arr.at(-2));  // "b"</textarea>
               <button class="editor-tab">Preview</button>
             </div>
             <div class="editor-actions">
-              <button class="editor-btn" title="Copy">📋</button>
+              <button class="editor-btn copy-btn" title="Copy">📋</button>
               <button class="run-btn">Run Code</button>
             </div>
           </div>
@@ -2784,7 +2752,7 @@ assert(divide(10, 2) === 5, "Division should work");</textarea>
         </div>
       </div>
     </div>
-    <div class="panel panel-info">
+    <div class="panel panel-explanation">
       <div class="panel-content">
         <h2 class="section-title">Error Handling</h2>
         <div class="section-description">
@@ -2816,44 +2784,7 @@ assert(divide(10, 2) === 5, "Division should work");</textarea>
 
   <!-- SECTION 16: Best Practices & Challenge -->
   <section class="lesson-section" id="section16">
-    <div class="panel panel-info">
-      <div class="panel-content">
-        <h2 class="section-title">Best Practices & Challenge</h2>
-        <div class="section-description">
-          <p>Writing clean, maintainable JavaScript is a skill that comes with practice. Follow these best practices and then test your skills with the Notes App challenge.</p>
-          
-          <h3>Code Quality Guidelines</h3>
-          <ul>
-            <li>Use meaningful variable names (isLoading vs flag)</li>
-            <li>Keep functions small and focused (single responsibility)</li>
-            <li>Avoid global variables (use modules or closures)</li>
-            <li>Use const by default, let when needed</li>
-            <li>Always handle errors (don't ignore catch blocks)</li>
-            <li>Comment the "why", not the "what"</li>
-          </ul>
-
-          <h3>Performance Tips</h3>
-          <ul>
-            <li>Cache DOM queries in variables</li>
-            <li>Debounce input handlers</li>
-            <li>Use event delegation for dynamic lists</li>
-            <li>Lazy load non-critical resources</li>
-          </ul>
-
-          <h3>📝 Challenge: Build a Notes App</h3>
-          <p>Create a fully functional notes application with:</p>
-          <ul>
-            <li>Create, read, update, delete notes</li>
-            <li>LocalStorage persistence</li>
-            <li>Search/filter functionality</li>
-            <li>Responsive design</li>
-            <li>Dark/light theme toggle</li>
-          </ul>
-          <p>This project will solidify everything you've learned in this module!</p>
-        </div>
-      </div>
-    </div>
-    <div class="panel panel-code">
+    <div class="panel panel-code"
       <div class="section-number">16</div>
       <div class="panel-content" style="width: 100%;">
         <div class="code-editor-container" data-editor="js">
@@ -2864,7 +2795,7 @@ assert(divide(10, 2) === 5, "Division should work");</textarea>
               <button class="editor-tab">Preview</button>
             </div>
             <div class="editor-actions">
-              <button class="editor-btn" title="Copy">📋</button>
+              <button class="editor-btn copy-btn" title="Copy">📋</button>
               <button class="run-btn">Run Code</button>
             </div>
           </div>
@@ -3052,12 +2983,41 @@ const get = (obj, path, defaultValue) => {
             <span class="editor-info">Notes App Challenge</span>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
+      </div></div>
+    <div class="panel panel-explanation"
+      <div class="panel-content">
+        <h2 class="section-title">Best Practices & Challenge</h2>
+        <div class="section-description">
+          <p>Writing clean, maintainable JavaScript is a skill that comes with practice. Follow these best practices and then test your skills with the Notes App challenge.</p>
+          
+          <h3>Code Quality Guidelines</h3>
+          <ul>
+            <li>Use meaningful variable names (isLoading vs flag)</li>
+            <li>Keep functions small and focused (single responsibility)</li>
+            <li>Avoid global variables (use modules or closures)</li>
+            <li>Use const by default, let when needed</li>
+            <li>Always handle errors (don't ignore catch blocks)</li>
+            <li>Comment the "why", not the "what"</li>
+          </ul>
 
-  <script src="js/theme.js"></script>
-  <script src="js/editor.js"></script>
-  <script src="js/main.js"></script>
-</body>
-</html>
+          <h3>Performance Tips</h3>
+          <ul>
+            <li>Cache DOM queries in variables</li>
+            <li>Debounce input handlers</li>
+            <li>Use event delegation for dynamic lists</li>
+            <li>Lazy load non-critical resources</li>
+          </ul>
+
+          <h3>📝 Challenge: Build a Notes App</h3>
+          <p>Create a fully functional notes application with:</p>
+          <ul>
+            <li>Create, read, update, delete notes</li>
+            <li>LocalStorage persistence</li>
+            <li>Search/filter functionality</li>
+            <li>Responsive design</li>
+            <li>Dark/light theme toggle</li>
+          </ul>
+          <p>This project will solidify everything you've learned in this module!</p>
+        </div>
+      </div></div>
+  </section>

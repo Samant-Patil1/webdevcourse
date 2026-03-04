@@ -30,6 +30,9 @@
         <li><a href="css-mastery.html" class="active">CSS</a></li>
         <li><a href="javascript-mastery.html">JavaScript</a></li>
         <li><a href="transitions-effects.html">Animations</a></li>
+        <li><a href="react-fundamentals.html">React</a></li>
+        <li><a href="nodejs-express.html">Node.js</a></li>
+        <li><a href="databases.html">Databases</a></li>
         <li><a href="projects.html">Projects</a></li>
       </ul>
       <button class="theme-toggle" aria-label="Toggle dark mode"></button>
@@ -75,7 +78,7 @@
               <button class="editor-tab">Preview</button>
             </div>
             <div class="editor-actions">
-              <button class="editor-btn" title="Copy">📋</button>
+              <button class="editor-btn copy-btn" title="Copy">📋</button>
               <button class="run-btn">Run Code</button>
             </div>
           </div>
@@ -245,49 +248,7 @@ a::after {
 
   <!-- SECTION 2: Box Model -->
   <section class="lesson-section" id="section2">
-    <div class="panel panel-explanation">
-      <div class="panel-content">
-        <div class="topic-tags">
-          <span class="topic-tag">Box Model</span>
-          <span class="topic-tag">Box-Sizing</span>
-          <span class="topic-tag">Margin</span>
-          <span class="topic-tag">Padding</span>
-        </div>
-        <h2>Box Model</h2>
-        
-        <h3>The CSS Box Model</h3>
-        <p>Every HTML element is a rectangular box. The box model describes how these boxes are sized and spaced:</p>
-        <ul>
-          <li><strong>Content</strong> - The actual content (text, images)</li>
-          <li><strong>Padding</strong> - Space inside the border</li>
-          <li><strong>Border</strong> - The edge of the box</li>
-          <li><strong>Margin</strong> - Space outside the border</li>
-        </ul>
-        
-        <h3>Box-Sizing Property</h3>
-        <p>The default <code>content-box</code> adds padding and border to the element's total size. Use <code>border-box</code> to include padding and border in the width calculation:</p>
-        <pre><code>/* Default (content-box) */
-width: 300px + padding + border
-
-/* border-box - RECOMMENDED */
-width: 300px (includes padding + border)</code></pre>
-        
-        <h3>Margin Collapsing</h3>
-        <p>Vertical margins between block elements collapse (the larger value wins). This doesn't happen with horizontal margins or flex/grid items.</p>
-        
-        <h3>Modern Techniques</h3>
-        <ul>
-          <li><code>margin-inline: auto</code> - Center block elements</li>
-          <li><code>margin-block</code> - Vertical margins (writing-mode aware)</li>
-          <li><code>padding-inline</code>, <code>padding-block</code> - Logical properties</li>
-        </ul>
-        
-        <div class="tip-box">
-          <p><strong>Best Practice:</strong> Always set <code>* { box-sizing: border-box; }</code> in your CSS reset. It makes layouts predictable and intuitive.</p>
-        </div>
-      </div>
-    </div>
-    <div class="panel panel-code">
+    <div class="panel panel-code"
       <div class="section-number">02</div>
       <div class="panel-content" style="width: 100%;">
         <div class="code-editor-container">
@@ -391,12 +352,49 @@ width: 300px (includes padding + border)</code></pre>
             <span>CSS</span>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
+      </div></div>
+    <div class="panel panel-explanation"
+      <div class="panel-content">
+        <div class="topic-tags">
+          <span class="topic-tag">Box Model</span>
+          <span class="topic-tag">Box-Sizing</span>
+          <span class="topic-tag">Margin</span>
+          <span class="topic-tag">Padding</span>
+        </div>
+        <h2>Box Model</h2>
+        
+        <h3>The CSS Box Model</h3>
+        <p>Every HTML element is a rectangular box. The box model describes how these boxes are sized and spaced:</p>
+        <ul>
+          <li><strong>Content</strong> - The actual content (text, images)</li>
+          <li><strong>Padding</strong> - Space inside the border</li>
+          <li><strong>Border</strong> - The edge of the box</li>
+          <li><strong>Margin</strong> - Space outside the border</li>
+        </ul>
+        
+        <h3>Box-Sizing Property</h3>
+        <p>The default <code>content-box</code> adds padding and border to the element's total size. Use <code>border-box</code> to include padding and border in the width calculation:</p>
+        <pre><code>/* Default (content-box) */
+width: 300px + padding + border
 
-  <!-- SECTION 3: Display & Positioning -->
-  <section class="lesson-section" id="section3">
+/* border-box - RECOMMENDED */
+width: 300px (includes padding + border)</code></pre>
+        
+        <h3>Margin Collapsing</h3>
+        <p>Vertical margins between block elements collapse (the larger value wins). This doesn't happen with horizontal margins or flex/grid items.</p>
+        
+        <h3>Modern Techniques</h3>
+        <ul>
+          <li><code>margin-inline: auto</code> - Center block elements</li>
+          <li><code>margin-block</code> - Vertical margins (writing-mode aware)</li>
+          <li><code>padding-inline</code>, <code>padding-block</code> - Logical properties</li>
+        </ul>
+        
+        <div class="tip-box">
+          <p><strong>Best Practice:</strong> Always set <code>* { box-sizing: border-box; }</code> in your CSS reset. It makes layouts predictable and intuitive.</p>
+        </div>
+      </div></div>
+  </section><section class="lesson-section" id="section3">
     <div class="panel panel-code">
       <div class="section-number">03</div>
       <div class="panel-content" style="width: 100%;">
@@ -575,51 +573,7 @@ width: 300px (includes padding + border)</code></pre>
 
   <!-- SECTION 4: Flexbox -->
   <section class="lesson-section" id="section4">
-    <div class="panel panel-explanation">
-      <div class="panel-content">
-        <div class="topic-tags">
-          <span class="topic-tag">Flexbox</span>
-          <span class="topic-tag">Layout</span>
-          <span class="topic-tag">Alignment</span>
-          <span class="topic-tag">Responsive</span>
-        </div>
-        <h2>Flexbox</h2>
-        
-        <h3>What is Flexbox?</h3>
-        <p>Flexbox is a one-dimensional layout method for arranging items in rows or columns. It's perfect for:</p>
-        <ul>
-          <li>Navigation bars</li>
-          <li>Card layouts</li>
-          <li>Centering content</li>
-          <li>Distributing space</li>
-        </ul>
-        
-        <h3>Container Properties</h3>
-        <ul>
-          <li><strong>flex-direction</strong> - row (default) | row-reverse | column | column-reverse</li>
-          <li><strong>flex-wrap</strong> - nowrap (default) | wrap | wrap-reverse</li>
-          <li><strong>justify-content</strong> - Main axis alignment (flex-start, center, space-between, etc.)</li>
-          <li><strong>align-items</strong> - Cross axis alignment (stretch, center, flex-start, etc.)</li>
-          <li><strong>align-content</strong> - Multi-line spacing (when wrapped)</li>
-          <li><strong>gap</strong> - Space between items (row-gap, column-gap)</li>
-        </ul>
-        
-        <h3>Item Properties</h3>
-        <ul>
-          <li><strong>flex-grow</strong> - How much item grows (0 = don't grow)</li>
-          <li><strong>flex-shrink</strong> - How much item shrinks (1 = shrink)</li>
-          <li><strong>flex-basis</strong> - Starting size before growing/shrinking</li>
-          <li><strong>flex</strong> - Shorthand: grow shrink basis</li>
-          <li><strong>align-self</strong> - Override container align-items for this item</li>
-          <li><strong>order</strong> - Visual order (not DOM order)</li>
-        </ul>
-        
-        <div class="tip-box">
-          <p><strong>Common Pattern:</strong> <code>flex: 1</code> is shorthand for <code>flex: 1 1 0%</code> — item grows equally, shrinks equally, starts at 0.</p>
-        </div>
-      </div>
-    </div>
-    <div class="panel panel-code">
+    <div class="panel panel-code"
       <div class="section-number">04</div>
       <div class="panel-content" style="width: 100%;">
         <div class="code-editor-container">
@@ -752,12 +706,51 @@ main {
             <span>CSS</span>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SECTION 5: CSS Grid -->
-  <section class="lesson-section" id="section5">
+      </div></div>
+    <div class="panel panel-explanation"
+      <div class="panel-content">
+        <div class="topic-tags">
+          <span class="topic-tag">Flexbox</span>
+          <span class="topic-tag">Layout</span>
+          <span class="topic-tag">Alignment</span>
+          <span class="topic-tag">Responsive</span>
+        </div>
+        <h2>Flexbox</h2>
+        
+        <h3>What is Flexbox?</h3>
+        <p>Flexbox is a one-dimensional layout method for arranging items in rows or columns. It's perfect for:</p>
+        <ul>
+          <li>Navigation bars</li>
+          <li>Card layouts</li>
+          <li>Centering content</li>
+          <li>Distributing space</li>
+        </ul>
+        
+        <h3>Container Properties</h3>
+        <ul>
+          <li><strong>flex-direction</strong> - row (default) | row-reverse | column | column-reverse</li>
+          <li><strong>flex-wrap</strong> - nowrap (default) | wrap | wrap-reverse</li>
+          <li><strong>justify-content</strong> - Main axis alignment (flex-start, center, space-between, etc.)</li>
+          <li><strong>align-items</strong> - Cross axis alignment (stretch, center, flex-start, etc.)</li>
+          <li><strong>align-content</strong> - Multi-line spacing (when wrapped)</li>
+          <li><strong>gap</strong> - Space between items (row-gap, column-gap)</li>
+        </ul>
+        
+        <h3>Item Properties</h3>
+        <ul>
+          <li><strong>flex-grow</strong> - How much item grows (0 = don't grow)</li>
+          <li><strong>flex-shrink</strong> - How much item shrinks (1 = shrink)</li>
+          <li><strong>flex-basis</strong> - Starting size before growing/shrinking</li>
+          <li><strong>flex</strong> - Shorthand: grow shrink basis</li>
+          <li><strong>align-self</strong> - Override container align-items for this item</li>
+          <li><strong>order</strong> - Visual order (not DOM order)</li>
+        </ul>
+        
+        <div class="tip-box">
+          <p><strong>Common Pattern:</strong> <code>flex: 1</code> is shorthand for <code>flex: 1 1 0%</code> — item grows equally, shrinks equally, starts at 0.</p>
+        </div>
+      </div></div>
+  </section><section class="lesson-section" id="section5">
     <div class="panel panel-code">
       <div class="section-number">05</div>
       <div class="panel-content" style="width: 100%;">
@@ -955,48 +948,7 @@ main {
 
   <!-- SECTION 6: Typography -->
   <section class="lesson-section" id="section6">
-    <div class="panel panel-explanation">
-      <div class="panel-content">
-        <div class="topic-tags">
-          <span class="topic-tag">Typography</span>
-          <span class="topic-tag">Fonts</span>
-          <span class="topic-tag">Web Fonts</span>
-          <span class="topic-tag">Readability</span>
-        </div>
-        <h2>Typography</h2>
-        
-        <h3>Font Properties</h3>
-        <ul>
-          <li><strong>font-family</strong> - Font stack: <code>'Inter', system-ui, sans-serif</code></li>
-          <li><strong>font-size</strong> - Absolute (px), relative (em, rem), viewport (vw, vh)</li>
-          <li><strong>font-weight</strong> - 100-900, or keywords (normal, bold)</li>
-          <li><strong>font-style</strong> - normal, italic, oblique</li>
-          <li><strong>line-height</strong> - Unitless preferred: <code>1.5</code> (multiplier)</li>
-          <li><strong>letter-spacing</strong> - Space between letters</li>
-          <li><strong>word-spacing</strong> - Space between words</li>
-          <li><strong>text-transform</strong> - uppercase, lowercase, capitalize</li>
-        </ul>
-        
-        <h3>Web Fonts</h3>
-        <p>Load custom fonts from services like Google Fonts or self-host:</p>
-        <pre><code>@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
-
-/* Or use link tag in HTML for better performance */
-&lt;link rel="preconnect" href="https://fonts.googleapis.com"&gt;</code></pre>
-        
-        <h3>Modern Typography Features</h3>
-        <ul>
-          <li><strong>font-display: swap</strong> - Show fallback font immediately, swap when loaded</li>
-          <li><strong>clamp()</strong> - Fluid typography: <code>font-size: clamp(1rem, 2.5vw, 2rem)</code></li>
-          <li><strong>@font-face</strong> - Self-host fonts for better performance</li>
-        </ul>
-        
-        <div class="tip-box">
-          <p><strong>Best Practice:</strong> Use <code>rem</code> for font sizes (relative to root), unitless <code>line-height</code> (1.5), and always include a system font fallback.</p>
-        </div>
-      </div>
-    </div>
-    <div class="panel panel-code">
+    <div class="panel panel-code"
       <div class="section-number">06</div>
       <div class="panel-content" style="width: 100%;">
         <div class="code-editor-container">
@@ -1124,12 +1076,48 @@ h3 {
             <span>CSS</span>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
+      </div></div>
+    <div class="panel panel-explanation"
+      <div class="panel-content">
+        <div class="topic-tags">
+          <span class="topic-tag">Typography</span>
+          <span class="topic-tag">Fonts</span>
+          <span class="topic-tag">Web Fonts</span>
+          <span class="topic-tag">Readability</span>
+        </div>
+        <h2>Typography</h2>
+        
+        <h3>Font Properties</h3>
+        <ul>
+          <li><strong>font-family</strong> - Font stack: <code>'Inter', system-ui, sans-serif</code></li>
+          <li><strong>font-size</strong> - Absolute (px), relative (em, rem), viewport (vw, vh)</li>
+          <li><strong>font-weight</strong> - 100-900, or keywords (normal, bold)</li>
+          <li><strong>font-style</strong> - normal, italic, oblique</li>
+          <li><strong>line-height</strong> - Unitless preferred: <code>1.5</code> (multiplier)</li>
+          <li><strong>letter-spacing</strong> - Space between letters</li>
+          <li><strong>word-spacing</strong> - Space between words</li>
+          <li><strong>text-transform</strong> - uppercase, lowercase, capitalize</li>
+        </ul>
+        
+        <h3>Web Fonts</h3>
+        <p>Load custom fonts from services like Google Fonts or self-host:</p>
+        <pre><code>@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
 
-  <!-- SECTION 7: Colors & Backgrounds -->
-  <section class="lesson-section" id="section7">
+/* Or use link tag in HTML for better performance */
+&lt;link rel="preconnect" href="https://fonts.googleapis.com"&gt;</code></pre>
+        
+        <h3>Modern Typography Features</h3>
+        <ul>
+          <li><strong>font-display: swap</strong> - Show fallback font immediately, swap when loaded</li>
+          <li><strong>clamp()</strong> - Fluid typography: <code>font-size: clamp(1rem, 2.5vw, 2rem)</code></li>
+          <li><strong>@font-face</strong> - Self-host fonts for better performance</li>
+        </ul>
+        
+        <div class="tip-box">
+          <p><strong>Best Practice:</strong> Use <code>rem</code> for font sizes (relative to root), unitless <code>line-height</code> (1.5), and always include a system font fallback.</p>
+        </div>
+      </div></div>
+  </section><section class="lesson-section" id="section7">
     <div class="panel panel-code">
       <div class="section-number">07</div>
       <div class="panel-content" style="width: 100%;">
@@ -1306,57 +1294,7 @@ h3 {
 
   <!-- SECTION 8: Transforms & Transitions -->
   <section class="lesson-section" id="section8">
-    <div class="panel panel-explanation">
-      <div class="panel-content">
-        <div class="topic-tags">
-          <span class="topic-tag">Transforms</span>
-          <span class="topic-tag">Transitions</span>
-          <span class="topic-tag">Animations</span>
-          <span class="topic-tag">GPU</span>
-        </div>
-        <h2>Transforms & Transitions</h2>
-        
-        <h3>2D Transforms</h3>
-        <ul>
-          <li><strong>translate(x, y)</strong> - Move element</li>
-          <li><strong>rotate(angle)</strong> - Rotate (degrees, radians, turns)</li>
-          <li><strong>scale(x, y)</strong> - Resize (1 = normal, 2 = double)</li>
-          <li><strong>skew(x, y)</strong> - Skew/shear</li>
-          <li><strong>matrix()</strong> - Combine all (advanced)</li>
-        </ul>
-        
-        <h3>3D Transforms</h3>
-        <ul>
-          <li><strong>translate3d(x, y, z)</strong> - 3D movement</li>
-          <li><strong>rotateX/Y/Z(angle)</strong> - Rotate around axis</li>
-          <li><strong>scale3d(x, y, z)</strong> - 3D scaling</li>
-          <li><strong>perspective</strong> - Create 3D depth</li>
-        </ul>
-        
-        <h3>Transition Properties</h3>
-        <ul>
-          <li><strong>transition-property</strong> - Which properties animate (all, none, or list)</li>
-          <li><strong>transition-duration</strong> - How long (ms or s)</li>
-          <li><strong>transition-timing-function</strong> - Speed curve</li>
-          <li><strong>transition-delay</strong> - Wait before starting</li>
-        </ul>
-        
-        <h3>Timing Functions</h3>
-        <ul>
-          <li><strong>ease</strong> - Slow start, fast middle, slow end (default)</li>
-          <li><strong>linear</strong> - Constant speed</li>
-          <li><strong>ease-in</strong> - Slow start</li>
-          <li><strong>ease-out</strong> - Slow end</li>
-          <li><strong>cubic-bezier()</strong> - Custom curve</li>
-          <li><strong>steps()</strong> - Step animation</li>
-        </ul>
-        
-        <div class="tip-box">
-          <p><strong>Performance:</strong> Only animate <code>transform</code> and <code>opacity</code> for 60fps. They don't trigger layout or paint — just compositing!</p>
-        </div>
-      </div>
-    </div>
-    <div class="panel panel-code">
+    <div class="panel panel-code"
       <div class="section-number">08</div>
       <div class="panel-content" style="width: 100%;">
         <div class="code-editor-container">
@@ -1494,12 +1432,57 @@ h3 {
             <span>CSS</span>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SECTION 9: Animations -->
-  <section class="lesson-section" id="section9">
+      </div></div>
+    <div class="panel panel-explanation"
+      <div class="panel-content">
+        <div class="topic-tags">
+          <span class="topic-tag">Transforms</span>
+          <span class="topic-tag">Transitions</span>
+          <span class="topic-tag">Animations</span>
+          <span class="topic-tag">GPU</span>
+        </div>
+        <h2>Transforms & Transitions</h2>
+        
+        <h3>2D Transforms</h3>
+        <ul>
+          <li><strong>translate(x, y)</strong> - Move element</li>
+          <li><strong>rotate(angle)</strong> - Rotate (degrees, radians, turns)</li>
+          <li><strong>scale(x, y)</strong> - Resize (1 = normal, 2 = double)</li>
+          <li><strong>skew(x, y)</strong> - Skew/shear</li>
+          <li><strong>matrix()</strong> - Combine all (advanced)</li>
+        </ul>
+        
+        <h3>3D Transforms</h3>
+        <ul>
+          <li><strong>translate3d(x, y, z)</strong> - 3D movement</li>
+          <li><strong>rotateX/Y/Z(angle)</strong> - Rotate around axis</li>
+          <li><strong>scale3d(x, y, z)</strong> - 3D scaling</li>
+          <li><strong>perspective</strong> - Create 3D depth</li>
+        </ul>
+        
+        <h3>Transition Properties</h3>
+        <ul>
+          <li><strong>transition-property</strong> - Which properties animate (all, none, or list)</li>
+          <li><strong>transition-duration</strong> - How long (ms or s)</li>
+          <li><strong>transition-timing-function</strong> - Speed curve</li>
+          <li><strong>transition-delay</strong> - Wait before starting</li>
+        </ul>
+        
+        <h3>Timing Functions</h3>
+        <ul>
+          <li><strong>ease</strong> - Slow start, fast middle, slow end (default)</li>
+          <li><strong>linear</strong> - Constant speed</li>
+          <li><strong>ease-in</strong> - Slow start</li>
+          <li><strong>ease-out</strong> - Slow end</li>
+          <li><strong>cubic-bezier()</strong> - Custom curve</li>
+          <li><strong>steps()</strong> - Step animation</li>
+        </ul>
+        
+        <div class="tip-box">
+          <p><strong>Performance:</strong> Only animate <code>transform</code> and <code>opacity</code> for 60fps. They don't trigger layout or paint — just compositing!</p>
+        </div>
+      </div></div>
+  </section><section class="lesson-section" id="section9">
     <div class="panel panel-code">
       <div class="section-number">09</div>
       <div class="panel-content" style="width: 100%;">
@@ -1706,63 +1689,7 @@ h3 {
 
   <!-- SECTION 10: Responsive Design -->
   <section class="lesson-section" id="section10">
-    <div class="panel panel-explanation">
-      <div class="panel-content">
-        <div class="topic-tags">
-          <span class="topic-tag">Media Queries</span>
-          <span class="topic-tag">Mobile-First</span>
-          <span class="topic-tag">Breakpoints</span>
-          <span class="topic-tag">Container Queries</span>
-        </div>
-        <h2>Responsive Design</h2>
-        
-        <h3>Mobile-First Approach</h3>
-        <p>Start with mobile styles, then enhance for larger screens:</p>
-        <pre><code>/* Mobile styles (default) */
-.card { width: 100%; }
-
-/* Tablet and up */
-@media (min-width: 768px) {
-  .card { width: 50%; }
-}
-
-/* Desktop and up */
-@media (min-width: 1024px) {
-  .card { width: 33.33%; }
-}</code></pre>
-        
-        <h3>Common Breakpoints</h3>
-        <ul>
-          <li><strong>Mobile:</strong> 0 - 767px</li>
-          <li><strong>Tablet:</strong> 768px - 1023px</li>
-          <li><strong>Desktop:</strong> 1024px+</li>
-          <li><strong>Large:</strong> 1440px+</li>
-        </ul>
-        
-        <h3>Media Query Types</h3>
-        <ul>
-          <li><strong>width/height</strong> - Viewport dimensions</li>
-          <li><strong>orientation</strong> - portrait or landscape</li>
-          <li><strong>prefers-color-scheme</strong> - dark or light mode</li>
-          <li><strong>prefers-reduced-motion</strong> - accessibility</li>
-          <li><strong>hover</strong> - Does device support hover?</li>
-          <li><strong>pointer</strong> - coarse (touch) or fine (mouse)</li>
-        </ul>
-        
-        <h3>Container Queries (Modern!)</h3>
-        <p>Style based on container size, not viewport:</p>
-        <pre><code>.card-container { container-type: inline-size; }
-
-@container (min-width: 400px) {
-  .card { display: flex; }
-}</code></pre>
-        
-        <div class="tip-box">
-          <p><strong>Fluid Design:</strong> Use <code>clamp()</code> for fluid typography and spacing. No more breakpoint hell!</p>
-        </div>
-      </div>
-    </div>
-    <div class="panel panel-code">
+    <div class="panel panel-code"
       <div class="section-number">10</div>
       <div class="panel-content" style="width: 100%;">
         <div class="code-editor-container">
@@ -1920,12 +1847,63 @@ h3 {
             <span>CSS</span>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
+      </div></div>
+    <div class="panel panel-explanation"
+      <div class="panel-content">
+        <div class="topic-tags">
+          <span class="topic-tag">Media Queries</span>
+          <span class="topic-tag">Mobile-First</span>
+          <span class="topic-tag">Breakpoints</span>
+          <span class="topic-tag">Container Queries</span>
+        </div>
+        <h2>Responsive Design</h2>
+        
+        <h3>Mobile-First Approach</h3>
+        <p>Start with mobile styles, then enhance for larger screens:</p>
+        <pre><code>/* Mobile styles (default) */
+.card { width: 100%; }
 
-  <!-- SECTION 11: CSS Variables & Themes -->
-  <section class="lesson-section" id="section11">
+/* Tablet and up */
+@media (min-width: 768px) {
+  .card { width: 50%; }
+}
+
+/* Desktop and up */
+@media (min-width: 1024px) {
+  .card { width: 33.33%; }
+}</code></pre>
+        
+        <h3>Common Breakpoints</h3>
+        <ul>
+          <li><strong>Mobile:</strong> 0 - 767px</li>
+          <li><strong>Tablet:</strong> 768px - 1023px</li>
+          <li><strong>Desktop:</strong> 1024px+</li>
+          <li><strong>Large:</strong> 1440px+</li>
+        </ul>
+        
+        <h3>Media Query Types</h3>
+        <ul>
+          <li><strong>width/height</strong> - Viewport dimensions</li>
+          <li><strong>orientation</strong> - portrait or landscape</li>
+          <li><strong>prefers-color-scheme</strong> - dark or light mode</li>
+          <li><strong>prefers-reduced-motion</strong> - accessibility</li>
+          <li><strong>hover</strong> - Does device support hover?</li>
+          <li><strong>pointer</strong> - coarse (touch) or fine (mouse)</li>
+        </ul>
+        
+        <h3>Container Queries (Modern!)</h3>
+        <p>Style based on container size, not viewport:</p>
+        <pre><code>.card-container { container-type: inline-size; }
+
+@container (min-width: 400px) {
+  .card { display: flex; }
+}</code></pre>
+        
+        <div class="tip-box">
+          <p><strong>Fluid Design:</strong> Use <code>clamp()</code> for fluid typography and spacing. No more breakpoint hell!</p>
+        </div>
+      </div></div>
+  </section><section class="lesson-section" id="section11">
     <div class="panel panel-code">
       <div class="section-number">11</div>
       <div class="panel-content" style="width: 100%;">
@@ -2151,71 +2129,7 @@ window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e)
 
   <!-- SECTION 12: Best Practices & Challenge -->
   <section class="lesson-section" id="section12">
-    <div class="panel panel-explanation">
-      <div class="panel-content">
-        <div class="topic-tags">
-          <span class="topic-tag">BEM</span>
-          <span class="topic-tag">Organization</span>
-          <span class="topic-tag">Performance</span>
-          <span class="topic-tag">Challenge</span>
-        </div>
-        <h2>Best Practices & Build Challenge</h2>
-        
-        <h3>BEM Naming Convention</h3>
-        <p><strong>B</strong>lock <strong>E</strong>lement <strong>M</strong>odifier — keeps CSS organized:</p>
-        <pre><code>/* Block */
-.card { }
-
-/* Element (part of block) */
-.card__title { }
-.card__image { }
-.card__button { }
-
-/* Modifier (variation) */
-.card--featured { }
-.card--compact { }
-.card__button--primary { }</code></pre>
-        
-        <h3>CSS Organization Methods</h3>
-        <ul>
-          <li><strong>ITCSS</strong> - Inverted Triangle: Settings → Tools → Generic → Elements → Objects → Components → Utilities</li>
-          <li><strong>SMACSS</strong> - Base, Layout, Module, State, Theme</li>
-          <li><strong>Atomic CSS</strong> - Utility-first (Tailwind approach)</li>
-        </ul>
-        
-        <h3>Performance Best Practices</h3>
-        <ul>
-          <li>Avoid deep nesting (max 3 levels)</li>
-          <li>Don't over-qualify selectors (<code>div.button</code> → <code>.button</code>)</li>
-          <li>Minimize reflows (batch DOM changes)</li>
-          <li>Use <code>transform</code> and <code>opacity</code> for animations</li>
-          <li>Lazy load below-fold images</li>
-          <li>Compress and minify CSS</li>
-        </ul>
-        
-        <h3>🎯 Build Challenge</h3>
-        <div class="challenge-box">
-          <h4>Create a Responsive Pricing Page</h4>
-          <p>Build a pricing page with these requirements:</p>
-          <ul>
-            <li>3 pricing cards in a responsive grid</li>
-            <li>Dark/light theme toggle (use CSS variables)</li>
-            <li>Hover animations on cards (transform + shadow)</li>
-            <li>Featured card stands out (bigger, different color)</li>
-            <li>Mobile: cards stack vertically</li>
-            <li>Tablet: 2 cards per row, 1 full width</li>
-            <li>Desktop: 3 cards side by side</li>
-            <li>Use BEM naming convention</li>
-            <li>Include CSS custom properties for theming</li>
-          </ul>
-        </div>
-        
-        <div class="tip-box">
-          <p><strong>Remember:</strong> Write CSS that scales! Use variables, keep specificity low, and organize logically. Future you will thank present you.</p>
-        </div>
-      </div>
-    </div>
-    <div class="panel panel-code">
+    <div class="panel panel-code"
       <div class="section-number">12</div>
       <div class="panel-content" style="width: 100%;">
         <div class="code-editor-container">
@@ -2397,31 +2311,68 @@ window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e)
             <span>CSS</span>
           </div>
         </div>
-      </div>
-    </div>
+      </div></div>
+    <div class="panel panel-explanation"
+      <div class="panel-content">
+        <div class="topic-tags">
+          <span class="topic-tag">BEM</span>
+          <span class="topic-tag">Organization</span>
+          <span class="topic-tag">Performance</span>
+          <span class="topic-tag">Challenge</span>
+        </div>
+        <h2>Best Practices & Build Challenge</h2>
+        
+        <h3>BEM Naming Convention</h3>
+        <p><strong>B</strong>lock <strong>E</strong>lement <strong>M</strong>odifier — keeps CSS organized:</p>
+        <pre><code>/* Block */
+.card { }
+
+/* Element (part of block) */
+.card__title { }
+.card__image { }
+.card__button { }
+
+/* Modifier (variation) */
+.card--featured { }
+.card--compact { }
+.card__button--primary { }</code></pre>
+        
+        <h3>CSS Organization Methods</h3>
+        <ul>
+          <li><strong>ITCSS</strong> - Inverted Triangle: Settings → Tools → Generic → Elements → Objects → Components → Utilities</li>
+          <li><strong>SMACSS</strong> - Base, Layout, Module, State, Theme</li>
+          <li><strong>Atomic CSS</strong> - Utility-first (Tailwind approach)</li>
+        </ul>
+        
+        <h3>Performance Best Practices</h3>
+        <ul>
+          <li>Avoid deep nesting (max 3 levels)</li>
+          <li>Don't over-qualify selectors (<code>div.button</code> → <code>.button</code>)</li>
+          <li>Minimize reflows (batch DOM changes)</li>
+          <li>Use <code>transform</code> and <code>opacity</code> for animations</li>
+          <li>Lazy load below-fold images</li>
+          <li>Compress and minify CSS</li>
+        </ul>
+        
+        <h3>🎯 Build Challenge</h3>
+        <div class="challenge-box">
+          <h4>Create a Responsive Pricing Page</h4>
+          <p>Build a pricing page with these requirements:</p>
+          <ul>
+            <li>3 pricing cards in a responsive grid</li>
+            <li>Dark/light theme toggle (use CSS variables)</li>
+            <li>Hover animations on cards (transform + shadow)</li>
+            <li>Featured card stands out (bigger, different color)</li>
+            <li>Mobile: cards stack vertically</li>
+            <li>Tablet: 2 cards per row, 1 full width</li>
+            <li>Desktop: 3 cards side by side</li>
+            <li>Use BEM naming convention</li>
+            <li>Include CSS custom properties for theming</li>
+          </ul>
+        </div>
+        
+        <div class="tip-box">
+          <p><strong>Remember:</strong> Write CSS that scales! Use variables, keep specificity low, and organize logically. Future you will thank present you.</p>
+        </div>
+      </div></div>
   </section>
-
-  <!-- Footer Navigation -->
-  <footer class="lesson-footer">
-    <div class="footer-content">
-      <a href="html-masterclass.html" class="footer-link">
-        <span>← Previous</span>
-        <span>HTML Masterclass</span>
-      </a>
-      <div class="footer-center">
-        <span>CSS Mastery Complete!</span>
-        <span>12 Sections • 150+ Properties</span>
-      </div>
-      <a href="javascript-mastery.html" class="footer-link">
-        <span>Next →</span>
-        <span>JavaScript Mastery</span>
-      </a>
-    </div>
-  </footer>
-
-  <!-- Scripts -->
-  <script src="js/theme.js"></script>
-  <script src="js/editor.js"></script>
-  <script src="js/main.js"></script>
-</body>
-</html>

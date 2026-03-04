@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Complete Node.js & Express Guide - Learn backend development with JavaScript">
+  <title>Node.js & Express | Web Development Course</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/layouts.css">
+  <link rel="stylesheet" href="css/editor.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Progress Bar -->
+  <div class="progress-indicator">
+    <div class="progress-indicator-bar"></div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="navbar-content">
+      <a href="index.html" class="logo">
+        <span>🚀</span>
+        <span>WebDev Course</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="html-masterclass.html">HTML</a></li>
+        <li><a href="css-mastery.html">CSS</a></li>
+        <li><a href="javascript-mastery.html">JavaScript</a></li>
+        <li><a href="transitions-effects.html">Animations</a></li>
+        <li><a href="react-fundamentals.html">React</a></li>
+        <li><a href="nodejs-express.html" class="active">Node.js</a></li>
+        <li><a href="databases.html">Databases</a></li>
+        <li><a href="projects.html">Projects</a></li>
+      </ul>
+      <button class="theme-toggle" aria-label="Toggle dark mode"></button>
+    </div>
+  </nav>
+
+  <!-- Table of Contents Sidebar -->
+  <button class="toc-toggle btn btn-icon" style="position: fixed; left: 20px; bottom: 20px; z-index: 100;">📋</button>
+  <aside class="toc-sidebar">
+    <div class="toc-title">Node.js Contents</div>
+    <ul class="toc-list">
+      <li class="toc-item"><a href="#section1" class="toc-link">Node.js Basics</a></li>
+      <li class="toc-item"><a href="#section2" class="toc-link">File System</a></li>
+      <li class="toc-item"><a href="#section3" class="toc-link">HTTP Module</a></li>
+      <li class="toc-item"><a href="#section4" class="toc-link">Express Intro</a></li>
+      <li class="toc-item"><a href="#section5" class="toc-link">Routing</a></li>
+      <li class="toc-item"><a href="#section6" class="toc-link">Middleware</a></li>
+      <li class="toc-item"><a href="#section7" class="toc-link">Template Engines</a></li>
+      <li class="toc-item"><a href="#section8" class="toc-link">Static Files</a></li>
+      <li class="toc-item"><a href="#section9" class="toc-link">Environment Variables</a></li>
+      <li class="toc-item"><a href="#section10" class="toc-link">Authentication Basics</a></li>
+      <li class="toc-item"><a href="#section11" class="toc-link">Database Integration</a></li>
+      <li class="toc-item"><a href="#section12" class="toc-link">API Best Practices</a></li>
+    </ul>
+  </aside>
+
+  <!-- Section Navigation -->
+  <div class="section-nav">
+    <button class="nav-arrow up" title="Previous section">↑</button>
+    <button class="nav-arrow down" title="Next section">↓</button>
+  </div>
+
+  <!-- SECTION 1: Node.js Basics -->
+  <section class="lesson-section" id="section1">
+    <div class="panel panel-code">
+      <div class="section-number">01</div>
+      <div class="panel-content" style="width: 100%;">
+        <div class="code-editor-container" data-editor="js">
+          <div class="editor-header">
+            <div class="editor-tabs">
+              <button class="editor-tab active">JavaScript</button>
+              <button class="editor-tab">Terminal</button>
+            </div>
+            <div class="editor-actions">
+              <button class="editor-btn copy-btn" title="Copy">📋</button>
+              <button class="run-btn">Run Code</button>
+            </div>
+          </div>
+          <div class="editor-body">
+            <textarea class="code-input" spellcheck="false">// ===== NODE.JS BASICS =====
+// Node.js allows JavaScript to run on the server (outside the browser)
+
+// Check Node.js version: node -v
+// Run a file: node filename.js
+
+// ===== GLOBAL OBJECTS =====
+// Unlike browser's 'window', Node has 'global'
+
+// __dirname - path to current directory
+console.log('Directory:', __dirname);
+
+// __filename - path to current file
+console.log('File:', __filename);
+
+// process - info about the current process
+console.log('Platform:', process.platform);
+console.log('Node version:', process.version);
+
+// ===== MODULE SYSTEM (CommonJS) =====
+// Node uses require() to import modules
+
+// Built-in modules
+const fs = require('fs');      // File system
+const path = require('path');  // Path utilities
+const os = require('os');      // Operating system info
+
+// Export from a file (module.exports)
+// math.js:
+// module.exports = { add: (a, b) => a + b };
+
+// Import custom module
+// const math = require('./math.js');
+// console.log(math.add(2, 3)); // 5
+
+// ===== ES MODULES (Modern approach) =====
+// In package.json: "type": "module"
+// Then use: import fs from 'fs';
+
+// ===== CONSOLE METHODS =====
+console.log('Standard log');
+console.error('Error message');
+console.warn('Warning');
+console.info('Info');
+
+// Table display
+console.table([
+  { name: 'Sam', age: 15 },
+  { name: 'Alex', age: 16 }
+]);
+
+// Timer
+console.time('operation');
+// ... code to time
+console.timeEnd('operation');
+
+// ===== process.argv =====
+// Command line arguments
+// node app.js hello world
+console.log(process.argv);
+// ['node', '/path/to/app.js', 'hello', 'world']
+
+// ===== EVENT LOOP =====
+// Node.js is single-threaded with an event loop
+// Async operations don't block the main thread
+
+console.log('Start');
+setTimeout(() => console.log('Timeout'), 0);
+console.log('End');
+// Output: Start -> End -> Timeout
+
+// ===== BASIC SERVER (preview of next sections) =====
+const http = require('http');
+
+const server = http.createServer((req, res) => {
+  res.writeHead(200, { 'Content-Type': 'text/plain' });
+  res.end('Hello from Node.js!');
+});
+
+// Uncomment to start server:
+// server.listen(3000, () => console.log('Server on port 3000'));</textarea>
+          </div>
+          <div class="editor-footer">
+            <span class="editor-info">Node.js Fundamentals</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-explanation">
+      <div class="panel-content">
+        <h2 class="section-title">Node.js Basics</h2>
+        <div class="section-description">
+          <p>Node.js is a JavaScript runtime built on Chrome's V8 engine. It allows you to run JavaScript on the server side, opening up backend development to JavaScript developers.</p>
+          
+          <h3>Key Features</h3>
+          <ul>
+            <li><strong>Non-blocking I/O</strong> - Handles many connections concurrently</li>
+            <li><strong>Event-driven</strong> - Uses an event loop for async operations</li>
+            <li><strong>Single-threaded</strong> - One thread handles all requests</li>
+            <li><strong>NPM ecosystem</strong> - Access to millions of packages</li>
+          </ul>
+
+          <h3>Installation & Setup</h3>
+          <ol>
+            <li>Download from <code>nodejs.org</code></li>
+            <li>Verify: <code>node -v</code> and <code>npm -v</code></li>
+            <li>Create a project: <code>mkdir myapp && cd myapp</code></li>
+            <li>Initialize: <code>npm init -y</code></li>
+          </ol>
+
+          <h3>Global Objects</h3>
+          <p>Unlike browsers that have <code>window</code>, Node has <code>global</code>. Key globals include <code>__dirname</code>, <code>__filename</code>, and <code>process</code>.</p>
+
+          <div class="tip-box">
+            <strong>💡 Pro Tip:</strong> Use <code>nodemon</code> during development. It auto-restarts your server on file changes: <code>npm install -g nodemon</code>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 2: File System -->
+  <section class="lesson-section" id="section2">
+    <div class="panel panel-code">
+      <div class="section-number">02</div>
+      <div class="panel-content" style="width: 100%;">
+        <div class="code-editor-container" data-editor="js">
+          <div class="editor-header">
+            <div class="editor-tabs">
+              <button class="editor-tab active">JavaScript</button>
+              <button class="editor-tab">Terminal</button>
+            </div>
+            <div class="editor-actions">
+              <button class="editor-btn copy-btn" title="Copy">📋</button>
+              <button class="run-btn">Run Code</button>
+            </div>
+          </div>
+          <div class="editor-body">
+            <textarea class="code-input" spellcheck="false">// ===== FILE SYSTEM MODULE (fs) =====
+const fs = require('fs');
+const path = require('path');
+
+// ===== SYNCHRONOUS (BLOCKING) METHODS =====
+// Only use for initialization, not in request handlers!
+
+try {
+  // Read file synchronously
+  const data = fs.readFileSync('./file.txt', 'utf8');
+  console.log(data);
+  
+  // Write file synchronously
+  fs.writeFileSync('./output.txt', 'Hello World!');
+  
+  // Append to file
+  fs.appendFileSync('./log.txt', '\nNew log entry');
+  
+  // Check if file exists
+  const exists = fs.existsSync('./file.txt');
+  console.log('File exists:', exists);
+  
+} catch (err) {
+  console.error('Error:', err.message);
+}
+
+// ===== ASYNCHRONOUS (NON-BLOCKING) METHODS =====
+// Preferred for server applications
+
+// Callback style (older)
+fs.readFile('./file.txt', 'utf8', (err, data) => {
+  if (err) {
+    console.error('Read error:', err);
+    return;
+  }
+  console.log('File content:', data);
+});
+
+// Promise style (modern)
+const fsPromises = require('fs').promises;
+
+async function fileOperations() {
+  try {
+    // Read file
+    const content = await fsPromises.readFile('./file.txt', 'utf8');
+    console.log(content);
+    
+    // Write file (overwrites existing)
+    await fsPromises.writeFile('./output.txt', 'New content');
+    
+    // Append to file
+    await fsPromises.appendFile('./log.txt', '\nTimestamp: ' + new Date());
+    
+    // Copy file
+    await fsPromises.copyFile('./source.txt', './dest.txt');
+    
+    // Rename/Move file
+    await fsPromises.rename('./old.txt', './new.txt');
+    
+    // Delete file
+    await fsPromises.unlink('./delete-me.txt');
+    
+  } catch (err) {
+    console.error('Operation failed:', err);
+  }
+}
+
+// ===== DIRECTORY OPERATIONS =====
+async function directoryOps() {
+  // Create directory
+  await fsPromises.mkdir('./new-folder', { recursive: true });
+  
+  // Read directory contents
+  const files = await fsPromises.readdir('./');
+  console.log('Files:', files);
+  
+  // Remove directory (must be empty)
+  await fsPromises.rmdir('./empty-folder');
+  
+  // Remove directory and contents (recursive)
+  await fsPromises.rm('./folder', { recursive: true, force: true });
+}
+
+// ===== FILE INFORMATION =====
+async function getFileInfo() {
+  const stats = await fsPromises.stat('./file.txt');
+  
+  console.log('Is file:', stats.isFile());
+  console.log('Is directory:', stats.isDirectory());
+  console.log('Size (bytes):', stats.size);
+  console.log('Created:', stats.birthtime);
+  console.log('Modified:', stats.mtime);
+}
+
+// ===== STREAMS (FOR LARGE FILES) =====
+const readStream = fs.createReadStream('./large-file.txt', 'utf8');
+const writeStream = fs.createWriteStream('./output.txt');
+
+readStream.on('data', (chunk) => {
+  console.log('Received chunk:', chunk.length);
+});
+
+readStream.on('end', () => {
+  console.log('Finished reading');
+});
+
+// Pipe (efficient for copying)
+readStream.pipe(writeStream);
+
+// ===== WATCHING FILES =====
+fs.watch('./watch-folder', (eventType, filename) => {
+  console.log(`File ${filename} changed: ${eventType}`);
+});
+
+// ===== PATH MODULE =====
+const filePath = '/users/sammy/docs/file.txt';
+
+console.log(path.basename(filePath));      // file.txt
+console.log(path.dirname(filePath));       // /users/sammy/docs
+console.log(path.extname(filePath));       // .txt
+console.log(path.join(__dirname, 'files', 'data.txt')); // Platform-safe path
+console.log(path.resolve('files', 'data.txt')); // Absolute path
+
+// fileOperations();</textarea>
+          </div>
+          <div class="editor-footer">
+            <span class="editor-info">File System Operations</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-explanation">
+      <div class="panel-content">
+        <h2 class="section-title">File System</h2>
+        <div class="section-description">
+          <p>The <code>fs</code> module provides APIs to interact with the file system. Understanding synchronous vs asynchronous operations is crucial for building performant Node.js applications.</p>
+          
+          <h3>Sync vs Async</h3>
+          <ul>
+            <li><strong>Synchronous</strong> - Blocks execution until complete. Use only at startup.</li>
+            <li><strong>Asynchronous</strong> - Non-blocking, uses callbacks or promises. Always use in request handlers.</li>
+          </ul>
+
+          <h3>Common Operations</h3>
+          <table style="width: 100%; font-size: 0.9em;">
+            <tr><td><code>readFile</code></td><td>Read entire file content</td></tr>
+            <tr><td><code>writeFile</code></td><td>Write/overwrite file</td></tr>
+            <tr><td><code>appendFile</code></td><td>Add content to end</td></tr>
+            <tr><td><code>unlink</code></td><td>Delete a file</td></tr>
+            <tr><td><code>mkdir</code></td><td>Create directory</td></tr>
+            <tr><td><code>readdir</code></td><td>List directory contents</td></tr>
+          </table>
+
+          <h3>Streams</h3>
+          <p>For large files, use streams to process data in chunks instead of loading everything into memory. This is memory-efficient and faster.</p>
+
+          <div class="tip-box">
+            <strong>💡 Pro Tip:</strong> Always handle errors in file operations. Files might not exist, permissions might be denied, or disks might be full. Use try/catch with async/await for clean error handling.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3: HTTP Module -->
+  <section class="lesson-section" id="section3">
+    <div class="panel panel-code">
+      <div class="section-number">03</div>
+      <div class="panel-content" style="width: 100%;">
+        <div class="code-editor-container" data-editor="js">
+          <div class="editor-header">
+            <div class="editor-tabs">
+              <button class="editor-tab active">JavaScript</button>
+              <button class="editor-tab">Preview</button>
+            </div>
+            <div class="editor-actions">
+              <button class="editor-btn copy-btn" title="Copy">📋</button>
+              <button class="run-btn">Run Code</button>
+            </div>
+          </div>
+          <div class="editor-body">
+            <textarea class="code-input" spellcheck="false">// ===== HTTP MODULE =====
+// Built-in module for creating web servers
+
+const http = require('http');
+const fs = require('fs');
+const path = require('path');
+
+// ===== BASIC SERVER =====
+const server = http.createServer((req, res) => {
+  // req = request object (incoming data)
+  // res = response object (outgoing data)
+  
+  console.log(`${req.method} ${req.url}`);
+  
+  // Set response header
+  res.writeHead(200, { 
+    'Content-Type': 'text/html',
+    'X-Powered-By': 'Node.js'
+  });
+  
+  // Send response
+  res.end('<h1>Hello from Node.js HTTP Server!</h1>');
+});
+
+const PORT = 3000;
+// server.listen(PORT, () => {
+//   console.log(`Server running on http://localhost:${PORT}`);
+// });
+
+// ===== ROUTING WITH HTTP MODULE =====
+const routingServer = http.createServer((req, res) => {
+  const { url, method } = req;
+  
+  // Parse URL and query strings
+  const parsedUrl = new URL(url, `http://${req.headers.host}`);
+  const pathname = parsedUrl.pathname;
+  const query = Object.fromEntries(parsedUrl.searchParams);
+  
+  // Route handling
+  if (pathname === '/' && method === 'GET') {
+    res.writeHead(200, { 'Content-Type': 'text/html' });
+    res.end(`
+      <h1>Home Page</h1>
+      <p>Welcome to our Node.js server!</p>
+      <a href="/about">About</a>
+    `);
+  }
+  else if (pathname === '/about' && method === 'GET') {
+    res.writeHead(200, { 'Content-Type': 'text/html' });
+    res.end('<h1>About Page</h1><p>Built with Node.js</p>');
+  }
+  else if (pathname === '/api/users' && method === 'GET') {
+    const users = [
+      { id: 1, name: 'Sam' },
+      { id: 2, name: 'Alex' }
+    ];
+    res.writeHead(200, { 'Content-Type': 'application/json' });
+    res.end(JSON.stringify(users));
+  }
+  else if (pathname === '/api/users' && method === 'POST') {
+    // Handle POST request
+    let body = '';
+    req.on('data', chunk => body += chunk);
+    req.on('end', () => {
+      const newUser = JSON.parse(body);
+      res.writeHead(201, { 'Content-Type': 'application/json' });
+      res.end(JSON.stringify({ id: 3, ...newUser }));
+    });
+  }
+  // Query parameters: /search?q=nodejs
+  else if (pathname === '/search' && method === 'GET') {
+    const searchTerm = query.q || 'nothing';
+    res.writeHead(200, { 'Content-Type': 'text/html' });
+    res.end(`<h1>Search Results for: ${searchTerm}</h1>`);
+  }
+  // URL parameters: /users/123
+  else if (pathname.match(/^\/users\/\d+$/) && method === 'GET') {
+    const userId = pathname.split('/')[2];
+    res.writeHead(200, { 'Content-Type': 'application/json' });
+    res.end(JSON.stringify({ id: userId, name: 'User ' + userId }));
+  }
+  else {
+    // 404 Not Found
+    res.writeHead(404, { 'Content-Type': 'text/html' });
+    res.end('<h1>404 - Page Not Found</h1>');
+  }
+});
+
+// ===== SERVING STATIC FILES =====
+const staticServer = http.createServer((req, res) => {
+  // Build file path
+  let filePath = path.join(__dirname, 'public', 
+    req.url === '/' ? 'index.html' : req.url
+  );
+  
+  // Get file extension
+  const extname = path.extname(filePath).toLowerCase();
+  
+  // MIME types
+  const mimeTypes = {
+    '.html': 'text/html',
+    '.js': 'text/javascript',
+    '.css': 'text/css',
+    '.json': 'application/json',
+    '.png': 'image/png',
+    '.jpg': 'image/jpeg',
+    '.gif': 'image/gif',
+    '.svg': 'image/svg+xml'
+  };
+  
+  const contentType = mimeTypes[extname] || 'application/octet-stream';
+  
+  // Read and serve file
+  fs.readFile(filePath, (err, content) => {
+    if (err) {
+      if (err.code === 'ENOENT') {
+        // File not found
+        res.writeHead(404, { 'Content-Type': 'text/html' });
+        res.end('<h1>404 Not Found</h1>');
+      } else {
+        // Server error
+        res.writeHead(500);
+        res.end(`Server Error: ${err.code}`);
+      }
+    } else {
+      // Success
+      res.writeHead(200, { 'Content-Type': contentType });
+      res.end(content);
+    }
+  });
+});
+
+// ===== REDIRECTS =====
+const redirectServer = http.createServer((req, res) => {
+  if (req.url === '/old-page') {
+    res.writeHead(301, { 'Location': '/new-page' });
+    res.end();
+  }
+});
+
+// ===== HANDLING REQUEST BODY =====
+const bodyParserServer = http.createServer((req, res) => {
+  if (req.method === 'POST') {
+    let body = '';
+    
+    // Collect data chunks
+    req.on('data', chunk => {
+      body += chunk.toString();
+    });
+    
+    // Process complete body
+    req.on('end', () => {
+      console.log('Received:', body);
+      
+      // Parse based on content type
+      const contentType = req.headers['content-type'];
+      let parsedBody;
+      
+      if (contentType === 'application/json') {
+        parsedBody = JSON.parse(body);
+      } else if (contentType === 'application/x-www-form-urlencoded') {
+        parsedBody = Object.fromEntries(new URLSearchParams(body));
+      }
+      
+      res.writeHead(200, { 'Content-Type': 'application/json' });
+      res.end(JSON.stringify({ received: parsedBody }));
+    });
+  }
+});
+
+// Export for use in other files
+// module.exports = { server, PORT };</textarea>
+          </div>
+          <div class="editor-footer">
+            <span class="editor-info">HTTP Module & Server</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-explanation">
+      <div class="panel-content">
+        <h2 class="section-title">HTTP Module</h2>
+        <div class="section-description">
+          <p>Node's <code>http</code> module lets you create web servers without external dependencies. While powerful, it's low-level compared to frameworks like Express.</p>
+          
+          <h3>Core Concepts</h3>
+          <ul>
+            <li><strong>req (Request)</strong> - Contains client data: URL, headers, method, body</li>
+            <li><strong>res (Response)</strong> - Used to send data back: status, headers, body</li>
+            <li><strong>createServer()</strong> - Creates a server instance</li>
+            <li><strong>listen()</strong> - Starts the server on a port</li>
+          </ul>
+
+          <h3>Common Status Codes</h3>
+          <table style="width: 100%; font-size: 0.9em;">
+            <tr><td><code>200</code></td><td>OK - Success</td></tr>
+            <tr><td><code>201</code></td><td>Created - Resource created</td></tr>
+            <tr><td><code>301/302</code></td><td>Redirect</td></tr>
+            <tr><td><code>400</code></td><td>Bad Request</td></tr>
+            <tr><td><code>401</code></td><td>Unauthorized</td></tr>
+            <tr><td><code>404</code></td><td>Not Found</td></tr>
+            <tr><td><code>500</code></td><td>Server Error</td></tr>
+          </table>
+
+          <h3>Why Learn HTTP Module?</h3>
+          <p>Understanding the HTTP module helps you appreciate what Express does for you. It's also useful for lightweight applications or when you want zero dependencies.</p>
+
+          <div class="tip-box">
+            <strong>💡 Pro Tip:</strong> For real applications, use Express instead of raw HTTP module. Express provides cleaner routing, middleware support, and handles edge cases for you.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

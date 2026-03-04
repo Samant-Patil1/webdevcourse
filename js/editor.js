@@ -408,9 +408,12 @@
   document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('[data-editor]').forEach(el => {
       const mode = el.dataset.editor;
+      const codeEl = el.querySelector('code');
+      const textareaEl = el.querySelector('textarea');
+      const initialCode = codeEl?.textContent || textareaEl?.value || '';
       const options = {
         mode: mode,
-        initialCode: el.querySelector('code')?.textContent || '',
+        initialCode: initialCode,
         ...el.dataset
       };
       

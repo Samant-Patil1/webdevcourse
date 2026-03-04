@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Build real-world projects to master web development">
+  <title>Projects | Web Development Course</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/layouts.css">
+  <link rel="stylesheet" href="css/editor.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Progress Bar -->
+  <div class="progress-indicator">
+    <div class="progress-indicator-bar"></div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="navbar-content">
+      <a href="index.html" class="logo">
+        <span>🚀</span>
+        <span>WebDev Course</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="html-masterclass.html">HTML</a></li>
+        <li><a href="css-mastery.html">CSS</a></li>
+        <li><a href="javascript-mastery.html">JavaScript</a></li>
+        <li><a href="transitions-effects.html">Animations</a></li>
+        <li><a href="react-fundamentals.html">React</a></li>
+        <li><a href="nodejs-express.html">Node.js</a></li>
+        <li><a href="databases.html">Databases</a></li>
+        <li><a href="projects.html" class="active">Projects</a></li>
+      </ul>
+      <button class="theme-toggle" aria-label="Toggle dark mode"></button>
+    </div>
+  </nav>
+
+  <!-- Table of Contents Sidebar -->
+  <button class="toc-toggle btn btn-icon" style="position: fixed; left: 20px; bottom: 20px; z-index: 100;">📋</button>
+  <aside class="toc-sidebar">
+    <div class="toc-title">Projects</div>
+    <ul class="toc-list">
+      <li class="toc-item"><a href="#project1" class="toc-link">Personal Portfolio</a></li>
+      <li class="toc-item"><a href="#project2" class="toc-link">Restaurant Website</a></li>
+      <li class="toc-item"><a href="#project3" class="toc-link">Dashboard</a></li>
+      <li class="toc-item"><a href="#project4" class="toc-link">E-commerce Page</a></li>
+      <li class="toc-item"><a href="#project5" class="toc-link">Social Feed</a></li>
+      <li class="toc-item"><a href="#project6" class="toc-link">Weather App</a></li>
+      <li class="toc-item"><a href="#project7" class="toc-link">Notes App</a></li>
+      <li class="toc-item"><a href="#project8" class="toc-link">Chat Interface</a></li>
+      <li class="toc-item"><a href="#project9" class="toc-link">3D Landing Page</a></li>
+      <li class="toc-item"><a href="#project10" class="toc-link">Full E-commerce</a></li>
+    </ul>
+  </aside>
+
+  <!-- Hero Section -->
+  <section class="lesson-section" id="hero">
+    <div class="panel panel-explanation" style="width: 100%;">
+      <div class="panel-content">
+        <h1 class="section-title">🚀 Build Real Projects</h1>
+        <div class="section-description">
+          <p style="font-size: 1.2rem;">The best way to learn web development is by building. These 10 progressive projects will take you from beginner to advanced, applying everything you've learned.</p>
+          
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 2rem;">
+            <div class="tip-box">
+              <strong>🎯 Beginner</strong><br>Projects 1-3
+            </div>
+            <div class="tip-box">
+              <strong>📈 Intermediate</strong><br>Projects 4-7
+            </div>
+            <div class="tip-box">
+              <strong>🔥 Advanced</strong><br>Projects 8-10
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECT 1: Personal Portfolio -->
+  <section class="lesson-section" id="project1">
+    <div class="panel panel-explanation">
+      <div class="panel-content">
+        <div class="section-number">01</div>
+        <h2 class="section-title">Personal Portfolio</h2>
+        <div class="section-description">
+          <p>Create a stunning personal portfolio website to showcase your skills and projects.</p>
+          
+          <h3>Skills Required</h3>
+          <ul>
+            <li>Semantic HTML5</li>
+            <li>CSS Grid & Flexbox</li>
+            <li>CSS Variables for theming</li>
+            <li>Responsive Design</li>
+            <li>Basic JavaScript</li>
+          </ul>
+
+          <h3>Features to Build</h3>
+          <ol>
+            <li>Hero section with animated intro</li>
+            <li>About section with skills grid</li>
+            <li>Projects gallery with hover effects</li>
+            <li>Contact form with validation</li>
+            <li>Dark/Light theme toggle</li>
+            <li>Smooth scroll navigation</li>
+          </ol>
+
+          <h3>Bonus Challenges</h3>
+          <ul>
+            <li>Add GSAP scroll animations</li>
+            <li>Implement typewriter effect for hero text</li>
+            <li>Add particle background with Canvas</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-code">
+      <div class="panel-content" style="width: 100%;">
+        <div class="code-editor-container" data-editor="js">
+          <div class="editor-header">
+            <div class="editor-tabs">
+              <button class="editor-tab active">HTML</button>
+              <button class="editor-tab">Preview</button>
+            </div>
+            <div class="editor-actions">
+              <button class="editor-btn copy-btn" title="Copy">📋</button>
+              <button class="run-btn">Run Code</button>
+            </div>
+          </div>
+          <div class="editor-body">
+            <textarea class="code-input" spellcheck="false"><!-- Portfolio Starter Template -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="home" class="hero">
+    <h1>Hi, I'm a Web Developer</h1>
+    <p>I build amazing web experiences</p>
+    <a href="#projects" class="cta-btn">View My Work</a>
+  </section>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <div class="skills-grid">
+      <!-- Add your skills here -->
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2>My Projects</h2>
+    <div class="projects-grid">
+      <!-- Add project cards here -->
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Get In Touch</h2>
+    <form>
+      <input type="text" placeholder="Name" required>
+      <input type="email" placeholder="Email" required>
+      <textarea placeholder="Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>© 2024 My Portfolio</p>
+  </footer>
+</body>
+</html></textarea>
+          </div>
+          <div class="editor-footer">
+            <span class="editor-info">Project 1</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="js/theme.js"></script>
+  <script src="js/editor.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
