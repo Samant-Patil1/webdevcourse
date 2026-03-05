@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Learn MongoDB, SQL databases and backend integration">
+  <meta name="description" content="Learn MongoDB and SQL databases">
   <title>Databases | Web Development Course</title>
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/layouts.css">
@@ -12,18 +12,11 @@
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
-  <!-- Progress Bar -->
-  <div class="progress-indicator">
-    <div class="progress-indicator-bar"></div>
-  </div>
+  <div class="progress-indicator"><div class="progress-indicator-bar"></div></div>
 
-  <!-- Navigation -->
   <nav class="navbar">
     <div class="navbar-content">
-      <a href="index.html" class="logo">
-        <span>🚀</span>
-        <span>WebDev Course</span>
-      </a>
+      <a href="index.html" class="logo"><span>🚀</span><span>WebDev Course</span></a>
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="html-masterclass.html">HTML</a></li>
@@ -39,25 +32,23 @@
     </div>
   </nav>
 
-  <!-- Table of Contents Sidebar -->
   <button class="toc-toggle btn btn-icon" style="position: fixed; left: 20px; bottom: 20px; z-index: 100;">📋</button>
   <aside class="toc-sidebar">
     <div class="toc-title">Database Contents</div>
     <ul class="toc-list">
-      <li class="toc-item"><a href="#section1" class="toc-link">Database Fundamentals</a></li>
+      <li class="toc-item"><a href="#section1" class="toc-link">DB Fundamentals</a></li>
       <li class="toc-item"><a href="#section2" class="toc-link">MongoDB Basics</a></li>
       <li class="toc-item"><a href="#section3" class="toc-link">MongoDB CRUD</a></li>
-      <li class="toc-item"><a href="#section4" class="toc-link">Mongoose ODM</a></li>
+      <li class="toc-item"><a href="#section4" class="toc-link">Mongoose</a></li>
       <li class="toc-item"><a href="#section5" class="toc-link">SQL Basics</a></li>
       <li class="toc-item"><a href="#section6" class="toc-link">SQL CRUD</a></li>
-      <li class="toc-item"><a href="#section7" class="toc-link">SQL Relationships</a></li>
-      <li class="toc-item"><a href="#section8" class="toc-link">Database Integration</a></li>
+      <li class="toc-item"><a href="#section7" class="toc-link">SQL Joins</a></li>
+      <li class="toc-item"><a href="#section8" class="toc-link">Integration</a></li>
       <li class="toc-item"><a href="#section9" class="toc-link">Best Practices</a></li>
-      <li class="toc-item"><a href="#section10" class="toc-link">Build Challenge</a></li>
+      <li class="toc-item"><a href="#section10" class="toc-link">Challenge</a></li>
     </ul>
   </aside>
 
-  <!-- Section Navigation -->
   <div class="section-nav">
     <button class="nav-arrow up" title="Previous section">↑</button>
     <button class="nav-arrow down" title="Next section">↓</button>
@@ -81,10 +72,7 @@
           </div>
           <div class="editor-body">
             <textarea class="code-input" spellcheck="false">// ===== DATABASE CONCEPTS =====
-
-// Database Types:
-// SQL (Relational) - MySQL, PostgreSQL, SQLite
-// NoSQL (Non-relational) - MongoDB, Redis, DynamoDB
+// MongoDB and SQL examples
 
 // ===== MONGOOSE SCHEMA EXAMPLE =====
 const mongoose = require('mongoose');
@@ -116,10 +104,6 @@ const userSchema = new mongoose.Schema({
   createdAt: {
     type: Date,
     default: Date.now
-  },
-  isActive: {
-    type: Boolean,
-    default: true
   }
 });
 
@@ -141,48 +125,22 @@ const createUser = async () => {
 
 // READ
 const findUsers = async () => {
-  // Find all
   const allUsers = await User.find();
-  
-  // Find one
   const user = await User.findOne({ email: 'john@example.com' });
-  
-  // Find by ID
-  const byId = await User.findById('userId123');
-  
-  // With conditions
-  const adults = await User.find({ age: { $gte: 18 } });
-  
-  console.log('Found:', adults);
+  console.log('Found:', user);
 };
 
 // UPDATE
 const updateUser = async () => {
-  // Update one
   await User.updateOne(
     { email: 'john@example.com' },
     { $set: { age: 26 } }
   );
-  
-  // Find and update
-  const updated = await User.findOneAndUpdate(
-    { email: 'john@example.com' },
-    { $set: { name: 'Jane Doe' } },
-    { new: true }  // Return updated document
-  );
-  
-  console.log('Updated:', updated);
 };
 
 // DELETE
 const deleteUser = async () => {
-  // Delete one
   await User.deleteOne({ email: 'john@example.com' });
-  
-  // Find and delete
-  const deleted = await User.findOneAndDelete({ email: 'john@example.com' });
-  
-  console.log('Deleted:', deleted);
 };
 
 console.log('Database operations defined!');</textarea>

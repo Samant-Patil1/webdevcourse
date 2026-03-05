@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Learn React fundamentals - Components, Hooks, State Management">
+  <meta name="description" content="Master React from basics to advanced - Components, Hooks, State Management">
   <title>React Fundamentals | Web Development Course</title>
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/layouts.css">
@@ -13,6 +13,7 @@
   <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
   <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="https://unpkg.com/react-router-dom@6/umd/react-router-dom.development.js" crossorigin></script>
 </head>
 <body>
   <!-- Progress Bar -->
@@ -47,20 +48,20 @@
   <aside class="toc-sidebar">
     <div class="toc-title">React Contents</div>
     <ul class="toc-list">
-      <li class="toc-item"><a href="#section1" class="toc-link">React Introduction</a></li>
-      <li class="toc-item"><a href="#section2" class="toc-link">Components</a></li>
-      <li class="toc-item"><a href="#section3" class="toc-link">JSX</a></li>
+      <li class="toc-item"><a href="#section1" class="toc-link">Introduction</a></li>
+      <li class="toc-item"><a href="#section2" class="toc-link">JSX</a></li>
+      <li class="toc-item"><a href="#section3" class="toc-link">Components</a></li>
       <li class="toc-item"><a href="#section4" class="toc-link">Props</a></li>
       <li class="toc-item"><a href="#section5" class="toc-link">State (useState)</a></li>
       <li class="toc-item"><a href="#section6" class="toc-link">Events</a></li>
       <li class="toc-item"><a href="#section7" class="toc-link">Conditional Rendering</a></li>
       <li class="toc-item"><a href="#section8" class="toc-link">Lists & Keys</a></li>
-      <li class="toc-item"><a href="#section9" class="toc-link">useEffect Hook</a></li>
+      <li class="toc-item"><a href="#section9" class="toc-link">useEffect</a></li>
       <li class="toc-item"><a href="#section10" class="toc-link">Forms</a></li>
       <li class="toc-item"><a href="#section11" class="toc-link">Context API</a></li>
-      <li class="toc-item"><a href="#section12" class="toc-link">Custom Hooks</a></li>
-      <li class="toc-item"><a href="#section13" class="toc-link">React Router</a></li>
-      <li class="toc-item"><a href="#section14" class="toc-link">Build Challenge</a></li>
+      <li class="toc-item"><a href="#section12" class="toc-link">useRef & useMemo</a></li>
+      <li class="toc-item"><a href="#section13" class="toc-link">Custom Hooks</a></li>
+      <li class="toc-item"><a href="#section14" class="toc-link">React Router v6</a></li>
     </ul>
   </aside>
 
@@ -78,7 +79,7 @@
         <div class="code-editor-container" data-editor="js">
           <div class="editor-header">
             <div class="editor-tabs">
-              <button class="editor-tab active">JSX</button>
+              <button class="editor-tab active">JavaScript</button>
               <button class="editor-tab">Preview</button>
             </div>
             <div class="editor-actions">
@@ -88,57 +89,56 @@
           </div>
           <div class="editor-body">
             <textarea class="code-input" spellcheck="false">// ===== REACT HELLO WORLD =====
-// Using React CDN with Babel for JSX transformation
+
+const { useState } = React;
 
 function App() {
   return (
-    <div>
+    <div style={{ padding: '20px', fontFamily: 'Arial' }}>
       <h1>Hello, React! 👋</h1>
       <p>Welcome to your first React component.</p>
+      <Greeting name="World" />
     </div>
   );
 }
 
-// Render to DOM
+// Component with props
+function Greeting(props) {
+  return <h2>Hello, {props.name}! 🎉</h2>;
+}
+
+// Render the app
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(<App />);
 
-// ===== COMPONENT WITH PROPS =====
-function Greeting(props) {
-  return <h2>Hello, {props.name}! You are {props.age} years old.</h2>;
-}
-
-function App2() {
-  return (
-    <div>
-      <Greeting name="Alice" age={25} />
-      <Greeting name="Bob" age={30} />
-      <Greeting name="Charlie" age={35} />
-    </div>
-  );
-}
-
-// ===== STATE WITH useState =====
+// ===== COUNTER WITH STATE =====
 function Counter() {
-  const [count, setCount] = React.useState(0);
+  const [count, setCount] = useState(0);
   
   return (
-    <div>
-      <p>Count: {count}</p>
-      <button onClick={() => setCount(count + 1)} >
-        Increment
+    <div style={{ padding: '20px' }}>
+      <h3>Counter: {count}</h3>
+      <button onClick={() => setCount(count + 1)}>
+        ➕ Increment
       </button>
       <button onClick={() => setCount(count - 1)}>
-        Decrement
+        ➖ Decrement
+      </button>
+      <button onClick={() => setCount(0)}>
+        🔄 Reset
       </button>
     </div>
   );
 }
 
-// Render Counter
+// You can render Counter instead:
+// root.render(<Counter />);
+// You can render Counter instead:
 // root.render(<Counter />);
 
-console.log('React components loaded!');</textarea>
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<App />);
+</textarea>
           </div>
           <div class="editor-footer">
             <span class="editor-info">React Intro</span>
@@ -151,27 +151,174 @@ console.log('React components loaded!');</textarea>
         <h2 class="section-title">React Introduction</h2>
         <div class="section-description">
           <p>React is a JavaScript library for building user interfaces. It lets you create reusable components that manage their own state.</p>
-          
           <h3>Why React?</h3>
           <ul>
             <li><strong>Component-Based</strong> - Build encapsulated components</li>
             <li><strong>Declarative</strong> - Describe what UI should look like</li>
             <li><strong>Virtual DOM</strong> - Efficient updates</li>
-            <li><strong>One-Way Data Flow</strong> - Predictable state management</li>
+            <li><strong>One-Way Data Flow</strong> - Predictable state</li>
           </ul>
-
-          <h3>Key Concepts</h3>
-          <ul>
-            <li><strong>Components</strong> - Reusable UI building blocks</li>
-            <li><strong>JSX</strong> - JavaScript XML syntax</li>
-            <li><strong>Props</strong> - Data passed to components</li>
-            <li><strong>State</strong> - Component's internal data</li>
-            <li><strong>Hooks</strong> - Functions to use React features</li>
-          </ul>
-
           <div class="tip-box">
-            <strong>💡 Learning Path:</strong> Master components, JSX, props, and useState before moving to advanced topics.
+            <strong>💡 Pro Tip:</strong> React uses JSX - a syntax extension that looks like HTML in JavaScript. Babel compiles JSX to regular JavaScript function calls.
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 2: JSX -->
+  <section class="lesson-section" id="section2">
+    <div class="panel panel-explanation">
+      <div class="panel-content">
+        <h2 class="section-title">JSX Deep Dive</h2>
+        <div class="section-description">
+          <p>JSX is a syntax extension for JavaScript that looks like HTML. It makes React components more readable and easier to write.</p>
+          <h3>JSX Rules</h3>
+          <ul>
+            <li>Return a single root element (or use fragments <>)</li>
+            <li>Use camelCase for attributes (className, onClick)</li>
+            <li>Use curly braces {} for JavaScript expressions</li>
+            <li>Self-close tags without children (<img />)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-code">
+      <div class="section-number">02</div>
+      <div class="panel-content" style="width: 100%;">
+        <div class="code-editor-container" data-editor="js">
+          <div class="editor-header">
+            <div class="editor-tabs">
+              <button class="editor-tab active">JavaScript</button>
+              <button class="editor-tab">Preview</button>
+            </div>
+            <div class="editor-actions">
+              <button class="editor-btn copy-btn" title="Copy">📋</button>
+              <button class="run-btn">Run Code</button>
+            </div>
+          </div>
+          <div class="editor-body">
+            <textarea class="code-input" spellcheck="false">// ===== JSX EXAMPLES =====
+
+const { useState } = React;
+
+function JsxExamples() {
+  const name = "React Developer";
+  const isLoggedIn = true;
+  const items = ["Apple", "Banana", "Cherry"];
+  
+  return (
+    <div style={{ padding: '20px' }}>
+      {/* JavaScript expressions in curly braces */}
+      <h1>Hello, {name}! 👋</h1>
+      <p>2 + 2 = {2 + 2}</p>
+      
+      {/* Conditional rendering */}
+      <div>
+        {isLoggedIn ? (
+          <p>Welcome back! ✅</p>
+        ) : (
+          <p>Please log in. ❌</p>
+        )}
+      </div>
+      
+      {/* Using && for conditional */}
+      {isLoggedIn && <p>You have full access! 🔓</p>}
+      
+      {/* Rendering lists */}
+      <h3>Fruits:</h3>
+      <ul>
+        {items.map((item, index) => (
+          <li key={index}>{index + 1}. {item}</li>
+        ))}
+      </ul>
+      
+      {/* Inline styles (camelCase) */}
+      <div style={{
+        backgroundColor: '#f0f0f0',
+        padding: '10px',
+        borderRadius: '8px',
+        marginTop: '10px'
+      }}>
+        <p style={{ color: '#333', fontWeight: 'bold' }}>
+          Styled with inline CSS
+        </p>
+      </div>
+    </div>
+  );
+}
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<JsxExamples />);</textarea>
+          </div>
+          <div class="editor-footer">
+            <span class="editor-info">JSX</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3: Components -->
+  <section class="lesson-section" id="section3">
+    <div class="panel panel-code">
+      <div class="section-number">03</div>
+      <div class="panel-content" style="width: 100%;">
+        <div class="code-editor-container" data-editor="js">
+          <div class="editor-header">
+            <div class="editor-tabs">
+              <button class="editor-tab active">JavaScript</button>
+              <button class="editor-tab">Preview</button>
+            </div>
+            <div class="editor-actions">
+              <button class="editor-btn copy-btn" title="Copy">📋</button>
+              <button class="run-btn">Run Code</button>
+            </div>
+          </div>
+          <div class="editor-body">
+            <textarea class="code-input" spellcheck="false">// ===== COMPONENTS =====
+
+const { useState } = React;
+
+// Functional Component
+function Welcome({ name, age }) {
+  return (
+    <div className="welcome-card">
+      <h2>Welcome, {name}! 🎉</h2>
+      <p>Age: {age}</p>
+    </div>
+  );
+}
+
+// Component composition
+function App() {
+  return (
+    <div style={{ padding: '20px' }}>
+      <h1>User Dashboard</h1>
+      <Welcome name="Alice" age={25} />
+      <Welcome name="Bob" age={30} />
+      <Welcome name="Charlie" age={35} />
+    </div>
+  );
+}
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<App />);
+</textarea>
+          </div>
+          <div class="editor-footer">
+            <span class="editor-info">Components</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-explanation">
+      <div class="panel-content">
+        <h2 class="section-title">Components</h2>
+        <div class="section-description">
+          <p>Components are the building blocks of React. They let you split the UI into independent, reusable pieces.</p>
+          <h3>Functional Components</h3>
+          <p>Modern React uses functional components with Hooks. They are simpler and easier to test than class components.</p>
         </div>
       </div>
     </div>

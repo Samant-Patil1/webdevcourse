@@ -10,6 +10,55 @@
   <link rel="stylesheet" href="css/editor.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /* Project-specific styles */
+    .project-meta { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 1.5rem; }
+    .meta-badge { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.375rem 0.75rem; font-size: 0.8rem; border-radius: var(--radius-md); background: var(--color-bg-tertiary); border: 1px solid var(--color-border); }
+    .meta-badge.difficulty-beginner { border-color: var(--color-accent-green); color: var(--color-accent-green); }
+    .meta-badge.difficulty-intermediate { border-color: var(--color-accent-yellow); color: var(--color-accent-yellow); }
+    .meta-badge.difficulty-advanced { border-color: var(--color-accent-red); color: var(--color-accent-red); }
+    .meta-badge.time { color: var(--color-accent-blue); }
+    .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
+    .feature-card { background: var(--color-bg-tertiary); padding: 1rem; border-radius: var(--radius-md); border: 1px solid var(--color-border); }
+    .feature-card h4 { margin: 0 0 0.5rem 0; font-size: 0.9rem; color: var(--color-accent-blue); }
+    .feature-card p { margin: 0; font-size: 0.85rem; color: var(--color-text-muted); }
+    .steps-list { counter-reset: step; list-style: none; padding: 0; }
+    .steps-list li { position: relative; padding-left: 3rem; margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--color-border); }
+    .steps-list li:last-child { border-bottom: none; }
+    .steps-list li::before { counter-increment: step; content: counter(step); position: absolute; left: 0; top: 0; width: 2rem; height: 2rem; background: var(--color-accent-blue); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 0.875rem; }
+    .file-structure { background: var(--color-code-bg); border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 1rem; font-family: var(--font-mono); font-size: 0.85rem; margin: 1rem 0; overflow-x: auto; }
+    .file-structure pre { margin: 0; background: transparent; padding: 0; border: none; }
+    .folder { color: var(--color-accent-yellow); }
+    .file { color: var(--color-text-secondary); }
+    .comment { color: var(--color-text-muted); }
+    .bonus-challenges { background: linear-gradient(135deg, rgba(137, 87, 229, 0.1), rgba(219, 97, 162, 0.1)); border: 1px solid var(--color-accent-purple); border-radius: var(--radius-lg); padding: 1.5rem; margin-top: 1.5rem; }
+    .bonus-challenges h3 { color: var(--color-accent-purple); margin-top: 0; }
+    .tech-stack { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 1rem 0; }
+    .tech-tag { padding: 0.25rem 0.75rem; font-size: 0.75rem; border-radius: var(--radius-sm); background: var(--color-bg-tertiary); border: 1px solid var(--color-border); color: var(--color-text-secondary); }
+    .tech-tag.html { background: #e34c26; color: white; border-color: #e34c26; }
+    .tech-tag.css { background: #264de4; color: white; border-color: #264de4; }
+    .tech-tag.js { background: #f7df1e; color: #323330; border-color: #f7df1e; }
+    .tech-tag.react { background: #61dafb; color: #282c34; border-color: #61dafb; }
+    .tech-tag.node { background: #339933; color: white; border-color: #339933; }
+    .tech-tag.mongo { background: #47a248; color: white; border-color: #47a248; }
+    .tech-tag.api { background: var(--color-accent-purple); color: white; }
+    .tech-tag.chart { background: #ff6384; color: white; }
+    .tech-tag.three { background: white; color: black; }
+    .tech-tag.socket { background: #010101; color: white; }
+    .code-block { background: var(--color-code-bg); border: 1px solid var(--color-border); border-radius: var(--radius-md); overflow: hidden; margin: 1rem 0; }
+    .code-block-header { background: var(--color-bg-tertiary); padding: 0.5rem 1rem; font-size: 0.8rem; color: var(--color-text-muted); border-bottom: 1px solid var(--color-border); display: flex; justify-content: space-between; align-items: center; }
+    .code-block pre { margin: 0; padding: 1rem; background: transparent; overflow-x: auto; }
+    .code-block code { background: transparent; padding: 0; }
+    .level-indicator { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1rem; border-radius: var(--radius-md); font-size: 0.875rem; font-weight: 600; }
+    .level-beginner { background: rgba(35, 134, 54, 0.2); color: var(--color-accent-green); }
+    .level-intermediate { background: rgba(210, 153, 34, 0.2); color: var(--color-accent-yellow); }
+    .level-advanced { background: rgba(218, 54, 51, 0.2); color: var(--color-accent-red); }
+    .project-intro { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin: 2rem 0; padding: 2rem; background: var(--color-bg-secondary); border-radius: var(--radius-lg); border: 1px solid var(--color-border); }
+    .intro-card { text-align: center; }
+    .intro-card .icon { font-size: 2.5rem; margin-bottom: 0.5rem; }
+    .intro-card h4 { margin: 0.5rem 0; }
+    .intro-card p { font-size: 0.875rem; color: var(--color-text-muted); margin: 0; }
+  </style>
 </head>
 <body>
   <!-- Progress Bar -->
@@ -44,16 +93,17 @@
   <aside class="toc-sidebar">
     <div class="toc-title">Projects</div>
     <ul class="toc-list">
-      <li class="toc-item"><a href="#project1" class="toc-link">Personal Portfolio</a></li>
-      <li class="toc-item"><a href="#project2" class="toc-link">Restaurant Website</a></li>
-      <li class="toc-item"><a href="#project3" class="toc-link">Dashboard</a></li>
-      <li class="toc-item"><a href="#project4" class="toc-link">E-commerce Page</a></li>
-      <li class="toc-item"><a href="#project5" class="toc-link">Social Feed</a></li>
-      <li class="toc-item"><a href="#project6" class="toc-link">Weather App</a></li>
-      <li class="toc-item"><a href="#project7" class="toc-link">Notes App</a></li>
-      <li class="toc-item"><a href="#project8" class="toc-link">Chat Interface</a></li>
-      <li class="toc-item"><a href="#project9" class="toc-link">3D Landing Page</a></li>
-      <li class="toc-item"><a href="#project10" class="toc-link">Full E-commerce</a></li>
+      <li class="toc-item"><a href="#hero" class="toc-link">Overview</a></li>
+      <li class="toc-item"><a href="#project1" class="toc-link">1. Personal Portfolio</a></li>
+      <li class="toc-item"><a href="#project2" class="toc-link">2. Restaurant Website</a></li>
+      <li class="toc-item"><a href="#project3" class="toc-link">3. Dashboard</a></li>
+      <li class="toc-item"><a href="#project4" class="toc-link">4. E-commerce Page</a></li>
+      <li class="toc-item"><a href="#project5" class="toc-link">5. Social Feed</a></li>
+      <li class="toc-item"><a href="#project6" class="toc-link">6. Weather App</a></li>
+      <li class="toc-item"><a href="#project7" class="toc-link">7. Notes App</a></li>
+      <li class="toc-item"><a href="#project8" class="toc-link">8. Chat Interface</a></li>
+      <li class="toc-item"><a href="#project9" class="toc-link">9. 3D Landing Page</a></li>
+      <li class="toc-item"><a href="#project10" class="toc-link">10. Full E-commerce</a></li>
     </ul>
   </aside>
 
@@ -65,15 +115,21 @@
         <div class="section-description">
           <p style="font-size: 1.2rem;">The best way to learn web development is by building. These 10 progressive projects will take you from beginner to advanced, applying everything you've learned.</p>
           
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 2rem;">
-            <div class="tip-box">
-              <strong>🎯 Beginner</strong><br>Projects 1-3
+          <div class="project-intro">
+            <div class="intro-card">
+              <div class="icon">🎯</div>
+              <h4>Beginner</h4>
+              <p>Projects 1-3<br>HTML, CSS, Basic JS</p>
             </div>
-            <div class="tip-box">
-              <strong>📈 Intermediate</strong><br>Projects 4-7
+            <div class="intro-card">
+              <div class="icon">📈</div>
+              <h4>Intermediate</h4>
+              <p>Projects 4-7<br>React, APIs, State</p>
             </div>
-            <div class="tip-box">
-              <strong>🔥 Advanced</strong><br>Projects 8-10
+            <div class="intro-card">
+              <div class="icon">🔥</div>
+              <h4>Advanced</h4>
+              <p>Projects 8-10<br>WebSockets, 3D, Full Stack</p>
             </div>
           </div>
         </div>
@@ -81,122 +137,1549 @@
     </div>
   </section>
 
-  <!-- PROJECT 1: Personal Portfolio -->
+  <!-- PROJECT 1: Personal Portfolio (Beginner) -->
   <section class="lesson-section" id="project1">
     <div class="panel panel-explanation">
       <div class="panel-content">
         <div class="section-number">01</div>
         <h2 class="section-title">Personal Portfolio</h2>
-        <div class="section-description">
-          <p>Create a stunning personal portfolio website to showcase your skills and projects.</p>
-          
-          <h3>Skills Required</h3>
-          <ul>
-            <li>Semantic HTML5</li>
-            <li>CSS Grid & Flexbox</li>
-            <li>CSS Variables for theming</li>
-            <li>Responsive Design</li>
-            <li>Basic JavaScript</li>
-          </ul>
+        
+        <div class="project-meta">
+          <span class="meta-badge difficulty-beginner">● Beginner</span>
+          <span class="meta-badge time">⏱️ 4-6 hours</span>
+          <span class="meta-badge">🏷️ Static Website</span>
+        </div>
 
-          <h3>Features to Build</h3>
-          <ol>
-            <li>Hero section with animated intro</li>
-            <li>About section with skills grid</li>
-            <li>Projects gallery with hover effects</li>
-            <li>Contact form with validation</li>
-            <li>Dark/Light theme toggle</li>
-            <li>Smooth scroll navigation</li>
-          </ol>
+        <p>Create a stunning personal portfolio website to showcase your skills, projects, and personality. This is the perfect first project to solidify your HTML and CSS fundamentals.</p>
 
-          <h3>Bonus Challenges</h3>
+        <h3>🎯 Features to Build</h3>
+        <div class="features-grid">
+          <div class="feature-card">
+            <h4>Hero Section</h4>
+            <p>Animated intro with your name, tagline, and call-to-action button</p>
+          </div>
+          <div class="feature-card">
+            <h4>About Section</h4>
+            <p>Your bio with skills displayed in a responsive grid layout</p>
+          </div>
+          <div class="feature-card">
+            <h4>Projects Gallery</h4>
+            <p>Grid of project cards with hover effects and filtering</p>
+          </div>
+          <div class="feature-card">
+            <h4>Contact Form</h4>
+            <p>Functional form with HTML5 validation</p>
+          </div>
+          <div class="feature-card">
+            <h4>Theme Toggle</h4>
+            <p>Dark/Light mode switch using CSS variables</p>
+          </div>
+          <div class="feature-card">
+            <h4>Smooth Navigation</h4>
+            <p>Fixed navbar with smooth scroll to sections</p>
+          </div>
+        </div>
+
+        <h3>🛠️ Required Technologies</h3>
+        <div class="tech-stack">
+          <span class="tech-tag html">HTML5</span>
+          <span class="tech-tag css">CSS3</span>
+          <span class="tech-tag js">JavaScript</span>
+        </div>
+
+        <h3>📁 File Structure</h3>
+        <div class="file-structure">
+          <pre>
+<span class="folder">portfolio/</span>
+├── <span class="file">index.html</span>          <span class="comment"># Main HTML file</span>
+├── <span class="file">style.css</span>           <span class="comment"># All styles</span>
+├── <span class="file">script.js</span>           <span class="comment"># Theme toggle & interactions</span>
+└── <span class="folder">images/</span>             <span class="comment"># Project screenshots</span>
+    ├── <span class="file">profile.jpg</span>
+    └── <span class="file">project1.jpg</span></pre>
+        </div>
+
+        <h3>📝 Step-by-Step Implementation</h3>
+        <ol class="steps-list">
+          <li>
+            <strong>Setup & HTML Structure</strong>
+            <p>Create the HTML skeleton with semantic tags: header, nav, main, section, and footer. Add viewport meta tag for mobile responsiveness.</p>
+          </li>
+          <li>
+            <strong>CSS Variables for Theming</strong>
+            <p>Define CSS custom properties for colors in :root. Create a [data-theme="light"] override for light mode.</p>
+          </li>
+          <li>
+            <strong>Hero Section with Flexbox</strong>
+            <p>Center content vertically and horizontally using Flexbox. Add a gradient background and large typography.</p>
+          </li>
+          <li>
+            <strong>Skills Grid with CSS Grid</strong>
+            <p>Create a responsive grid: grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)).</p>
+          </li>
+          <li>
+            <strong>Projects Gallery with Hover Effects</strong>
+            <p>Build cards with transform: translateY() and box-shadow transitions.</p>
+          </li>
+          <li>
+            <strong>Theme Toggle with JavaScript</strong>
+            <p>Toggle data-theme attribute. Save preference to localStorage.</p>
+          </li>
+        </ol>
+
+        <div class="bonus-challenges">
+          <h3>🎁 Bonus Challenges</h3>
           <ul>
-            <li>Add GSAP scroll animations</li>
-            <li>Implement typewriter effect for hero text</li>
-            <li>Add particle background with Canvas</li>
+            <li>Add GSAP scroll animations for fade-in effects</li>
+            <li>Implement a typewriter effect for hero headline</li>
+            <li>Add particle background using HTML5 Canvas</li>
+            <li>Create download resume button with PDF generation</li>
           </ul>
         </div>
       </div>
     </div>
     <div class="panel panel-code">
       <div class="panel-content" style="width: 100%;">
-        <div class="code-editor-container" data-editor="js">
-          <div class="editor-header">
-            <div class="editor-tabs">
-              <button class="editor-tab active">HTML</button>
-              <button class="editor-tab">Preview</button>
-            </div>
-            <div class="editor-actions">
-              <button class="editor-btn copy-btn" title="Copy">📋</button>
-              <button class="run-btn">Run Code</button>
-            </div>
+        <div class="code-block">
+          <div class="code-block-header">
+            <span>index.html - Hero Section</span>
+            <span class="badge badge-html">HTML</span>
           </div>
-          <div class="editor-body">
-            <textarea class="code-input" spellcheck="false"><!-- Portfolio Starter Template -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Portfolio</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <header>
-    <nav>
-      <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+          <pre><code>&lt;section id="home" class="hero"&gt;
+  &lt;div class="hero-content"&gt;
+    &lt;h1 class="hero-title"&gt;
+      Hi, I'm &lt;span class="highlight"&gt;Your Name&lt;/span&gt;
+    &lt;/h1&gt;
+    &lt;p class="hero-subtitle"&gt;Frontend Developer&lt;/p&gt;
+    &lt;div class="hero-buttons"&gt;
+      &lt;a href="#projects" class="btn btn-primary"&gt;View Work&lt;/a&gt;
+      &lt;a href="#contact" class="btn btn-secondary"&gt;Contact&lt;/a&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;</code></pre>
+        </div>
 
-  <section id="home" class="hero">
-    <h1>Hi, I'm a Web Developer</h1>
-    <p>I build amazing web experiences</p>
-    <a href="#projects" class="cta-btn">View My Work</a>
-  </section>
-
-  <section id="about">
-    <h2>About Me</h2>
-    <div class="skills-grid">
-      <!-- Add your skills here -->
-    </div>
-  </section>
-
-  <section id="projects">
-    <h2>My Projects</h2>
-    <div class="projects-grid">
-      <!-- Add project cards here -->
-    </div>
-  </section>
-
-  <section id="contact">
-    <h2>Get In Touch</h2>
-    <form>
-      <input type="text" placeholder="Name" required>
-      <input type="email" placeholder="Email" required>
-      <textarea placeholder="Message" required></textarea>
-      <button type="submit">Send Message</button>
-    </form>
-  </section>
-
-  <footer>
-    <p>© 2024 My Portfolio</p>
-  </footer>
-</body>
-</html></textarea>
+        <div class="code-block">
+          <div class="code-block-header">
+            <span>style.css - CSS Variables</span>
+            <span class="badge badge-css">CSS</span>
           </div>
-          <div class="editor-footer">
-            <span class="editor-info">Project 1</span>
+          <pre><code>:root {
+  --bg-primary: #0d1117;
+  --bg-secondary: #161b22;
+  --text-primary: #f0f6fc;
+  --accent: #58a6ff;
+}
+
+[data-theme="light"] {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f6f8fa;
+  --text-primary: #1f2328;
+  --accent: #0969da;
+}
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}</code></pre>
+        </div>
+
+        <div class="code-block">
+          <div class="code-block-header">
+            <span>script.js - Theme Toggle</span>
+            <span class="badge badge-js">JS</span>
           </div>
+          <pre><code>const themeToggle = document.querySelector('.theme-toggle');
+const html = document.documentElement;
+
+const savedTheme = localStorage.getItem('theme') || 'dark';
+html.setAttribute('data-theme', savedTheme);
+
+themeToggle.addEventListener('click', () => {
+  const current = html.getAttribute('data-theme');
+  const newTheme = current === 'dark' ? 'light' : 'dark';
+  html.setAttribute('data-theme', newTheme);
+  localStorage.setItem('theme', newTheme);
+});</code></pre>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- PROJECT 2: Restaurant Website (Beginner) -->
+  <section class="lesson-section" id="project2">
+    <div class="panel panel-explanation">
+      <div class="panel-content">
+        <div class="section-number">02</div>
+        <h2 class="section-title">Restaurant Website</h2>
+        
+        <div class="project-meta">
+          <span class="meta-badge difficulty-beginner">● Beginner</span>
+          <span class="meta-badge time">⏱️ 6-8 hours</span>
+          <span class="meta-badge">🏷️ Responsive + Animations</span>
+        </div>
+
+        <p>Build a modern restaurant website with beautiful animations, responsive design, and an interactive menu. Learn CSS animations and mobile-first design.</p>
+
+        <h3>🎯 Features to Build</h3>
+        <div class="features-grid">
+          <div class="feature-card"><h4>Animated Hero</h4><p>Full-screen hero with parallax background</p></div>
+          <div class="feature-card"><h4>Interactive Menu</h4><p>Filterable categories with hover animations</p></div>
+          <div class="feature-card"><h4>Image Gallery</h4><p>Masonry layout with lightbox</p></div>
+          <div class="feature-card"><h4>Reservation Form</h4><p>Date/time picker with validation</p></div>
+          <div class="feature-card"><h4>Testimonials Slider</h4><p>Auto-rotating customer reviews</p></div>
+          <div class="feature-card"><h4>Mobile Navigation</h4><p>Hamburger menu with animations</p></div>
+        </div>
+
+        <h3>🛠️ Required Technologies</h3>
+        <div class="tech-stack">
+          <span class="tech-tag html">HTML5</span>
+          <span class="tech-tag css">CSS3</span>
+          <span class="tech-tag js">JavaScript</span>
+        </div>
+
+        <h3>📁 File Structure</h3>
+        <div class="file-structure">
+          <pre>
+<span class="folder">restaurant/</span>
+├── <span class="file">index.html</span>
+├── <span class="folder">css/</span>
+│   ├── <span class="file">style.css</span>
+│   └── <span class="file">animations.css</span>
+├── <span class="folder">js/</span>
+│   ├── <span class="file">menu.js</span>
+│   └── <span class="file">gallery.js</span>
+└── <span class="folder">images/</span></pre>
+        </div>
+
+        <h3>📝 Step-by-Step Implementation</h3>
+        <ol class="steps-list">
+          <li><strong>Mobile-First CSS</strong><p>Write base styles for mobile, enhance with media queries for desktop.</p></li>
+          <li><strong>Parallax Hero</strong><p>Use background-attachment: fixed or JS scroll listeners.</p></li>
+          <li><strong>CSS Keyframe Animations</strong><p>Create fadeInUp with opacity and transform: translateY().</p></li>
+          <li><strong>Filterable Menu</strong><p>Use data-category attributes. Filter with JS show/hide.</p></li>
+          <li><strong>Masonry Gallery</strong><p>Use CSS Grid with grid-auto-rows and grid-row: span 2.</p></li>
+          <li><strong>Mobile Hamburger Menu</strong><p>Toggle CSS class to animate hamburger into X shape.</p></li>
+        </ol>
+
+        <div class="bonus-challenges">
+          <h3>🎁 Bonus Challenges</h3>
+          <ul>
+            <li>Add GSAP ScrollTrigger for scroll animations</li>
+            <li>Implement shopping cart for online ordering</li>
+            <li>Create online reservation with email confirmation</li>
+            <li>Add lazy loading for images</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-code">
+      <div class="panel-content" style="width: 100%;">
+        <div class="code-block">
+          <div class="code-block-header"><span>animations.css</span><span class="badge badge-css">CSS</span></div>
+          <pre><code>@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.menu-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.menu-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
+
+.image-wrapper {
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.image-wrapper img {
+  transition: transform 0.5s ease;
+}
+
+.image-wrapper:hover img {
+  transform: scale(1.1);
+}</code></pre>
+        </div>
+
+        <div class="code-block">
+          <div class="code-block-header"><span>menu.js</span><span class="badge badge-js">JS</span></div>
+          <pre><code>const menuItems = [
+  { id: 1, name: 'Bruschetta', category: 'appetizer', price: 8 },
+  { id: 2, name: 'Margherita Pizza', category: 'main', price: 16 },
+  { id: 3, name: 'Tiramisu', category: 'dessert', price: 8 }
+];
+
+const filterButtons = document.querySelectorAll('.filter-btn');
+const menuGrid = document.querySelector('.menu-grid');
+
+function renderMenu(category = 'all') {
+  const filtered = category === 'all' 
+    ? menuItems 
+    : menuItems.filter(item => item.category === category);
+  
+  menuGrid.innerHTML = filtered.map(item => `
+    <div class="menu-card" data-category="${item.category}">
+      <h3>${item.name}</h3>
+      <span class="price">$${item.price}</span>
+    </div>
+  `).join('');
+}
+
+filterButtons.forEach(btn => {
+  btn.addEventListener('click', () => {
+    filterButtons.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    renderMenu(btn.dataset.category);
+  });
+});
+
+renderMenu();</code></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECT 3: Dashboard with Charts (Beginner-Intermediate) -->
+  <section class="lesson-section" id="project3">
+    <div class="panel panel-explanation">
+      <div class="panel-content">
+        <div class="section-number">03</div>
+        <h2 class="section-title">Dashboard with Charts</h2>
+        
+        <div class="project-meta">
+          <span class="meta-badge difficulty-intermediate">● Intermediate</span>
+          <span class="meta-badge time">⏱️ 8-10 hours</span>
+          <span class="meta-badge">🏷️ Data Visualization</span>
+        </div>
+
+        <p>Create a professional analytics dashboard with interactive charts, data tables, and real-time statistics using Chart.js.</p>
+
+        <h3>🎯 Features to Build</h3>
+        <div class="features-grid">
+          <div class="feature-card"><h4>Statistics Cards</h4><p>KPI cards with trend indicators</p></div>
+          <div class="feature-card"><h4>Interactive Charts</h4><p>Line, bar, pie using Chart.js</p></div>
+          <div class="feature-card"><h4>Data Tables</h4><p>Sortable tables with pagination</p></div>
+          <div class="feature-card"><h4>Date Range Filter</h4><p>Filter dashboard data</p></div>
+          <div class="feature-card"><h4>Sidebar Navigation</h4><p>Collapsible sidebar</p></div>
+          <div class="feature-card"><h4>Export Functionality</h4><p>Export as images/CSV</p></div>
+        </div>
+
+        <h3>🛠️ Required Technologies</h3>
+        <div class="tech-stack">
+          <span class="tech-tag html">HTML5</span>
+          <span class="tech-tag css">CSS3</span>
+          <span class="tech-tag js">JavaScript</span>
+          <span class="tech-tag chart">Chart.js</span>
+        </div>
+
+        <h3>📁 File Structure</h3>
+        <div class="file-structure">
+          <pre>
+<span class="folder">dashboard/</span>
+├── <span class="file">index.html</span>
+├── <span class="folder">css/</span>
+│   ├── <span class="file">dashboard.css</span>
+│   └── <span class="file">sidebar.css</span>
+├── <span class="folder">js/</span>
+│   ├── <span class="file">charts.js</span>
+│   ├── <span class="file">data.js</span>
+│   └── <span class="file">tables.js</span>
+└── <span class="folder">assets/</span></pre>
+        </div>
+
+        <h3>📝 Step-by-Step Implementation</h3>
+        <ol class="steps-list">
+          <li><strong>Dashboard Grid Layout</strong><p>Use CSS Grid with grid-template-areas for organization.</p></li>
+          <li><strong>Collapsible Sidebar</strong><p>Sidebar with smooth width transitions and icon-only mode.</p></li>
+          <li><strong>Statistics Cards</strong><p>Reusable components with trend indicators.</p></li>
+          <li><strong>Setup Chart.js</strong><p>Include CDN, create canvas elements, initialize with data.</p></li>
+          <li><strong>Line Chart</strong><p>Show data trends with gradient fills.</p></li>
+          <li><strong>Sortable Data Table</strong><p>Sort when clicking headers, add pagination.</p></li>
+        </ol>
+
+        <div class="bonus-challenges">
+          <h3>🎁 Bonus Challenges</h3>
+          <ul>
+            <li>Add real-time data updates with setInterval</li>
+            <li>Implement chart type switching</li>
+            <li>Add dark/light mode with chart updates</li>
+            <li>Create drag-and-drop widget system</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-code">
+      <div class="panel-content" style="width: 100%;">
+        <div class="code-block">
+          <div class="code-block-header"><span>charts.js</span><span class="badge badge-js">JS</span></div>
+          <pre><code>const chartColors = {
+  primary: '#58a6ff',
+  secondary: '#238636',
+  accent: '#8957e5'
+};
+
+// Line Chart
+const revenueCtx = document.getElementById('revenueChart');
+new Chart(revenueCtx, {
+  type: 'line',
+  data: {
+    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
+    datasets: [{
+      label: 'Revenue',
+      data: [12000, 19000, 15000, 25000, 22000],
+      borderColor: chartColors.primary,
+      backgroundColor: 'rgba(88, 166, 255, 0.1)',
+      fill: true,
+      tension: 0.4
+    }]
+  },
+  options: {
+    responsive: true,
+    plugins: { legend: { display: false } }
+  }
+});
+
+// Doughnut Chart
+const categoryCtx = document.getElementById('categoryChart');
+new Chart(categoryCtx, {
+  type: 'doughnut',
+  data: {
+    labels: ['Electronics', 'Clothing', 'Food'],
+    datasets: [{
+      data: [35, 25, 40],
+      backgroundColor: [
+        chartColors.primary,
+        chartColors.secondary,
+        chartColors.accent
+      ]
+    }]
+  },
+  options: { cutout: '70%' }
+});</code></pre>
+        </div>
+
+        <div class="code-block">
+          <div class="code-block-header"><span>dashboard.css</span><span class="badge badge-css">CSS</span></div>
+          <pre><code>.dashboard {
+  display: grid;
+  grid-template-areas:
+    "sidebar header"
+    "sidebar main";
+  grid-template-columns: 250px 1fr;
+  grid-template-rows: 70px 1fr;
+  min-height: 100vh;
+}
+
+.sidebar {
+  grid-area: sidebar;
+  background: var(--bg-secondary);
+  border-right: 1px solid var(--border);
+  transition: width 0.3s ease;
+}
+
+.sidebar.collapsed { width: 70px; }
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.stat-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.5rem;
+}</code></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECT 4: E-commerce Product Page (Intermediate) -->
+  <section class="lesson-section" id="project4">
+    <div class="panel panel-explanation">
+      <div class="panel-content">
+        <div class="section-number">04</div>
+        <h2 class="section-title">E-commerce Product Page</h2>
+        
+        <div class="project-meta">
+          <span class="meta-badge difficulty-intermediate">● Intermediate</span>
+          <span class="meta-badge time">⏱️ 10-12 hours</span>
+          <span class="meta-badge">🏷️ React Application</span>
+        </div>
+
+        <p>Build a modern e-commerce product page with React. Learn component architecture, state management, and create a polished shopping experience.</p>
+
+        <h3>🎯 Features to Build</h3>
+        <div class="features-grid">
+          <div class="feature-card"><h4>Image Gallery</h4><p>Thumbnail nav with zoom</p></div>
+          <div class="feature-card"><h4>Variant Selection</h4><p>Size/color with stock status</p></div>
+          <div class="feature-card"><h4>Add to Cart</h4><p>Quantity selector</p></div>
+          <div class="feature-card"><h4>Product Tabs</h4><p>Description, specs, reviews</p></div>
+          <div class="feature-card"><h4>Related Products</h4><p>Similar items carousel</p></div>
+          <div class="feature-card"><h4>Reviews Section</h4><p>Ratings and submission</p></div>
+        </div>
+
+        <h3>🛠️ Required Technologies</h3>
+        <div class="tech-stack">
+          <span class="tech-tag react">React</span>
+          <span class="tech-tag css">CSS Modules</span>
+          <span class="tech-tag js">JavaScript</span>
+        </div>
+
+        <h3>📁 File Structure</h3>
+        <div class="file-structure">
+          <pre>
+<span class="folder">ecommerce-product/</span>
+├── <span class="folder">src/</span>
+│   ├── <span class="folder">components/</span>
+│   │   ├── <span class="file">ImageGallery.jsx</span>
+│   │   ├── <span class="file">VariantSelector.jsx</span>
+│   │   ├── <span class="file">AddToCart.jsx</span>
+│   │   └── <span class="file">Reviews.jsx</span>
+│   ├── <span class="folder">context/</span>
+│   │   └── <span class="file">CartContext.jsx</span>
+│   └── <span class="file">App.jsx</span>
+└── <span class="file">package.json</span></pre>
+        </div>
+
+        <h3>📝 Step-by-Step Implementation</h3>
+        <ol class="steps-list">
+          <li><strong>React Project Setup</strong><p>Use create-react-app or Vite. Install dependencies.</p></li>
+          <li><strong>Component Architecture</strong><p>Plan hierarchy: App → ProductPage → [ImageGallery, ProductInfo]</p></li>
+          <li><strong>Image Gallery</strong><p>Main display with thumbnails. Click to switch. Zoom on hover.</p></li>
+          <li><strong>Variant Selector</strong><p>Buttons for sizes/colors. Update price based on selection.</p></li>
+          <li><strong>Cart Context</strong><p>Create CartContext with addToCart, removeFromCart functions.</p></li>
+          <li><strong>Product Tabs</strong><p>Conditional rendering for Description, Specs, Reviews.</p></li>
+        </ol>
+
+        <div class="bonus-challenges">
+          <h3>🎁 Bonus Challenges</h3>
+          <ul>
+            <li>Add React Router for multi-page navigation</li>
+            <li>Implement Redux Toolkit for state management</li>
+            <li>Add Framer Motion for page transitions</li>
+            <li>Create mini cart drawer slide-in</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-code">
+      <div class="panel-content" style="width: 100%;">
+        <div class="code-block">
+          <div class="code-block-header"><span>CartContext.jsx</span><span class="badge badge-js">React</span></div>
+          <pre><code>import { createContext, useContext, useReducer } from 'react';
+
+const CartContext = createContext();
+
+const cartReducer = (state, action) => {
+  switch (action.type) {
+    case 'ADD_ITEM': {
+      const existing = state.items.find(
+        item => item.id === action.payload.id && 
+                item.variant === action.payload.variant
+      );
+      if (existing) {
+        return {
+          ...state,
+          items: state.items.map(item =>
+            item.id === action.payload.id
+              ? { ...item, quantity: item.quantity + 1 }
+              : item
+          )
+        };
+      }
+      return { ...state, items: [...state.items, action.payload] };
+    }
+    case 'REMOVE_ITEM':
+      return {
+        ...state,
+        items: state.items.filter(item => item.cartId !== action.payload)
+      };
+    default:
+      return state;
+  }
+};
+
+export const CartProvider = ({ children }) => {
+  const [state, dispatch] = useReducer(cartReducer, { items: [] });
+  
+  const addToCart = (product, variant, quantity) => {
+    dispatch({
+      type: 'ADD_ITEM',
+      payload: { cartId: `${product.id}-${variant}`, ...product, variant, quantity }
+    });
+  };
+  
+  const cartTotal = state.items.reduce(
+    (sum, item) => sum + item.price * item.quantity, 0
+  );
+  
+  return (
+    &lt;CartContext.Provider value={{ items: state.items, addToCart, cartTotal }}&gt;
+      {children}
+    &lt;/CartContext.Provider&gt;
+  );
+};
+
+export const useCart = () => useContext(CartContext);</code></pre>
+        </div>
+
+        <div class="code-block">
+          <div class="code-block-header"><span>ImageGallery.jsx</span><span class="badge badge-js">React</span></div>
+          <pre><code>import { useState } from 'react';
+
+const ImageGallery = ({ images }) => {
+  const [selected, setSelected] = useState(0);
+  const [zoom, setZoom] = useState(false);
+
+  return (
+    &lt;div className="gallery"&gt;
+      &lt;div 
+        className={`main-image ${zoom ? 'zoomed' : ''}`}
+        onClick={() => setZoom(!zoom)}
+      &gt;
+        &lt;img src={images[selected]} alt="Product" /&gt;
+      &lt;/div&gt;
+      
+      &lt;div className="thumbnails"&gt;
+        {images.map((img, idx) => (
+          &lt;button
+            key={idx}
+            className={selected === idx ? 'active' : ''}
+            onClick={() => setSelected(idx)}
+          &gt;
+            &lt;img src={img} alt={`View ${idx + 1}`} /&gt;
+          &lt;/button&gt;
+        ))}
+      &lt;/div&gt;
+    &lt;/div&gt;
+  );
+};
+
+export default ImageGallery;</code></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECT 5: Social Media Feed (Intermediate) -->
+  <section class="lesson-section" id="project5">
+    <div class="panel panel-explanation">
+      <div class="panel-content">
+        <div class="section-number">05</div>
+        <h2 class="section-title">Social Media Feed</h2>
+        
+        <div class="project-meta">
+          <span class="meta-badge difficulty-intermediate">● Intermediate</span>
+          <span class="meta-badge time">⏱️ 12-14 hours</span>
+          <span class="meta-badge">🏷️ React + API</span>
+        </div>
+
+        <p>Build a fully functional social media feed with posts, likes, comments, and real-time updates. Learn REST APIs, infinite scroll, and complex state.</p>
+
+        <h3>🎯 Features to Build</h3>
+        <div class="features-grid">
+          <div class="feature-card"><h4>Infinite Scroll</h4><p>Load more posts on scroll</p></div>
+          <div class="feature-card"><h4>Create Post</h4><p>Text, image uploads, emojis</p></div>
+          <div class="feature-card"><h4>Like & Comment</h4><p>Interactive engagement</p></div>
+          <div class="feature-card"><h4>User Profiles</h4><p>View user info and posts</p></div>
+          <div class="feature-card"><h4>Follow System</h4><p>Follow/unfollow users</p></div>
+          <div class="feature-card"><h4>Notifications</h4><p>Real-time notification dropdown</p></div>
+        </div>
+
+        <h3>🛠️ Required Technologies</h3>
+        <div class="tech-stack">
+          <span class="tech-tag react">React</span>
+          <span class="tech-tag api">REST API</span>
+          <span class="tech-tag js">JavaScript</span>
+        </div>
+
+        <h3>📁 File Structure</h3>
+        <div class="file-structure">
+          <pre>
+<span class="folder">social-feed/</span>
+├── <span class="folder">src/</span>
+│   ├── <span class="folder">components/</span>
+│   │   ├── <span class="file">Feed.jsx</span>
+│   │   ├── <span class="file">Post.jsx</span>
+│   │   └── <span class="file">CreatePost.jsx</span>
+│   ├── <span class="folder">hooks/</span>
+│   │   └── <span class="file">useInfiniteScroll.js</span>
+│   └── <span class="folder">services/</span>
+│       └── <span class="file">api.js</span></pre>
+        </div>
+
+        <h3>📝 Step-by-Step Implementation</h3>
+        <ol class="steps-list">
+          <li><strong>API Service Setup</strong><p>Create axios service with interceptors for auth.</p></li>
+          <li><strong>Infinite Scroll Hook</strong><p>Use Intersection Observer to detect bottom and load more.</p></li>
+          <li><strong>Feed Component</strong><p>Display posts, implement pull-to-refresh.</p></li>
+          <li><strong>Post Component</strong><p>Avatar, content, image carousel, like button.</p></li>
+          <li><strong>Optimistic Updates</strong><p>Update UI immediately, sync with server.</p></li>
+          <li><strong>Comment System</strong><p>Expandable section, nested replies.</p></li>
+        </ol>
+
+        <div class="bonus-challenges">
+          <h3>🎁 Bonus Challenges</h3>
+          <ul>
+            <li>Add WebSocket support for real-time updates</li>
+            <li>Implement story feature like Instagram</li>
+            <li>Add hashtag system with clickable tags</li>
+            <li>Build search functionality</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-code">
+      <div class="panel-content" style="width: 100%;">
+        <div class="code-block">
+          <div class="code-block-header"><span>useInfiniteScroll.js</span><span class="badge badge-js">React</span></div>
+          <pre><code>import { useState, useEffect, useCallback } from 'react';
+
+const useInfiniteScroll = (fetchData) => {
+  const [data, setData] = useState([]);
+  const [page, setPage] = useState(1);
+  const [loading, setLoading] = useState(false);
+  const [hasMore, setHasMore] = useState(true);
+
+  const loadMore = useCallback(async () => {
+    if (loading || !hasMore) return;
+    setLoading(true);
+    try {
+      const result = await fetchData(page);
+      if (result.length === 0) setHasMore(false);
+      else {
+        setData(prev => [...prev, ...result]);
+        setPage(prev => prev + 1);
+      }
+    } finally {
+      setLoading(false);
+    }
+  }, [page, loading, hasMore, fetchData]);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting && hasMore && !loading) {
+          loadMore();
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    const sentinel = document.getElementById('scroll-sentinel');
+    if (sentinel) observer.observe(sentinel);
+
+    return () => observer.disconnect();
+  }, [loadMore, hasMore, loading]);
+
+  return { data, loading, hasMore };
+};
+
+export default useInfiniteScroll;</code></pre>
+        </div>
+
+        <div class="code-block">
+          <div class="code-block-header"><span>api.js</span><span class="badge badge-js">JS</span></div>
+          <pre><code>import axios from 'axios';
+
+const API_BASE_URL = 'https://api.socialfeed.com/v1';
+
+const api = axios.create({
+  baseURL: API_BASE_URL,
+  headers: { 'Content-Type': 'application/json' }
+});
+
+// Request interceptor for auth
+api.interceptors.request.use((config) => {
+  const token = localStorage.getItem('authToken');
+  if (token) config.headers.Authorization = `Bearer ${token}`;
+  return config;
+});
+
+export const postsApi = {
+  getFeed: (page = 1, limit = 10) => 
+    api.get(`/posts/feed?page=${page}&limit=${limit}`),
+  
+  createPost: (content, images = []) => 
+    api.post('/posts', { content, images }),
+  
+  likePost: (postId) => api.post(`/posts/${postId}/like`),
+  
+  addComment: (postId, text) => 
+    api.post(`/posts/${postId}/comments`, { text })
+};
+
+export default api;</code></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECT 6: Weather App (Intermediate) -->
+  <section class="lesson-section" id="project6">
+    <div class="panel panel-explanation">
+      <div class="panel-content">
+        <div class="section-number">06</div>
+        <h2 class="section-title">Weather App</h2>
+        
+        <div class="project-meta">
+          <span class="meta-badge difficulty-intermediate">● Intermediate</span>
+          <span class="meta-badge time">⏱️ 8-10 hours</span>
+          <span class="meta-badge">🏷️ Fetch API + Geolocation</span>
+        </div>
+
+        <p>Build a beautiful weather application with current conditions, forecasts, and location-based weather using external APIs.</p>
+
+        <h3>🎯 Features to Build</h3>
+        <div class="features-grid">
+          <div class="feature-card"><h4>Current Weather</h4><p>Temperature, humidity, wind</p></div>
+          <div class="feature-card"><h4>5-Day Forecast</h4><p>Daily and hourly predictions</p></div>
+          <div class="feature-card"><h4>Location Search</h4><p>Search cities worldwide</p></div>
+          <div class="feature-card"><h4>Geolocation</h4><p>Auto-detect user location</p></div>
+          <div class="feature-card"><h4>Dynamic Themes</h4><p>Background based on weather</p></div>
+          <div class="feature-card"><h4>Unit Toggle</h4><p>Celsius/Fahrenheit switch</p></div>
+        </div>
+
+        <h3>🛠️ Required Technologies</h3>
+        <div class="tech-stack">
+          <span class="tech-tag html">HTML5</span>
+          <span class="tech-tag css">CSS3</span>
+          <span class="tech-tag js">JavaScript</span>
+          <span class="tech-tag api">Weather API</span>
+        </div>
+
+        <h3>📝 Step-by-Step Implementation</h3>
+        <ol class="steps-list">
+          <li><strong>API Key Setup</strong><p>Sign up for OpenWeatherMap, get API key.</p></li>
+          <li><strong>Fetch Weather Data</strong><p>Create async functions, handle errors.</p></li>
+          <li><strong>Geolocation</strong><p>Use navigator.geolocation API.</p></li>
+          <li><strong>Search</strong><p>Debounced search with autocomplete.</p></li>
+          <li><strong>Dynamic Icons</strong><p>Map weather codes to SVG icons.</p></li>
+          <li><strong>Theme System</strong><p>CSS classes for different conditions.</p></li>
+        </ol>
+
+        <div class="bonus-challenges">
+          <h3>🎁 Bonus Challenges</h3>
+          <ul>
+            <li>Add weather maps using map layers</li>
+            <li>Implement push notifications for alerts</li>
+            <li>Create embeddable weather widgets</li>
+            <li>Build PWA with offline support</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-code">
+      <div class="panel-content" style="width: 100%;">
+        <div class="code-block">
+          <div class="code-block-header"><span>weatherApi.js</span><span class="badge badge-js">JS</span></div>
+          <pre><code>const API_KEY = 'your_api_key';
+const BASE_URL = 'https://api.openweathermap.org/data/2.5';
+
+class WeatherAPI {
+  async getWeatherByCoords(lat, lon) {
+    const response = await fetch(
+      `${BASE_URL}/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`
+    );
+    if (!response.ok) throw new Error('Failed to fetch');
+    return this.formatWeather(await response.json());
+  }
+
+  async getWeatherByCity(city) {
+    const response = await fetch(
+      `${BASE_URL}/weather?q=${city}&appid=${API_KEY}&units=metric`
+    );
+    if (!response.ok) throw new Error('City not found');
+    return this.formatWeather(await response.json());
+  }
+
+  async getForecast(lat, lon) {
+    const response = await fetch(
+      `${BASE_URL}/forecast?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`
+    );
+    const data = await response.json();
+    return this.formatForecast(data.list);
+  }
+
+  formatWeather(data) {
+    return {
+      city: data.name,
+      temp: Math.round(data.main.temp),
+      humidity: data.main.humidity,
+      windSpeed: data.wind.speed,
+      description: data.weather[0].description,
+      condition: data.weather[0].main,
+      icon: data.weather[0].icon
+    };
+  }
+}
+
+export default new WeatherAPI();</code></pre>
+        </div>
+
+        <div class="code-block">
+          <div class="code-block-header"><span>themes.css</span><span class="badge badge-css">CSS</span></div>
+          <pre><code>/* Weather Themes */
+[data-weather="Clear"] {
+  --bg-gradient: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+  --card-bg: rgba(255, 255, 255, 0.2);
+}
+
+[data-weather="Clouds"] {
+  --bg-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --card-bg: rgba(255, 255, 255, 0.15);
+}
+
+[data-weather="Rain"] {
+  --bg-gradient: linear-gradient(135deg, #2c3e50 0%, #4ca1af 100%);
+  --card-bg: rgba(255, 255, 255, 0.1);
+}
+
+body {
+  background: var(--bg-gradient);
+  min-height: 100vh;
+  transition: background 0.5s ease;
+}
+
+.weather-card {
+  background: var(--card-bg);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 2rem;
+}</code></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECT 7: Notes App (Intermediate) -->
+  <section class="lesson-section" id="project7">
+    <div class="panel panel-explanation">
+      <div class="panel-content">
+        <div class="section-number">07</div>
+        <h2 class="section-title">Notes App</h2>
+        
+        <div class="project-meta">
+          <span class="meta-badge difficulty-intermediate">● Intermediate</span>
+          <span class="meta-badge time">⏱️ 8-10 hours</span>
+          <span class="meta-badge">🏷️ CRUD + LocalStorage</span>
+        </div>
+
+        <p>Build a feature-rich notes application. Learn CRUD operations, local storage persistence, search functionality, and rich text editing.</p>
+
+        <h3>🎯 Features to Build</h3>
+        <div class="features-grid">
+          <div class="feature-card"><h4>Create Notes</h4><p>Rich text editor</p></div>
+          <div class="feature-card"><h4>Color Labels</h4><p>Organize with colors</p></div>
+          <div class="feature-card"><h4>Search & Filter</h4><p>Full-text search</p></div>
+          <div class="feature-card"><h4>Archive & Trash</h4><p>Soft delete with restore</p></div>
+          <div class="feature-card"><h4>Pin Important</h4><p>Pin to top</p></div>
+          <div class="feature-card"><h4>Auto-Save</h4><p>Save as you type</p></div>
+        </div>
+
+        <h3>🛠️ Required Technologies</h3>
+        <div class="tech-stack">
+          <span class="tech-tag react">React</span>
+          <span class="tech-tag css">CSS</span>
+          <span class="tech-tag js">JavaScript</span>
+        </div>
+
+        <h3>📝 Step-by-Step Implementation</h3>
+        <ol class="steps-list">
+          <li><strong>useLocalStorage Hook</strong><p>Sync state with localStorage.</p></li>
+          <li><strong>Notes State Management</strong><p>CRUD: create, read, update, delete, archive.</p></li>
+          <li><strong>Note Editor</strong><p>contentEditable or rich text library.</p></li>
+          <li><strong>Masonry Grid</strong><p>Pinterest-style layout.</p></li>
+          <li><strong>Color Labels</strong><p>Assign and filter by colors.</p></li>
+          <li><strong>Auto-Save</strong><p>Debounced save after typing stops.</p></li>
+        </ol>
+
+        <div class="bonus-challenges">
+          <h3>🎁 Bonus Challenges</h3>
+          <ul>
+            <li>Add cloud sync (Firebase, Supabase)</li>
+            <li>Implement real-time collaboration</li>
+            <li>Add voice-to-text with Web Speech API</li>
+            <li>Create markdown support</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-code">
+      <div class="panel-content" style="width: 100%;">
+        <div class="code-block">
+          <div class="code-block-header"><span>useLocalStorage.js</span><span class="badge badge-js">React</span></div>
+          <pre><code>import { useState, useEffect, useCallback } from 'react';
+
+function useLocalStorage(key, initialValue) {
+  const [storedValue, setStoredValue] = useState(() => {
+    if (typeof window === 'undefined') return initialValue;
+    try {
+      const item = window.localStorage.getItem(key);
+      return item ? JSON.parse(item) : initialValue;
+    } catch (error) {
+      return initialValue;
+    }
+  });
+
+  const setValue = useCallback((value) => {
+    try {
+      const valueToStore = value instanceof Function 
+        ? value(storedValue) 
+        : value;
+      setStoredValue(valueToStore);
+      if (typeof window !== 'undefined') {
+        window.localStorage.setItem(key, JSON.stringify(valueToStore));
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  }, [key, storedValue]);
+
+  return [storedValue, setValue];
+}
+
+export default useLocalStorage;</code></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECT 8: Chat Interface (Advanced) -->
+  <section class="lesson-section" id="project8">
+    <div class="panel panel-explanation">
+      <div class="panel-content">
+        <div class="section-number">08</div>
+        <h2 class="section-title">Chat Interface</h2>
+        
+        <div class="project-meta">
+          <span class="meta-badge difficulty-advanced">● Advanced</span>
+          <span class="meta-badge time">⏱️ 14-16 hours</span>
+          <span class="meta-badge">🏷️ WebSocket Basics</span>
+        </div>
+
+        <p>Build a real-time chat application with WebSockets. Learn socket programming, message persistence, typing indicators, and online status.</p>
+
+        <h3>🎯 Features to Build</h3>
+        <div class="features-grid">
+          <div class="feature-card"><h4>Real-time Messages</h4><p>Instant send/receive</p></div>
+          <div class="feature-card"><h4>Typing Indicators</h4><p>Show when user is typing</p></div>
+          <div class="feature-card"><h4>Online Status</h4><p>Show who's online</p></div>
+          <div class="feature-card"><h4>Message History</h4><p>Load previous messages</p></div>
+          <div class="feature-card"><h4>Image Sharing</h4><p>Send images in chat</p></div>
+          <div class="feature-card"><h4>Read Receipts</h4><p>Message delivered/read status</p></div>
+        </div>
+
+        <h3>🛠️ Required Technologies</h3>
+        <div class="tech-stack">
+          <span class="tech-tag react">React</span>
+          <span class="tech-tag node">Node.js</span>
+          <span class="tech-tag socket">Socket.io</span>
+          <span class="tech-tag js">JavaScript</span>
+        </div>
+
+        <h3>📁 File Structure</h3>
+        <div class="file-structure">
+          <pre>
+<span class="folder">chat-app/</span>
+├── <span class="folder">client/</span>
+│   ├── <span class="folder">src/</span>
+│   │   ├── <span class="file">Chat.jsx</span>
+│   │   ├── <span class="file">MessageList.jsx</span>
+│   │   └── <span class="file">socket.js</span>
+│   └── <span class="file">package.json</span>
+└── <span class="folder">server/</span>
+    ├── <span class="file">server.js</span>
+    └── <span class="file">package.json</span></pre>
+        </div>
+
+        <h3>📝 Step-by-Step Implementation</h3>
+        <ol class="steps-list">
+          <li><strong>Socket.io Setup</strong><p>Install server and client libraries.</p></li>
+          <li><strong>Connection Handling</strong><p>Connect, disconnect, reconnect logic.</p></li>
+          <li><strong>Message Events</strong><p>Emit and listen for message events.</p></li>
+          <li><strong>Typing Indicators</strong><p>Broadcast typing status.</p></li>
+          <li><strong>User Presence</strong><p>Track online/offline status.</p></li>
+          <li><strong>Message Persistence</strong><p>Store messages in database.</p></li>
+        </ol>
+
+        <div class="bonus-challenges">
+          <h3>🎁 Bonus Challenges</h3>
+          <ul>
+            <li>Add group chat/rooms support</li>
+            <li>Implement end-to-end encryption</li>
+            <li>Add voice messages</li>
+            <li>Create message reactions (emoji)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-code">
+      <div class="panel-content" style="width: 100%;">
+        <div class="code-block">
+          <div class="code-block-header"><span>server.js - Socket.io Server</span><span class="badge badge-js">Node.js</span></div>
+          <pre><code>const express = require('express');
+const http = require('http');
+const { Server } = require('socket.io');
+
+const app = express();
+const server = http.createServer(app);
+const io = new Server(server, {
+  cors: { origin: "http://localhost:3000" }
+});
+
+const users = new Map();
+
+io.on('connection', (socket) => {
+  console.log('User connected:', socket.id);
+
+  // Join room
+  socket.on('join', (userId) => {
+    users.set(socket.id, { userId, socketId: socket.id });
+    socket.broadcast.emit('user-online', userId);
+  });
+
+  // Handle message
+  socket.on('send-message', (data) => {
+    const message = {
+      id: Date.now(),
+      senderId: data.senderId,
+      text: data.text,
+      timestamp: new Date()
+    };
+    
+    // Send to recipient
+    io.to(data.recipientId).emit('new-message', message);
+    
+    // Confirm to sender
+    socket.emit('message-sent', message);
+  });
+
+  // Typing indicator
+  socket.on('typing', (data) => {
+    socket.to(data.recipientId).emit('user-typing', {
+      userId: data.senderId
+    });
+  });
+
+  // Disconnect
+  socket.on('disconnect', () => {
+    const user = users.get(socket.id);
+    if (user) {
+      socket.broadcast.emit('user-offline', user.userId);
+      users.delete(socket.id);
+    }
+  });
+});
+
+server.listen(3001, () => {
+  console.log('Server running on port 3001');
+});</code></pre>
+        </div>
+
+        <div class="code-block">
+          <div class="code-block-header"><span>socket.js - Client</span><span class="badge badge-js">JS</span></div>
+          <pre><code>import { io } from 'socket.io-client';
+
+const socket = io('http://localhost:3001');
+
+export const initializeSocket = (userId) => {
+  socket.emit('join', userId);
+};
+
+export const sendMessage = (recipientId, text) => {
+  socket.emit('send-message', {
+    senderId: socket.id,
+    recipientId,
+    text
+  });
+};
+
+export const onMessageReceived = (callback) => {
+  socket.on('new-message', callback);
+};
+
+export const emitTyping = (recipientId) => {
+  socket.emit('typing', { senderId: socket.id, recipientId });
+};
+
+export const onUserTyping = (callback) => {
+  socket.on('user-typing', callback);
+};
+
+export default socket;</code></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECT 9: 3D Landing Page (Advanced) -->
+  <section class="lesson-section" id="project9">
+    <div class="panel panel-explanation">
+      <div class="panel-content">
+        <div class="section-number">09</div>
+        <h2 class="section-title">3D Landing Page</h2>
+        
+        <div class="project-meta">
+          <span class="meta-badge difficulty-advanced">● Advanced</span>
+          <span class="meta-badge time">⏱️ 12-15 hours</span>
+          <span class="meta-badge">🏷️ Three.js</span>
+        </div>
+
+        <p>Create an immersive 3D landing page with Three.js. Learn 3D modeling basics, lighting, animations, and interactive scenes.</p>
+
+        <h3>🎯 Features to Build</h3>
+        <div class="features-grid">
+          <div class="feature-card"><h4>3D Hero Scene</h4><p>Animated 3D background</p></div>
+          <div class="feature-card"><h4>Interactive Objects</h4><p>Mouse-responsive elements</p></div>
+          <div class="feature-card"><h4>Particle Systems</h4><p>Floating particles</p></div>
+          <div class="feature-card"><h4>Scroll Animations</h4><p>3D transforms on scroll</p></div>
+          <div class="feature-card"><h4>3D Product Viewer</h4><p>Rotate and zoom products</p></div>
+          <div class="feature-card"><h4>Loading Experience</h4><p>Animated loader</p></div>
+        </div>
+
+        <h3>🛠️ Required Technologies</h3>
+        <div class="tech-stack">
+          <span class="tech-tag html">HTML5</span>
+          <span class="tech-tag js">JavaScript</span>
+          <span class="tech-tag three">Three.js</span>
+          <span class="tech-tag css">CSS3</span>
+        </div>
+
+        <h3>📝 Step-by-Step Implementation</h3>
+        <ol class="steps-list">
+          <li><strong>Three.js Setup</strong><p>Scene, camera, renderer basics.</p></li>
+          <li><strong>3D Objects</strong><p>Create geometries, materials, meshes.</p></li>
+          <li><strong>Lighting</strong><p>Ambient, directional, point lights.</p></li>
+          <li><strong>Animation Loop</strong><p>Render loop for smooth animations.</p></li>
+          <li><strong>Mouse Interaction</strong><p>Raycasting for object selection.</p></li>
+          <li><strong>Scroll Integration</strong><p>GSAP ScrollTrigger with 3D.</p></li>
+        </ol>
+
+        <div class="bonus-challenges">
+          <h3>🎁 Bonus Challenges</h3>
+          <ul>
+            <li>Add post-processing effects (bloom, blur)</li>
+            <li>Implement VR support with WebXR</li>
+            <li>Create custom shaders</li>
+            <li>Add physics with Cannon.js</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-code">
+      <div class="panel-content" style="width: 100%;">
+        <div class="code-block">
+          <div class="code-block-header"><span>three-scene.js</span><span class="badge badge-js">JS</span></div>
+          <pre><code>import * as THREE from 'three';
+
+// Scene Setup
+const scene = new THREE.Scene();
+scene.background = new THREE.Color(0x0d1117);
+
+const camera = new THREE.PerspectiveCamera(
+  75, 
+  window.innerWidth / window.innerHeight, 
+  0.1, 
+  1000
+);
+camera.position.z = 5;
+
+const renderer = new THREE.WebGLRenderer({ antialias: true });
+renderer.setSize(window.innerWidth, window.innerHeight);
+renderer.setPixelRatio(window.devicePixelRatio);
+document.getElementById('canvas-container').appendChild(renderer.domElement);
+
+// Objects
+const geometry = new THREE.IcosahedronGeometry(1, 0);
+const material = new THREE.MeshPhongMaterial({
+  color: 0x58a6ff,
+  wireframe: true
+});
+const sphere = new THREE.Mesh(geometry, material);
+scene.add(sphere);
+
+// Lighting
+const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+scene.add(ambientLight);
+
+const pointLight = new THREE.PointLight(0x58a6ff, 1);
+pointLight.position.set(5, 5, 5);
+scene.add(pointLight);
+
+// Particles
+const particlesGeometry = new THREE.BufferGeometry();
+const particlesCount = 1000;
+const posArray = new Float32Array(particlesCount * 3);
+
+for (let i = 0; i < particlesCount * 3; i++) {
+  posArray[i] = (Math.random() - 0.5) * 20;
+}
+
+particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+const particlesMaterial = new THREE.PointsMaterial({
+  size: 0.02,
+  color: 0xffffff
+});
+const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial);
+scene.add(particlesMesh);
+
+// Animation Loop
+const animate = () => {
+  requestAnimationFrame(animate);
+  
+  sphere.rotation.x += 0.005;
+  sphere.rotation.y += 0.005;
+  particlesMesh.rotation.y += 0.001;
+  
+  renderer.render(scene, camera);
+};
+
+animate();
+
+// Resize Handler
+window.addEventListener('resize', () => {
+  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(window.innerWidth, window.innerHeight);
+});</code></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECT 10: Full E-commerce Site (Advanced) -->
+  <section class="lesson-section" id="project10">
+    <div class="panel panel-explanation">
+      <div class="panel-content">
+        <div class="section-number">10</div>
+        <h2 class="section-title">Full E-commerce Site</h2>
+        
+        <div class="project-meta">
+          <span class="meta-badge difficulty-advanced">● Advanced</span>
+          <span class="meta-badge time">⏱️ 30-40 hours</span>
+          <span class="meta-badge">🏷️ Full Stack</span>
+        </div>
+
+        <p>Build a complete e-commerce platform with React frontend, Node.js backend, and MongoDB database. Learn authentication, payments, admin panels, and deployment.</p>
+
+        <h3>🎯 Features to Build</h3>
+        <div class="features-grid">
+          <div class="feature-card"><h4>User Authentication</h4><p>JWT login/register</p></div>
+          <div class="feature-card"><h4>Product Catalog</h4><p>Categories, filters, search</p></div>
+          <div class="feature-card"><h4>Shopping Cart</h4><p>Persistent cart state</p></div>
+          <div class="feature-card"><h4>Checkout</h4><p>Stripe payment integration</p></div>
+          <div class="feature-card"><h4>Order Management</h4><p>Track orders, history</p></div>
+          <div class="feature-card"><h4>Admin Dashboard</h4><p>Manage products & orders</p></div>
+        </div>
+
+        <h3>🛠️ Required Technologies</h3>
+        <div class="tech-stack">
+          <span class="tech-tag react">React</span>
+          <span class="tech-tag node">Node.js</span>
+          <span class="tech-tag mongo">MongoDB</span>
+          <span class="tech-tag api">Express</span>
+        </div>
+
+        <h3>📁 File Structure</h3>
+        <div class="file-structure">
+          <pre>
+<span class="folder">ecommerce-full/</span>
+├── <span class="folder">client/</span>                 <span class="comment"># React Frontend</span>
+│   ├── <span class="folder">src/</span>
+│   │   ├── <span class="folder">components/</span>
+│   │   ├── <span class="folder">pages/</span>
+│   │   └── <span class="folder">redux/</span>
+│   └── <span class="file">package.json</span>
+├── <span class="folder">server/</span>                 <span class="comment"># Node.js Backend</span>
+│   ├── <span class="folder">models/</span>
+│   ├── <span class="folder">routes/</span>
+│   ├── <span class="folder">middleware/</span>
+│   └── <span class="file">server.js</span>
+└── <span class="file">package.json</span></pre>
+        </div>
+
+        <h3>📝 Step-by-Step Implementation</h3>
+        <ol class="steps-list">
+          <li><strong>Project Setup</strong><p>Create React app and Node server. Setup folder structure.</p></li>
+          <li><strong>Database Models</strong><p>User, Product, Order schemas in Mongoose.</p></li>
+          <li><strong>Authentication</strong><p>JWT-based auth, bcrypt for passwords.</p></li>
+          <li><strong>Product API</strong><p>CRUD endpoints for products, categories.</p></li>
+          <li><strong>Shopping Cart</strong><p>Redux state, localStorage persistence.</p></li>
+          <li><strong>Stripe Integration</strong><p>Payment intents, checkout flow.</p></li>
+          <li><strong>Order System</strong><p>Create orders, track status.</p></li>
+          <li><strong>Admin Panel</strong><p>Protected routes, CRUD operations.</p></li>
+        </ol>
+
+        <div class="bonus-challenges">
+          <h3>🎁 Bonus Challenges</h3>
+          <ul>
+            <li>Add product reviews and ratings</li>
+            <li>Implement inventory management</li>
+            <li>Add discount codes and coupons</li>
+            <li>Create wishlist functionality</li>
+            <li>Build analytics dashboard</li>
+            <li>Deploy to AWS/Vercel/Railway</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-code">
+      <div class="panel-content" style="width: 100%;">
+        <div class="code-block">
+          <div class="code-block-header"><span>server.js - Express Setup</span><span class="badge badge-js">Node.js</span></div>
+          <pre><code>const express = require('express');
+const mongoose = require('mongoose');
+const cors = require('cors');
+const dotenv = require('dotenv');
+
+const authRoutes = require('./routes/auth');
+const productRoutes = require('./routes/products');
+const orderRoutes = require('./routes/orders');
+
+dotenv.config();
+
+const app = express();
+
+// Middleware
+app.use(cors());
+app.use(express.json());
+
+// Database Connection
+mongoose.connect(process.env.MONGODB_URI)
+  .then(() => console.log('Connected to MongoDB'))
+  .catch(err => console.error('MongoDB error:', err));
+
+// Routes
+app.use('/api/auth', authRoutes);
+app.use('/api/products', productRoutes);
+app.use('/api/orders', orderRoutes);
+
+// Error Handler
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).json({ message: err.message });
+});
+
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});</code></pre>
+        </div>
+
+        <div class="code-block">
+          <div class="code-block-header"><span>Product.js - Mongoose Model</span><span class="badge badge-js">MongoDB</span></div>
+          <pre><code>const mongoose = require('mongoose');
+
+const productSchema = new mongoose.Schema({
+  name: {
+    type: String,
+    required: true,
+    trim: true
+  },
+  description: {
+    type: String,
+    required: true
+  },
+  price: {
+    type: Number,
+    required: true,
+    min: 0
+  },
+  category: {
+    type: String,
+    required: true
+  },
+  images: [{
+    type: String
+  }],
+  stock: {
+    type: Number,
+    default: 0
+  },
+  ratings: [{
+    user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+    rating: { type: Number, min: 1, max: 5 },
+    review: String
+  }]
+}, { timestamps: true });
+
+// Index for search
+productSchema.index({ name: 'text', description: 'text' });
+
+module.exports = mongoose.model('Product', productSchema);</code></pre>
+        </div>
+
+        <div class="code-block">
+          <div class="code-block-header"><span>auth.js - JWT Middleware</span><span class="badge badge-js">Node.js</span></div>
+          <pre><code>const jwt = require('jsonwebtoken');
+const User = require('../models/User');
+
+const authMiddleware = async (req, res, next) => {
+  try {
+    const token = req.header('Authorization')?.replace('Bearer ', '');
+    
+    if (!token) {
+      return res.status(401).json({ message: 'No token, access denied' });
+    }
+
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    const user = await User.findById(decoded.id).select('-password');
+    
+    if (!user) {
+      return res.status(401).json({ message: 'Token is not valid' });
+    }
+
+    req.user = user;
+    next();
+  } catch (error) {
+    res.status(401).json({ message: 'Token is not valid' });
+  }
+};
+
+const adminMiddleware = (req, res, next) => {
+  if (req.user && req.user.isAdmin) {
+    next();
+  } else {
+    res.status(403).json({ message: 'Admin access required' });
+  }
+};
+
+module.exports = { authMiddleware, adminMiddleware };</code></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer style="padding: 48px 0; border-top: 1px solid var(--color-border); background: var(--color-bg-secondary);">
+    <div class="container" style="text-align: center;">
+      <p style="color: var(--color-text-muted); margin-bottom: 16px;">
+        Built with ❤️ for aspiring web developers
+      </p>
+      <p style="color: var(--color-text-dark); font-size: 0.875rem;">
+        © 2026 Web Development Mastery Course. Learn, Build, Create.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
   <script src="js/theme.js"></script>
   <script src="js/editor.js"></script>
   <script src="js/main.js"></script>
